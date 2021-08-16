@@ -9,6 +9,9 @@ export default function BottomPage() {
   return (
     <div className="bg-green-100 w-full h-24 static bottom-0">
       <div className="flex items-center justify-center">
+        <div className="mr-5">
+          <Logo></Logo>
+        </div>
         <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
         <FontAwesomeIcon
           icon={faFacebook}
@@ -18,9 +21,8 @@ export default function BottomPage() {
           className="text-blue-500"
           icon={faTwitter}
         ></FontAwesomeIcon>
-        <p>All rights reserved to Holly mally &copy;</p>
+        <p>All rights reserved to Holy mally &copy;</p>
       </div>
-      <Logo></Logo>
     </div>
   );
 }
