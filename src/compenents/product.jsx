@@ -9,12 +9,12 @@ export default class Product extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="border-green-300 border-2 w-80 text-center m-auto mb-2">
         <h1>product name</h1>
         <p>explnation of the product</p>
         <span>price $233</span>
         <img src="/images/tents/tent.jpg"></img>
-        <div className="flex">
+        <div className="flex ">
           <FontAwesomeIcon
             className="text-gray-300 hover:text-yellow-300"
             icon={faStar}
@@ -63,7 +63,7 @@ export default class Product extends React.Component {
         <div className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center">
           <span>1</span>
         </div>
-        <div>come to your home</div>
+        <div>come to your country</div>
       </div>
     );
   }

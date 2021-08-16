@@ -12,7 +12,7 @@ export default class Content extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hally mally</h1>
+        <h1 className="text-center">Hally mally</h1>
         <Product></Product>
       </div>
     );
