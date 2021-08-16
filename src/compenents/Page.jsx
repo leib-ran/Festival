@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import BottomPage from "./BottomPage";
 
-export default class MainPage extends React.Component {
+export default class Page extends React.Component {
   constructor() {
     super();
     this.state = {

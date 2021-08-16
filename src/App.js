@@ -1,10 +1,10 @@
 import "./App.css";
-import MainPage from "./compenents/MainPage";
+import Page from "./compenents/Page";
 
 function App() {
   return (
     <header>
-      <MainPage></MainPage>
+      <Page></Page>
     </header>
   );
 }
