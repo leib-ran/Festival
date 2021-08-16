@@ -3,11 +3,13 @@ import Logo from "./Logo";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between	 items-center bg-blue-300 p-2.5">
+    <div className="flex justify-between bg-blue-300 p-2.5">
       <div className="flex">
-        <input placeholder="search" />
-        <Logo></Logo>
-        <a src="#" className="bg-white ml-5 p-2 rounded-full">
+        <div className="h-16 w-16">
+          <Logo></Logo>
+        </div>
+        <input className="h-8 w-40 ml-2" placeholder="search" />
+        <a src="#" className="bg-white h-8 w-8 ml-5 p-2 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -21,7 +23,7 @@ export default function Navbar() {
             />
           </svg>
         </a>
-        <a src="#" className="bg-white ml-5 p-2 rounded-full">
+        <a src="#" className="bg-white ml-5 h-8 w-8 p-2 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
