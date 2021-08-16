@@ -1,4 +1,5 @@
 import React from "react";
+import Product from "./product";
 
 export default class Content extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ export default class Content extends React.Component {
     return (
       <div>
         <h1>Hally mally</h1>
+        <Product></Product>
       </div>
     );
   }
