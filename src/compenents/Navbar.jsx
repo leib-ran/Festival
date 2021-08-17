@@ -11,7 +11,7 @@ export default function Navbar() {
         </div>
         <div className="pt-2">
           <input
-            className="h-8 w-40 ml-2 pl-2 rounded-md	"
+            className=" h-8 w-40 ml-2 pl-2 rounded-md	"
             placeholder="Search for an item"
           />
         </div>
@@ -30,7 +30,7 @@ export default function Navbar() {
 
         <a
           src="#"
-          className="bg-white ml-1 mt-2 h-8 w-8 pt-1.5 pl-1.5 rounded-full"
+          className="cursor-pointer bg-white ml-1 mt-2 h-8 w-8 pt-1.5 pl-1.5 rounded-full "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

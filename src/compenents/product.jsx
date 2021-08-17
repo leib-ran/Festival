@@ -7,10 +7,11 @@ export default class Product extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
-      <div className="flex justify-center mb-2 h-136">
-        <div className="border-green-300 border-2 w-80 text-center h-136 ml-auto">
+      <div className="flex justify-center mb-2 h-200">
+        <div className="border-green-300 border-2 w-80 text-center h-136 m-auto">
           <span>price $233 </span>
           <span className="line-through text-xs	">$400</span>
           <img className="m-auto" src="/images/tents/tent.jpg"></img>
@@ -73,7 +74,7 @@ export default class Product extends React.Component {
             </div>
           </div>
         </div>
-        <div className="border-green-300 h-96 ml-0 border-2 w-80 text-center m-auto mb-2">
+        <div className="hidden border-green-300 h-96 ml-0 border-2 w-80 text-center m-auto mb-2">
           <h1>product name</h1>
           <p>
             explnation of the product Lorem ipsum dolor sit amet, consectetur
