@@ -12,7 +12,7 @@ export default class Page extends React.Component {
   }
   render() {
     return (
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col justify-between	 h-screen">
         <header>
           <Navbar className="mb-auto"></Navbar>
         </header>

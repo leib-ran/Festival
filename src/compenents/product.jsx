@@ -9,8 +9,8 @@ export default class Product extends React.Component {
   }
   render() {
     return (
-      <div className="flex justify-center">
-        <div className="border-green-300 border-2 w-80 text-center ml-auto mb-2">
+      <div className="flex justify-center mb-2 min-h-full">
+        <div className="border-green-300 border-2 w-80 text-center ml-auto">
           <span>price $233 </span>
           <span className="line-through text-xs	">$400</span>
           <img className="m-auto" src="/images/tents/tent.jpg"></img>
