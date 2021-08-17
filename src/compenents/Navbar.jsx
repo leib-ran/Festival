@@ -48,6 +48,10 @@ export default function Navbar() {
           linkName="DESERT ITEMS"
         ></Link>
         <Link image={"/images/links/nature.jpg"} linkName="NATURE ITEMS"></Link>
+        <Link
+          image={"/images/links/technodrom.jpg"}
+          linkName="NIGHT ITEMS"
+        ></Link>
       </div>
     </div>
   );

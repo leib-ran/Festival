@@ -11,10 +11,7 @@ export default class Content extends React.Component {
 
   render() {
     return (
-      <div
-        className="bg-no-repeat	min-h-screen bg-cover bg-center pt-4 "
-        style={{ backgroundImage: `url("/images/links/link_desert_item.jpg")` }}
-      >
+      <div>
         <h1 className="text-center text-5xl">Holy Mally</h1>
         <Product></Product>
       </div>

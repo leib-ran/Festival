@@ -12,7 +12,12 @@ export default class Page extends React.Component {
   }
   render() {
     return (
-      <div className="flex flex-col min-h-screen">
+      <div
+        className="flex flex-col bg-no-repeat justify-between	min-h-screen bg-cover bg-center"
+        style={{
+          backgroundImage: `url("/images/links/link_desert_item.jpg")`,
+        }}
+      >
         <header>
           <Navbar className="mb-auto"></Navbar>
         </header>
