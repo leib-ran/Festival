@@ -1,29 +1,37 @@
 import React from "react";
 import Logo from "./Logo";
+import Link from "./Link";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between bg-blue-300 p-2.5">
+    <div className="flex justify-between bg-blue-300 ">
       <div className="flex">
-        <div className="h-16 w-16">
+        <div className="h-16 pt-1 w-16">
           <Logo></Logo>
         </div>
-        <input className="h-8 w-40 ml-2" placeholder="search" />
-        <a src="#" className="bg-white h-8 w-8 ml-5 p-2 rounded-full">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-              clipRule="evenodd"
-            />
-          </svg>
+        <div className="pt-2">
+          <input
+            className="h-8 w-40 ml-2 pl-2 rounded-md	"
+            placeholder="Search for an item"
+          />
+        </div>
+        <a
+          src="#"
+          className="w-16 pt-3 hover:bg-green-300 text-white text-center cursor-pointer	 align-bottom "
+        >
+          Sign In
         </a>
-        <a src="#" className="bg-white ml-5 h-8 w-8 p-2 rounded-full">
+        <a
+          src="#"
+          className="w-16 pt-3 hover:bg-green-300 text-white text-center cursor-pointer	 align-bottom "
+        >
+          Sign Up
+        </a>
+
+        <a
+          src="#"
+          className="bg-white ml-1 mt-2 h-8 w-8 pt-1.5 pl-1.5 rounded-full"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -34,19 +42,12 @@ export default function Navbar() {
           </svg>
         </a>
       </div>
-      <div className="flex">
-        <a>
-          <img
-            className="w-16 h-16 rounded-full "
-            src="/images/links/link_desert_item.jpg"
-          />
-        </a>
-        <a>
-          <img
-            className="w-16 h-16 rounded-full "
-            src="/images/links/nature.jpg"
-          />
-        </a>
+      <div className="flex h-full">
+        <Link
+          image={"/images/links/link_desert_item.jpg"}
+          linkName="DESERT ITEMS"
+        ></Link>
+        <Link image={"/images/links/nature.jpg"} linkName="NATURE ITEMS"></Link>
       </div>
     </div>
   );
