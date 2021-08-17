@@ -10,7 +10,7 @@ export default function Link(props) {
             backgroundImage: `url(${props.image})`,
           }}
         >
-          <div className="bg-gray-800 h-full w-full bg-opacity-40 align-middle text-center	">
+          <div className="bg-blue-800 h-full w-full bg-opacity-40 align-middle text-center	">
             <h1 className="text-white opacity-false m-auto text-center">
               {props.linkName}
             </h1>

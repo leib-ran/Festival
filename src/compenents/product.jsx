@@ -11,32 +11,37 @@ export default class Product extends React.Component {
   render() {
     return (
       <div className="flex justify-center mb-2 h-200">
-        <div className="border-green-300 border-2 w-80 text-center h-136 m-auto">
-          <span>price $233 </span>
-          <span className="line-through text-xs	">$400</span>
-          <img className="m-auto" src="/images/tents/tent.jpg"></img>
-          <div>
-            <div className="flex justify-center">
-              <FontAwesomeIcon
-                className="text-gray-300 hover:text-yellow-300 cursor-pointer"
-                icon={faStar}
-              ></FontAwesomeIcon>
-              <FontAwesomeIcon
-                className="text-gray-300 hover:text-yellow-300 cursor-pointer"
-                icon={faStar}
-              ></FontAwesomeIcon>
-              <FontAwesomeIcon
-                className="text-gray-300 hover:text-yellow-300 cursor-pointer"
-                icon={faStar}
-              ></FontAwesomeIcon>
-              <FontAwesomeIcon
-                className="text-gray-300 hover:text-yellow-300 cursor-pointer"
-                icon={faStar}
-              ></FontAwesomeIcon>
-              <FontAwesomeIcon
-                className="text-gray-300 hover:text-yellow-300 cursor-pointer"
-                icon={faStar}
-              ></FontAwesomeIcon>
+        <div className="border-red-800 bg-white opacity-50 border-2 w-80 text-center h-136 m-auto">
+          <div className="opacity-initial">
+            <span>price $233 </span>
+            <span className="line-through text-xs	">$400</span>
+            <img
+              className="m-auto opacity-false"
+              src="/images/tents/tent.jpg"
+            ></img>
+            <div>
+              <div className="flex justify-center">
+                <FontAwesomeIcon
+                  className="text-yellow-300 cursor-pointer"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="text-yellow-300 cursor-pointer"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="text-yellow-300 cursor-pointer"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="text-yellow-300 cursor-pointer"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  className="text-gray-300 cursor-pointer"
+                  icon={faStar}
+                ></FontAwesomeIcon>
+              </div>
             </div>
           </div>
 

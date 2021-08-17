@@ -7,7 +7,7 @@ import Logo from "./Logo";
 
 export default function BottomPage() {
   return (
-    <div className="bg-green-100 w-full h-24 static bottom-0">
+    <div className="bg-red-900 opacity-80 text-white w-full h-24 static bottom-0">
       <div className="flex items-center justify-center">
         <div className="mr-5">
           <Logo></Logo>
