@@ -1,16 +1,21 @@
 import { logRoles, render } from "@testing-library/react";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faPlus, fafair } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export default class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       display: "hidden",
+      mainImage: "/images/tents/tent.jpg",
+      srcImage: "/images/tents/tent.jpg",
+      quan: 0,
     };
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
+    this.addOne = this.addOne.bind(this);
+    this.subOne = this.subOne.bind(this);
   }
 
   show() {
@@ -18,6 +23,19 @@ export default class Product extends React.Component {
   }
   hide() {
     this.setState({ display: "hidden" });
+  }
+
+  changeImage(pic) {
+    this.setState({ mainImage: pic });
+  }
+
+  addOne() {
+    let num = this.state.quan + 1;
+    this.setState({ quan: num });
+  }
+  subOne() {
+    let num = this.state.quan == 0 ? 0 : this.state.quan - 1;
+    this.setState({ quan: num });
   }
 
   render() {
@@ -32,7 +50,7 @@ export default class Product extends React.Component {
             <span className="line-through text-xs	">$400</span>
             <img
               className="m-auto opacity-false"
-              src="/images/tents/tent.jpg"
+              src={this.state.mainImage}
             ></img>
             <div>
               <div className="flex justify-center">
@@ -86,12 +104,18 @@ export default class Product extends React.Component {
           </div>
           <div className="flex justify-center">
             <FontAwesomeIcon
-              className="text-gray-400"
+              className="text-gray-400 mr-1 cursor-pointer"
               icon={faPlus}
+              onClick={this.addOne}
             ></FontAwesomeIcon>
-            <div className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center">
-              <span>1</span>
+            <div className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default">
+              <span>{this.state.quan}</span>
             </div>
+            <FontAwesomeIcon
+              className="text-gray-400 ml-1 cursor-pointer"
+              icon={faMinus}
+              onClick={this.subOne}
+            ></FontAwesomeIcon>
           </div>
         </div>
         <div
@@ -105,21 +129,27 @@ export default class Product extends React.Component {
             Nullam ut semper turpis. Vivamus scelerisque sed justo eu viverra.
           </p>
           <h1 className="text-gray-500	">Gallery</h1>
-          <div className="flex justify-center">
+          <div
+            className="flex justify-center"
+            onMouseLeave={(e) => this.changeImage(this.state.srcImage)}
+          >
             <img
+              onMouseEnter={(e) => this.changeImage(e.target.src)}
               className="rounded-full w-16 h-16"
               src="/images/tents/tent2.jpg"
-              alt=""
+              alt="tent pic"
             />
             <img
+              onMouseEnter={(e) => this.changeImage(e.target.src)}
               className="rounded-full w-16 h-16"
               src="/images/tents/tent3.jpg"
-              alt=""
+              alt="tent pic"
             />
             <img
+              onMouseEnter={(e) => this.changeImage(e.target.src)}
               className="rounded-full w-16 h-16"
               src="/images/tents/tent4.jpg"
-              alt=""
+              alt="tent pic"
             />
           </div>
         </div>
