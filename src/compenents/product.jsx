@@ -117,6 +117,12 @@ export default class Product extends React.Component {
               onClick={this.subOne}
             ></FontAwesomeIcon>
           </div>
+          <div
+            className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
+            onClick={(e, props) => this.props.addToCart(this.state.quan)}
+          >
+            <span>Add to cart</span>
+          </div>
         </div>
         <div
           className={`${this.state["display"]} border-red-800 bg-white opacity-70 border-2 w-80 text-center h-136`}

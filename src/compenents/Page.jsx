@@ -7,9 +7,16 @@ export default class Page extends React.Component {
   constructor() {
     super();
     this.state = {
-      ran: 2,
+      cartStatus: 0,
     };
+    this.addToCart = this.addToCart.bind(this);
   }
+
+  addToCart(quan) {
+    // console.log();
+    this.setState({ cartStatus: quan });
+  }
+
   render() {
     return (
       <div
@@ -19,10 +26,13 @@ export default class Page extends React.Component {
         }}
       >
         <header>
-          <Navbar className="mb-auto"></Navbar>
+          <Navbar
+            quan-cart={this.state.cartStatus}
+            className="mb-auto"
+          ></Navbar>
         </header>
         <main>
-          <Content></Content>
+          <Content addToCart={this.addToCart}></Content>
         </main>
         <footer>
           <BottomPage></BottomPage>
