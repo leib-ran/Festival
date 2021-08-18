@@ -47,50 +47,101 @@ export default class Product extends React.Component {
 
   render() {
     return (
-      <div onMouseLeave={this.hide} className="flex justify-center mb-2 h-200 ">
+      <div
+        onMouseLeave={this.hide}
+        style={{ height: "40rem" }}
+        className="flex justify-center mb-2"
+      >
         <div
-          className="border-red-800 bg-white opacity-70 border-2 w-80 text-center h-136"
+          style={{ width: "80rem" }}
+          className="border-red-800 bg-white opacity-70 border-2 w-80 text-center "
           onMouseEnter={this.show}
         >
           <div className="opacity-false cursor-default">
-            <h1 className="font-bold">
-              {
-                <FontAwesomeIcon
-                  className=""
-                  icon={faCampground}
-                ></FontAwesomeIcon>
-              }
-              Felice Tent{" "}
-            </h1>
-            <span>price</span>
-            <span className="text-green-800">$233 </span>
-            <span className="line-through text-xs	">$400</span>
-            <img
-              className="m-auto opacity-false"
-              src={this.state.mainImage}
-            ></img>
-            <div>
-              <div className="flex justify-center">
-                <FontAwesomeIcon
-                  className="text-yellow-300 cursor-pointer"
-                  icon={faStar}
-                ></FontAwesomeIcon>
-                <FontAwesomeIcon
-                  className="text-yellow-300 cursor-pointer"
-                  icon={faStar}
-                ></FontAwesomeIcon>
-                <FontAwesomeIcon
-                  className="text-yellow-300 cursor-pointer"
-                  icon={faStar}
-                ></FontAwesomeIcon>
-                <FontAwesomeIcon
-                  className="text-yellow-300 cursor-pointer"
-                  icon={faStar}
-                ></FontAwesomeIcon>
-                <FontAwesomeIcon
-                  className="text-gray-300 cursor-pointer"
-                  icon={faStar}
-                ></FontAwesomeIcon>
+            <div className="flex justify-between">
+              <div>
+                <img
+                  className="ml-2 w-96 opacity-false"
+                  src={this.state.mainImage}
+                ></img>
+                <div className="flex justify-center">
+                  <span className="mr-2 text-xs cursor-pointer">reviews</span>
+                  <FontAwesomeIcon
+                    className="text-yellow-300 cursor-pointer"
+                    icon={faStar}
+                  ></FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    className="text-yellow-300 cursor-pointer"
+                    icon={faStar}
+                  ></FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    className="text-yellow-300 cursor-pointer"
+                    icon={faStar}
+                  ></FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    className="text-yellow-300 cursor-pointer"
+                    icon={faStar}
+                  ></FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    className="text-gray-300 cursor-pointer"
+                    icon={faStar}
+                  ></FontAwesomeIcon>
+                </div>
+                <div
+                  className="flex justify-center mt-2"
+                  onMouseLeave={(e) => this.changeImage(this.state.srcImage)}
+                >
+                  <img
+                    onMouseEnter={(e) => this.changeImage(e.target.src)}
+                    className="rounded-full w-16 h-16 mr-2"
+                    src="/images/tents/tent2.jpg"
+                    alt="tent pic"
+                  />
+                  <img
+                    onMouseEnter={(e) => this.changeImage(e.target.src)}
+                    className="rounded-full w-16 h-16 mr-2"
+                    src="/images/tents/tent3.jpg"
+                    alt="tent pic"
+                  />
+                  <img
+                    onMouseEnter={(e) => this.changeImage(e.target.src)}
+                    className="rounded-full w-16 h-16  mr-2"
+                    src="/images/tents/tent4.jpg"
+                    alt="tent pic"
+                  />
+                </div>
+                <div>
+                  <p className="text-bold font-bold">Tags </p>
+                  <a className="mr-1 cursor-pointer	 " src="#"></a>
+                  <a className="mr-5 cursor-pointer	 " src="#">
+                    Leds
+                    <FontAwesomeIcon
+                      className="ml-1 cursor-pointer"
+                      icon={faLightbulb}
+                    ></FontAwesomeIcon>
+                  </a>
+                  <a className="mr-5 cursor-pointer	 " src="#">
+                    Sleeping bag
+                    <FontAwesomeIcon
+                      className="ml-1 cursor-pointer"
+                      icon={faBed}
+                    ></FontAwesomeIcon>
+                  </a>
+                </div>
+              </div>
+              <div className="mr-auto ml-auto">
+                <h1 className="font-bold">
+                  {
+                    <FontAwesomeIcon
+                      className=""
+                      icon={faCampground}
+                    ></FontAwesomeIcon>
+                  }
+                  Felice Tent{" "}
+                </h1>
+                <span>price</span>
+                <span className="text-green-800">$233 </span>
+                <span className="line-through text-xs">$400</span>
               </div>
             </div>
           </div>
@@ -113,24 +164,6 @@ export default class Product extends React.Component {
                 </span>
               </div>
             </p>
-            <p className="text-bold font-bold">Sub categories </p>
-          </div>
-          <div>
-            <a className="mr-1 cursor-pointer	 " src="#"></a>
-            <a className="mr-5 cursor-pointer	 " src="#">
-              Leds
-              <FontAwesomeIcon
-                className="ml-1 cursor-pointer"
-                icon={faLightbulb}
-              ></FontAwesomeIcon>
-            </a>
-            <a className="mr-5 cursor-pointer	 " src="#">
-              Sleeping bag
-              <FontAwesomeIcon
-                className="ml-1 cursor-pointer"
-                icon={faBed}
-              ></FontAwesomeIcon>
-            </a>
           </div>
 
           <div className="flex justify-center">
@@ -170,29 +203,6 @@ export default class Product extends React.Component {
             Nullam ut semper turpis. Vivamus scelerisque sed justo eu viverra.
           </p>
           <h1 className="text-gray-500	">Gallery</h1>
-          <div
-            className="flex justify-center"
-            onMouseLeave={(e) => this.changeImage(this.state.srcImage)}
-          >
-            <img
-              onMouseEnter={(e) => this.changeImage(e.target.src)}
-              className="rounded-full w-16 h-16"
-              src="/images/tents/tent2.jpg"
-              alt="tent pic"
-            />
-            <img
-              onMouseEnter={(e) => this.changeImage(e.target.src)}
-              className="rounded-full w-16 h-16"
-              src="/images/tents/tent3.jpg"
-              alt="tent pic"
-            />
-            <img
-              onMouseEnter={(e) => this.changeImage(e.target.src)}
-              className="rounded-full w-16 h-16"
-              src="/images/tents/tent4.jpg"
-              alt="tent pic"
-            />
-          </div>
         </div>
       </div>
     );
