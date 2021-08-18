@@ -6,12 +6,27 @@ import { faStar, faPlus, fafair } from "@fortawesome/free-solid-svg-icons";
 export default class Product extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      display: "hidden",
+    };
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
+  }
+
+  show() {
+    this.setState({ display: "block" });
+  }
+  hide() {
+    this.setState({ display: "hidden" });
   }
 
   render() {
     return (
-      <div className="flex justify-center mb-2 h-200">
-        <div className="border-red-800 bg-white opacity-70 border-2 w-80 text-center h-136 m-auto">
+      <div onMouseLeave={this.hide} className="flex justify-center mb-2 h-200 ">
+        <div
+          className="border-red-800 bg-white opacity-70 border-2 w-80 text-center h-136"
+          onMouseEnter={this.show}
+        >
           <div className="opacity-false">
             <span>price $233 </span>
             <span className="line-through text-xs	">$400</span>
@@ -79,10 +94,12 @@ export default class Product extends React.Component {
             </div>
           </div>
         </div>
-        <div className="hidden border-green-300 h-96 ml-0 border-2 w-80 text-center m-auto mb-2">
+        <div
+          className={`${this.state["display"]} border-red-800 bg-white opacity-70 border-2 w-80 text-center h-136`}
+        >
           <h1>product name</h1>
           <p>
-            explnation of the product Lorem ipsum dolor sit amet, consectetur
+            explnation of the product Lorem ipsum dolor sit aHmet, consectetur
             adipiscing elit. Suspendisse venenatis, sem quis dapibus sagittis,
             tellus lorem fringilla tellus, ut elementum justo est vel felis.
             Nullam ut semper turpis. Vivamus scelerisque sed justo eu viverra.
