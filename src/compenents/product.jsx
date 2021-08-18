@@ -1,7 +1,14 @@
-import { logRoles, render } from "@testing-library/react";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar,
+  faPlus,
+  faMinus,
+  faPlane,
+  faLightbulb,
+  faCampground,
+  faBed,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class Product extends React.Component {
   constructor(props) {
@@ -45,8 +52,18 @@ export default class Product extends React.Component {
           className="border-red-800 bg-white opacity-70 border-2 w-80 text-center h-136"
           onMouseEnter={this.show}
         >
-          <div className="opacity-false">
-            <span>price $233 </span>
+          <div className="opacity-false cursor-default">
+            <h1 className="font-bold">
+              {
+                <FontAwesomeIcon
+                  className=""
+                  icon={faCampground}
+                ></FontAwesomeIcon>
+              }
+              Felice Tent{" "}
+            </h1>
+            <span>price</span>
+            <span className="text-green-800">$233 </span>
             <span className="line-through text-xs	">$400</span>
             <img
               className="m-auto opacity-false"
@@ -80,28 +97,42 @@ export default class Product extends React.Component {
 
           <div>
             <p>
-              Delivery to your country{" "}
-              <span className="bg-green-300 text-gray-500 rounded-full ">
+              <FontAwesomeIcon
+                className="mr-1 cursor-pointer"
+                icon={faPlane}
+              ></FontAwesomeIcon>
+              <span className="bg-green-300 w-2 h-2 pr-1 text-white rounded-full ">
                 {" "}
                 &#10003;{" "}
               </span>
+              <div>
+                <span className="mr-1">Instock</span>
+                <span className="bg-green-300 w-2 h-2 pr-1 text-white rounded-full ">
+                  {" "}
+                  &#10003;{" "}
+                </span>
+              </div>
             </p>
-            <p>list of products for sale </p>
+            <p className="text-bold font-bold">Sub categories </p>
           </div>
           <div>
+            <a className="mr-1 cursor-pointer	 " src="#"></a>
             <a className="mr-5 cursor-pointer	 " src="#">
               Leds
-            </a>
-            <a className="mr-5 cursor-pointer	 " src="#">
-              bed
+              <FontAwesomeIcon
+                className="ml-1 cursor-pointer"
+                icon={faLightbulb}
+              ></FontAwesomeIcon>
             </a>
             <a className="mr-5 cursor-pointer	 " src="#">
               Sleeping bag
+              <FontAwesomeIcon
+                className="ml-1 cursor-pointer"
+                icon={faBed}
+              ></FontAwesomeIcon>
             </a>
           </div>
-          <div>
-            <h1>stock quantity</h1>
-          </div>
+
           <div className="flex justify-center">
             <FontAwesomeIcon
               className="text-gray-400 mr-1 cursor-pointer"
@@ -122,6 +153,10 @@ export default class Product extends React.Component {
             onClick={(e, props) => this.props.addToCart(this.state.quan)}
           >
             <span>Add to cart</span>
+          </div>
+
+          <div className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900">
+            <span>Buy</span>
           </div>
         </div>
         <div

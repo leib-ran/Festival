@@ -13,7 +13,6 @@ export default class Page extends React.Component {
   }
 
   addToCart(quan) {
-    // console.log();
     this.setState({ cartStatus: quan });
   }
 
