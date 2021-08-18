@@ -130,7 +130,7 @@ export default class Product extends React.Component {
                 </div>
               </div>
               <div className="mr-auto ml-auto">
-                <h1 className="font-bold">
+                <h1 className="font-bold text-5xl">
                   {
                     <FontAwesomeIcon
                       className=""
@@ -139,31 +139,52 @@ export default class Product extends React.Component {
                   }
                   Felice Tent{" "}
                 </h1>
-                <span>price</span>
-                <span className="text-green-800">$233 </span>
-                <span className="line-through text-xs">$400</span>
+                <div className="text-left   ">
+                  <span className="text-left text-  xl font-bold ">price:</span>
+                  <span className="text-green-800 text-3xl">USD $233 </span>
+                  <span className="line-through text-xs"> $400</span>
+                </div>
+                <div className="text-left">
+                  <p>Size: 2 people</p>
+                  <p>Material:cutton</p>
+                  <p>poles: cooper with rubber</p>
+                  <p> Colors: white and oranges</p>
+                  <p>Brand: fl tents</p>
+                  <p> weight:2kg</p>
+                  <div>
+                    <p>
+                      <FontAwesomeIcon
+                        className="mr-1 cursor-pointer"
+                        icon={faPlane}
+                      ></FontAwesomeIcon>
+                      <span className="bg-green-300 w-2 h-2 pr-1 text-white rounded-full ">
+                        {" "}
+                        &#10003;{" "}
+                      </span>
+                      <div>
+                        <span className="mr-1">Instock</span>
+                        <span className="bg-green-300 w-2 h-2 pr-1 text-white rounded-full ">
+                          {" "}
+                          &#10003;{" "}
+                        </span>
+                      </div>
+                    </p>
+                  </div>
+                  <div
+                    className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
+                    onClick={(e, props) =>
+                      this.props.addToCart(this.state.quan)
+                    }
+                  >
+                    <span>Add to cart</span>
+                  </div>
+
+                  <div className="bg-red-800 pb-2 text-white mt-2 cursor-pointer hover:bg-yellow-500 hover:text-gray-900">
+                    <span>Buy</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div>
-            <p>
-              <FontAwesomeIcon
-                className="mr-1 cursor-pointer"
-                icon={faPlane}
-              ></FontAwesomeIcon>
-              <span className="bg-green-300 w-2 h-2 pr-1 text-white rounded-full ">
-                {" "}
-                &#10003;{" "}
-              </span>
-              <div>
-                <span className="mr-1">Instock</span>
-                <span className="bg-green-300 w-2 h-2 pr-1 text-white rounded-full ">
-                  {" "}
-                  &#10003;{" "}
-                </span>
-              </div>
-            </p>
           </div>
 
           <div className="flex justify-center">
@@ -180,16 +201,6 @@ export default class Product extends React.Component {
               icon={faMinus}
               onClick={this.subOne}
             ></FontAwesomeIcon>
-          </div>
-          <div
-            className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
-            onClick={(e, props) => this.props.addToCart(this.state.quan)}
-          >
-            <span>Add to cart</span>
-          </div>
-
-          <div className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900">
-            <span>Buy</span>
           </div>
         </div>
         <div
