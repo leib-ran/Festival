@@ -1,12 +1,13 @@
 import Card from "./Card";
 import React from "react";
+import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 
 export default class CategoryArea extends React.Component {
   constructor() {
     super();
     this.state = {
       prodArr: [],
-      prodsrc: [],
+      searchWord: "",
     };
   }
 
@@ -19,15 +20,30 @@ export default class CategoryArea extends React.Component {
         return res.json();
       })
       .then((products) => {
-        this.setState({ prodArr: products["data"], prodsrc: products["data"] });
+        this.setState({ prodArr: products["data"] });
       });
   }
 
   render() {
+    const pattern =
+      this.props.searchWord.length >= 3
+        ? new RegExp(
+            `.*(${this.props.searchWord.split(" ").join(" || ")}).*`,
+            "im"
+          )
+        : new RegExp(".*");
+
+    const filteredData = this.state.prodArr.filter((element, index) => {
+      let { nameProduct, category, description, ...rest } = { ...element };
+      let doc = [nameProduct, category, description].join();
+      console.log(pattern);
+      return pattern.test(doc);
+    });
+
     return (
       <div>
         <div className="flex flex wrap justify-center">
-          {this.state.prodArr.map((element, index) => {
+          {filteredData.map((element, index) => {
             return (
               <Card
                 key={index}

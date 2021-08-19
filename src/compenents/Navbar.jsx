@@ -15,7 +15,6 @@ export default function Navbar(props) {
             placeholder="Search for an item"
             onChange={(e) => props.searchfunc(e.target)}
           />
-          <button className="bg-white ml-2 p-1 rounded-md	">search</button>
         </div>
         <a
           src="#"
