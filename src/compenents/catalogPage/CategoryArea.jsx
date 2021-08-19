@@ -6,6 +6,7 @@ export default class CategoryArea extends React.Component {
     super();
     this.state = {
       prodArr: [],
+      prodsrc: [],
     };
   }
 
@@ -18,7 +19,7 @@ export default class CategoryArea extends React.Component {
         return res.json();
       })
       .then((products) => {
-        this.setState({ prodArr: products["data"] });
+        this.setState({ prodArr: products["data"], prodsrc: products["data"] });
       });
   }
 
@@ -29,6 +30,7 @@ export default class CategoryArea extends React.Component {
           {this.state.prodArr.map((element, index) => {
             return (
               <Card
+                key={index}
                 name={element["nameProduct"]}
                 picture={element["photo"]}
               ></Card>
