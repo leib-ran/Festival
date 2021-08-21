@@ -9,6 +9,7 @@ export default class CategoryArea extends React.Component {
     this.state = {
       prodArr: [],
       searchWord: "",
+      sortType: "",
     };
   }
 
@@ -24,6 +25,9 @@ export default class CategoryArea extends React.Component {
         this.setState({ prodArr: products["data"] });
       });
   }
+  sortProduct(target) {
+    this.setState({ sortType: target.value });
+  }
 
   render() {
     const pattern =
@@ -34,20 +38,40 @@ export default class CategoryArea extends React.Component {
           )
         : new RegExp(".*");
 
-    const filteredData = this.state.prodArr.filter((element, index) => {
+    let filteredData = this.state.prodArr.filter((element, index) => {
       let { nameProduct, category, description, ...rest } = { ...element };
       let doc = [nameProduct, category, description].join();
       return pattern.test(doc);
     });
 
+    filteredData.sort();
+
+    console.log();
+
     return (
       <div>
         <div className="flex">
-          <Filter filterData={filteredData} />
+          <div>
+            <select
+              className="border-black border-2 m-0"
+              onChange={(e) => this.sortProduct(e.target)}
+              name=""
+              id=""
+            >
+              <option value="" selected>
+                Sort
+              </option>
+              <option value="rank">rate</option>
+              <option value="lowUsdprice">low price to high price</option>
+              <option value="Usdprice">high price to low price</option>
+              <option value="nameProduct">alef beit</option>
+            </select>
+            <Filter filterData={filteredData} />
+          </div>
           <div className="ml-auto mr-auto">
             <h1 className="text-center">products</h1>
 
-            <div className="flex flex wrap justify-center ml-auto mr-auto">
+            <div className="flex flex-wrap justify-center ml-auto mr-auto">
               {filteredData.map((element, index) => {
                 return <Card key={index} data={element}></Card>;
               })}

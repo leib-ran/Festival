@@ -17,14 +17,13 @@ export default function Filter(props) {
         return (
           <div>
             <h1 className="font-bold">{categoryName}</h1>
-            {console.log(categories[categoryName])}
             {[...categories[categoryName]]
               .filter((e) => e)
               .map((category) => {
                 return (
                   <div>
                     {" "}
-                    <input type="checkbox" />
+                    <input type="checkbox" className="text-green-400" />
                     <span>{category}</span>
                   </div>
                 );

@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "./Logo";
-import Link from "./Link";
+import Logo from "../logo/Logo";
+import Link from "../header/Link";
 
 export default function Navbar(props) {
   return (

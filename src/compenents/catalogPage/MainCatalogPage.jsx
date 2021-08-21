@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar";
+import Navbar from "../header/Navbar";
 import CategoryArea from "./CategoryArea";
 
 export default class MainCatalogPage extends React.Component {
