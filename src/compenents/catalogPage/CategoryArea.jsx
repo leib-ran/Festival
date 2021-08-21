@@ -29,7 +29,7 @@ export default class CategoryArea extends React.Component {
     const pattern =
       this.props.searchWord.length >= 3
         ? new RegExp(
-            `.*(${this.props.searchWord.split(" ").join(" || ")}).*`,
+            `.*(${this.props.searchWord.split(" ").join("|")}).*`,
             "im"
           )
         : new RegExp(".*");
@@ -37,24 +37,21 @@ export default class CategoryArea extends React.Component {
     const filteredData = this.state.prodArr.filter((element, index) => {
       let { nameProduct, category, description, ...rest } = { ...element };
       let doc = [nameProduct, category, description].join();
-      console.log(pattern);
       return pattern.test(doc);
     });
 
     return (
       <div>
         <div className="flex">
-          <Filter />
-          <div className="flex flex wrap justify-center">
-            {filteredData.map((element, index) => {
-              return (
-                <Card
-                  key={index}
-                  name={element["nameProduct"]}
-                  picture={element["photo"]}
-                ></Card>
-              );
-            })}
+          <Filter filterData={filteredData} />
+          <div className="ml-auto mr-auto">
+            <h1 className="text-center">products</h1>
+
+            <div className="flex flex wrap justify-center ml-auto mr-auto">
+              {filteredData.map((element, index) => {
+                return <Card key={index} data={element}></Card>;
+              })}
+            </div>
           </div>
         </div>
       </div>
