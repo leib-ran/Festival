@@ -18,7 +18,7 @@ export default class MainCatalogPage extends React.Component {
   render() {
     return (
       <div>
-        {/* <Navbar searchfunc={this.searchText}></Navbar> */}
+        <Navbar searchfunc={this.searchText}></Navbar>
         <CategoryArea searchWord={this.state.searchWord}></CategoryArea>
       </div>
     );

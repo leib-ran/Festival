@@ -45,6 +45,7 @@ export default class CategoryArea extends React.Component {
     });
 
     filteredData.sort();
+    filteredData.reverse();
 
     console.log();
 

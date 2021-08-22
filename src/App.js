@@ -13,17 +13,22 @@ function App() {
   return (
     <div>
       <div className="flex flex-col justify-between	min-h-screen">
-        <Navbar />
         <Switch>
-          <Route path="/productPage" component={Page} />
-          <Route path="/contact" component={Contact} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/login" component={LogIn} />
-          <Route exact path="/Blog" component={Blog} />
-          <Route exact path="/" component={signUp} />
           <Route exact path="/store" component={MainCatalogPage} />
+
+          <Switch>
+            <div className="flex flex-col justify-between	min-h-screen">
+              <Navbar />
+              <Route exact path="/login" component={LogIn} />
+              <Route exact path="/productPage" component={Page} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/Blog" component={Blog} />
+              <Route exact path="/" component={signUp} />
+              <BottomPage />
+            </div>
+          </Switch>
         </Switch>
-        <BottomPage />
       </div>
     </div>
   );
