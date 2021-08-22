@@ -1,0 +1,19 @@
+{
+    "categories":
+    {
+        "led":{
+            "Light volatage":["2v","4v","8v","16v","24v"],
+            "light color":["yellow","rgb","red","green","blue"],
+            "Addressable":["yes","no"],
+            "brand":["ledo","lede"]
+        },
+        "hat":{
+            "brand":["home made"],
+            "material":["leather", "wool"]
+        },
+        "mixer":{
+            "brand":["Yahma","jbl"]
+
+        }
+    }        
+}
