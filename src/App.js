@@ -20,7 +20,7 @@ function App() {
             <div className="flex flex-col justify-between	min-h-screen">
               <Navbar />
               <Route exact path="/login" component={LogIn} />
-              <Route exact path="/productPage" component={Page} />
+              <Route path="/productPage" component={Page} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/about" component={About} />
               <Route exact path="/Blog" component={Blog} />
