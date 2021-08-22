@@ -10,6 +10,7 @@ export default class CategoryArea extends React.Component {
       prodArr: [],
       searchWord: "",
       sortType: "",
+      sortedData: [],
     };
   }
 
@@ -22,14 +23,50 @@ export default class CategoryArea extends React.Component {
         return res.json();
       })
       .then((products) => {
-        this.setState({ prodArr: products["data"] });
+        this.setState({
+          prodArr: products["data"],
+          sortedData: products["data"],
+        });
       });
   }
   sortProduct(target) {
-    this.setState({ sortType: target.value });
+    let copyProductsArr = [...this.state.prodArr];
+    switch (target.value) {
+      case "nameProduct":
+        copyProductsArr.sort((a, b) => {
+          return a.nameProduct > b.nameProduct ? 1 : -1;
+        });
+        this.setState({ sortedData: copyProductsArr });
+        break;
+      case "lowUsdprice":
+        copyProductsArr.sort((a, b) => {
+          return (
+            a.Usdprice.substring(0, a.Usdprice.length - 1) -
+            b.Usdprice.substring(0, b.Usdprice.length - 1)
+          );
+        });
+        this.setState({ sortedData: copyProductsArr });
+        break;
+      case "Usdprice":
+        copyProductsArr.sort((a, b) => {
+          return (
+            b.Usdprice.substring(0, b.Usdprice.length - 1) -
+            a.Usdprice.substring(0, a.Usdprice.length - 1)
+          );
+        });
+        this.setState({ sortedData: copyProductsArr });
+        break;
+      case "rank":
+        copyProductsArr.sort((a, b) => {
+          return b.rank - a.rank;
+        });
+        this.setState({ sortedData: copyProductsArr });
+        break;
+    }
   }
 
   render() {
+    console.log(this.state.sortedData);
     const pattern =
       this.props.searchWord.length >= 3
         ? new RegExp(
@@ -38,16 +75,11 @@ export default class CategoryArea extends React.Component {
           )
         : new RegExp(".*");
 
-    let filteredData = this.state.prodArr.filter((element, index) => {
+    let filteredData = this.state.sortedData.filter((element, index) => {
       let { nameProduct, category, description, ...rest } = { ...element };
       let doc = [nameProduct, category, description].join();
       return pattern.test(doc);
     });
-
-    filteredData.sort();
-    filteredData.reverse();
-
-    console.log();
 
     return (
       <div>
