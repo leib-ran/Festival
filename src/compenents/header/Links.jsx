@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Link(props) {
+export default function Links(props) {
   return (
     <a className="cursor-pointer ml-2 h-full">
       <div className="h-16 w-16">

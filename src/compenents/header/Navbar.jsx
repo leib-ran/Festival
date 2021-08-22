@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../logo/Logo";
-import Link from "../header/Link";
+import Links from "../header/Links";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -16,18 +17,42 @@ export default function Navbar(props) {
             onChange={(e) => props.searchfunc(e.target)}
           />
         </div>
-        <a
-          src="#"
+        <Link
+          to="/login"
           className="w-16 pt-3 hover:bg-blue-900 text-white text-center cursor-pointer	 align-bottom "
         >
           Sign In
-        </a>
-        <a
-          src="#"
+        </Link>
+        <Link
+          to="/"
           className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
         >
           Sign Up
-        </a>
+        </Link>
+        <Link
+          to="/Blog"
+          className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
+        >
+          Blog
+        </Link>
+        <Link
+          to="/store"
+          className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
+        >
+          store
+        </Link>
+        <Link
+          to="/contact"
+          className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
+        >
+          contact
+        </Link>
+        <Link
+          to="/About"
+          className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
+        >
+          About
+        </Link>
 
         <a
           src="#"
@@ -47,15 +72,18 @@ export default function Navbar(props) {
         </a>
       </div>
       <div className="flex h-full">
-        <Link
+        <Links
           image={"/images/links/link_desert_item.jpg"}
           linkName="DESERT ITEMS"
-        ></Link>
-        <Link image={"/images/links/nature.jpg"} linkName="NATURE ITEMS"></Link>
-        <Link
+        ></Links>
+        <Links
+          image={"/images/links/nature.jpg"}
+          linkName="NATURE ITEMS"
+        ></Links>
+        <Links
           image={"/images/links/technodrom.jpg"}
           linkName="NIGHT ITEMS"
-        ></Link>
+        ></Links>
       </div>
     </div>
   );

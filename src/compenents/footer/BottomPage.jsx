@@ -12,15 +12,24 @@ export default function BottomPage() {
         <div className="mr-5">
           <Logo></Logo>
         </div>
-        <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
-        <FontAwesomeIcon
-          icon={faFacebook}
-          className="text-blue-500"
-        ></FontAwesomeIcon>
-        <FontAwesomeIcon
-          className="text-blue-500"
-          icon={faTwitter}
-        ></FontAwesomeIcon>
+        <a href="https://www.instagram.com/">
+          <FontAwesomeIcon
+            icon={faInstagram}
+            className="text-3xl text-black"
+          ></FontAwesomeIcon>
+        </a>
+        <a href="https://www.facebook.com/">
+          <FontAwesomeIcon
+            icon={faFacebook}
+            className="text-blue-500 text-3xl			"
+          ></FontAwesomeIcon>
+        </a>
+        <a href="https://twitter.com/">
+          <FontAwesomeIcon
+            className="text-blue-500 text-3xl"
+            icon={faTwitter}
+          ></FontAwesomeIcon>
+        </a>
         <p>All rights reserved to Holy mally &copy;</p>
       </div>
     </div>

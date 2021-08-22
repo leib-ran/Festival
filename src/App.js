@@ -7,21 +7,25 @@ import About from "../src/compenents/about/About";
 import LogIn from "./compenents/sighnin/SighnIn";
 import Blog from "./compenents/blog/Blog";
 import signUp from "./compenents/sighnup/sighnup";
+import Navbar from "./compenents/header/Navbar";
+import BottomPage from "./compenents/footer/BottomPage";
 function App() {
   return (
-    <header>
-      <div className="page"></div>
-      <Switch>
-        <Route path="/productPage" component={Page} />
-        <Route path="/contact" component={Contact} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/login" component={LogIn} />
-        <Route exact path="/Blog" component={Blog} />
-        <Route exact path="/" component={signUp} />
-
-        <Route exact path="/store" component={MainCatalogPage} />
-      </Switch>
-    </header>
+    <div>
+      <div className="flex flex-col justify-between	min-h-screen">
+        <Navbar />
+        <Switch>
+          <Route path="/productPage" component={Page} />
+          <Route path="/contact" component={Contact} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/login" component={LogIn} />
+          <Route exact path="/Blog" component={Blog} />
+          <Route exact path="/" component={signUp} />
+          <Route exact path="/store" component={MainCatalogPage} />
+        </Switch>
+        <BottomPage />
+      </div>
+    </div>
   );
 }
 

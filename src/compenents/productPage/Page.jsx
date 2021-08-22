@@ -19,23 +19,21 @@ export default class Page extends React.Component {
   render() {
     return (
       <div
-        className="flex flex-col bg-no-repeat justify-between	min-h-screen bg-cover bg-center"
+        className=" bg-no-repeat bg-cover bg-center"
         style={{
           backgroundImage: `url("/images/links/link_desert_item.jpg")`,
         }}
       >
         <header>
-          <Navbar
+          {/* <Navbar
             quan-cart={this.state.cartStatus}
             className="mb-auto"
-          ></Navbar>
+          ></Navbar> */}
         </header>
         <main>
           <Content addToCart={this.addToCart}></Content>
         </main>
-        <footer>
-          <BottomPage></BottomPage>
-        </footer>
+        <footer>{/* <BottomPage></BottomPage> */}</footer>
       </div>
     );
   }
