@@ -11,6 +11,7 @@ export default function Card(props) {
           </h1>
           <img className="h-40" src={props.data.photo} />
           <h1 className="bg-yellow-400">price {props.data.Usdprice}</h1>
+          <h1 className="">rank: {props.data.rank}</h1>
           <span className="block">{props.data.description}</span>
         </div>
       </div>
