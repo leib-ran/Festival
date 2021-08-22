@@ -9,9 +9,10 @@ export default class CategoryArea extends React.Component {
     this.state = {
       prodArr: [],
       searchWord: "",
-      sortType: "",
+      checked: [],
       sortedData: [],
     };
+    this.selectedSubCategories = this.selectedSubCategories.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +30,21 @@ export default class CategoryArea extends React.Component {
         });
       });
   }
+
+  selectedSubCategories(target) {
+    let checkedCategories = [...this.state["checked"]];
+    if (target.checked == true) {
+      if (checkedCategories.includes(target.name) == false) {
+        checkedCategories.push(target.name);
+      }
+    } else {
+      if (checkedCategories.includes(target.name) == true) {
+        checkedCategories = checkedCategories.filter((el) => el != target.name);
+      }
+    }
+    this.setState({ checked: checkedCategories });
+  }
+
   sortProduct(target) {
     let copyProductsArr = [...this.state.prodArr];
     switch (target.value) {
@@ -66,7 +82,6 @@ export default class CategoryArea extends React.Component {
   }
 
   render() {
-    console.log(this.state.sortedData);
     const pattern =
       this.props.searchWord.length >= 3
         ? new RegExp(
@@ -80,6 +95,22 @@ export default class CategoryArea extends React.Component {
       let doc = [nameProduct, category, description].join();
       return pattern.test(doc);
     });
+    {
+      filteredData = filteredData.filter((el) => {
+        for (const iterator of this.state.checked) {
+          if (
+            Object.values(el["categories"]).includes(iterator) ||
+            this.state.checked.length === 0
+          ) {
+            return true;
+          }
+        }
+        if (this.state.checked.length == 0) {
+          return true;
+        }
+        return false;
+      });
+    }
 
     return (
       <div>
@@ -99,7 +130,10 @@ export default class CategoryArea extends React.Component {
               <option value="Usdprice">high price to low price</option>
               <option value="nameProduct">alef beit</option>
             </select>
-            <Filter filterData={filteredData} />
+            <Filter
+              filterData={filteredData}
+              selectBox={this.selectedSubCategories}
+            />
           </div>
           <div className="ml-auto mr-auto">
             <h1 className="text-center">products</h1>

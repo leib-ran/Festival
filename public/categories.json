@@ -13,6 +13,9 @@
         },
         "mixer":{
             "brand":["Yahma","jbl"]
+        },
+        "tents":{
+            "brand":["china"]
         }
     }        
 }
