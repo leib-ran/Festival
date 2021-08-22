@@ -7,16 +7,6 @@ export default function Navbar(props) {
   return (
     <div className="flex justify-between bg-red-800 opacity-80">
       <div className="flex">
-        <div className="h-16 pt-1 w-16">
-          <Logo></Logo>
-        </div>
-        <div className="pt-2">
-          <input
-            className=" h-8 w-40 ml-2 pl-2 rounded-md	"
-            placeholder="Search for an item"
-            onChange={(e) => props.searchfunc(e.target)}
-          />
-        </div>
         <Link
           to="/login"
           className="w-16 pt-3 hover:bg-blue-900 text-white text-center cursor-pointer	 align-bottom "
@@ -84,6 +74,16 @@ export default function Navbar(props) {
           image={"/images/links/technodrom.jpg"}
           linkName="NIGHT ITEMS"
         ></Links>
+        <div className="pt-2">
+          <input
+            className=" h-8 w-40 ml-2 pl-2 rounded-md	"
+            placeholder="Search for an item"
+            onChange={(e) => props.searchfunc(e.target)}
+          />
+        </div>
+        <div className="h-16 pt-1 w-16">
+          <Logo></Logo>
+        </div>
       </div>
     </div>
   );

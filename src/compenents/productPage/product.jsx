@@ -33,6 +33,7 @@ export default class Product extends React.Component {
   }
 
   changeImage(pic) {
+    console.log(pic);
     this.setState({ mainImage: pic });
   }
 
@@ -47,15 +48,10 @@ export default class Product extends React.Component {
 
   render() {
     return (
-      <div
-        onMouseLeave={this.hide}
-        style={{ height: "40rem" }}
-        className="flex justify-center mb-2"
-      >
+      <div>
         <div
           style={{ width: "80rem" }}
-          className="border-red-800 bg-white opacity-70 border-2 w-80 text-center "
-          onMouseEnter={this.show}
+          className="border-red-800 bg-white opacity-70 border-2 w-80 m-auto text-center "
         >
           <div className="opacity-false cursor-default">
             <div className="flex justify-between">
@@ -87,24 +83,21 @@ export default class Product extends React.Component {
                     icon={faStar}
                   ></FontAwesomeIcon>
                 </div>
-                <div
-                  className="flex justify-center mt-2"
-                  onMouseLeave={(e) => this.changeImage(this.state.srcImage)}
-                >
+                <div className="flex justify-center mt-2">
                   <img
-                    onMouseEnter={(e) => this.changeImage(e.target.src)}
+                    onClick={(e) => this.changeImage(e.target.src)}
                     className="rounded-full w-16 h-16 mr-2"
                     src="/images/tents/tent2.jpg"
                     alt="tent pic"
                   />
                   <img
-                    onMouseEnter={(e) => this.changeImage(e.target.src)}
+                    onClick={(e) => this.changeImage(e.target.src)}
                     className="rounded-full w-16 h-16 mr-2"
                     src="/images/tents/tent3.jpg"
                     alt="tent pic"
                   />
                   <img
-                    onMouseEnter={(e) => this.changeImage(e.target.src)}
+                    onClick={(e) => this.changeImage(e.target.src)}
                     className="rounded-full w-16 h-16  mr-2"
                     src="/images/tents/tent4.jpg"
                     alt="tent pic"
@@ -170,6 +163,22 @@ export default class Product extends React.Component {
                       </div>
                     </p>
                   </div>
+                  <div className="flex">
+                    <span>Quantity:</span>
+                    <FontAwesomeIcon
+                      className="text-gray-400 text-2xl mr-1 cursor-pointer"
+                      icon={faPlus}
+                      onClick={this.addOne}
+                    ></FontAwesomeIcon>
+                    <div className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default">
+                      <span>{this.state.quan}</span>
+                    </div>
+                    <FontAwesomeIcon
+                      className="text-gray-400 text-2xl ml-1 cursor-pointer"
+                      icon={faMinus}
+                      onClick={this.subOne}
+                    ></FontAwesomeIcon>
+                  </div>
                   <div
                     className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
                     onClick={(e, props) =>
@@ -185,22 +194,6 @@ export default class Product extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="flex justify-center">
-            <FontAwesomeIcon
-              className="text-gray-400 mr-1 cursor-pointer"
-              icon={faPlus}
-              onClick={this.addOne}
-            ></FontAwesomeIcon>
-            <div className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default">
-              <span>{this.state.quan}</span>
-            </div>
-            <FontAwesomeIcon
-              className="text-gray-400 ml-1 cursor-pointer"
-              icon={faMinus}
-              onClick={this.subOne}
-            ></FontAwesomeIcon>
           </div>
         </div>
         <div
