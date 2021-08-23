@@ -9,6 +9,8 @@ import Blog from "./compenents/blog/Blog";
 import signUp from "./compenents/sighnup/sighnup";
 import Navbar from "./compenents/header/Navbar";
 import BottomPage from "./compenents/footer/BottomPage";
+import HomePage from "./compenents/HomePage/HomePage";
+
 function App() {
   return (
     <div>
@@ -19,12 +21,13 @@ function App() {
           <Switch>
             <div className="flex flex-col justify-between	min-h-screen">
               <Navbar />
+              <Route exact path="/" component={HomePage} />
               <Route exact path="/login" component={LogIn} />
               <Route path="/productPage" component={Page} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/about" component={About} />
               <Route exact path="/Blog" component={Blog} />
-              <Route exact path="/" component={signUp} />
+              <Route exact path="/SignUp" component={signUp} />
               <BottomPage />
             </div>
           </Switch>
