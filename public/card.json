@@ -25,6 +25,6 @@
             "weight:2kg"],
         "shipping":true,
         "instock":true
-        }    }
+        }}
 
     }
