@@ -8,6 +8,7 @@ import {
   faLightbulb,
   faCampground,
   faBed,
+  faEraser,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default class Product extends React.Component {
@@ -23,6 +24,14 @@ export default class Product extends React.Component {
     this.hide = this.hide.bind(this);
     this.addOne = this.addOne.bind(this);
     this.subOne = this.subOne.bind(this);
+  }
+
+  componentDidMount() {
+    fetch("/card.json")
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res["cards"]);
+      });
   }
 
   show() {
@@ -195,18 +204,6 @@ export default class Product extends React.Component {
               </div>
             </div>
           </div>
-        </div>
-        <div
-          className={`${this.state["display"]} border-red-800 bg-white opacity-70 border-2 w-80 text-center h-136`}
-        >
-          <h1>product name</h1>
-          <p>
-            explnation of the product Lorem ipsum dolor sit aHmet, consectetur
-            adipiscing elit. Suspendisse venenatis, sem quis dapibus sagittis,
-            tellus lorem fringilla tellus, ut elementum justo est vel felis.
-            Nullam ut semper turpis. Vivamus scelerisque sed justo eu viverra.
-          </p>
-          <h1 className="text-gray-500	">Gallery</h1>
         </div>
       </div>
     );

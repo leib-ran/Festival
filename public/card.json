@@ -1,0 +1,30 @@
+{
+    "cards": {
+        "solar powered led":{
+        "main_picture":"/tents/tent.jpg",
+        "start":"4",
+        "sub_pics":["/tents/tent1.jpg","/tents/tent2.jpg","/tents/tent3.jpg"],
+        "tags":["leds","sleeping bag"],
+        "icon":"tent",
+        "name":"Felice Tent",
+        "currency":"USD",
+        "price":"$233",
+        "price_before_discount":"$400",
+
+        "content":[
+            "Size: 2 people",
+            
+           "Material:cutton",
+            
+            "poles: cooper with rubber",
+            
+            "Colors: white and oranges",
+            
+            "Brand: fl tents",
+            
+            "weight:2kg"],
+        "shipping":true,
+        "instock":true
+        }    }
+
+    }
