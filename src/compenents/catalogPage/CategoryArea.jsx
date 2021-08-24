@@ -1,7 +1,8 @@
 import Card from "./Card";
 import React from "react";
 import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
-import Filter from "../catalogPage/Filter";
+import Filter from "../CatalogPage/Filter";
+import Carousel from "../Carousel/Carousel";
 
 export default class CategoryArea extends React.Component {
   constructor() {
@@ -116,20 +117,22 @@ export default class CategoryArea extends React.Component {
       <div>
         <div className="flex">
           <div>
-            <select
-              className="border-black border-2 m-0"
-              onChange={(e) => this.sortProduct(e.target)}
-              name=""
-              id=""
-            >
-              <option value="" selected>
-                Sort
-              </option>
-              <option value="rank">rate</option>
-              <option value="lowUsdprice">low price to high price</option>
-              <option value="Usdprice">high price to low price</option>
-              <option value="nameProduct">alef beit</option>
-            </select>
+            <div>
+              <select
+                className="border-black border-2 m-0"
+                onChange={(e) => this.sortProduct(e.target)}
+                name=""
+                id=""
+              >
+                <option value="" selected>
+                  Sort
+                </option>
+                <option value="rank">rate</option>
+                <option value="lowUsdprice">low price to high price</option>
+                <option value="Usdprice">high price to low price</option>
+                <option value="nameProduct">alef beit</option>
+              </select>
+            </div>
             <Filter
               filterData={filteredData}
               selectBox={this.selectedSubCategories}
@@ -138,7 +141,7 @@ export default class CategoryArea extends React.Component {
           <div className="ml-auto mr-auto">
             <h1 className="text-center">products</h1>
 
-            <div className="flex flex-wrap justify-center ml-auto mr-auto">
+            <div className="flex flex-wrap ml-auto mr-auto">
               {filteredData.map((element, index) => {
                 return <Card key={index} data={element}></Card>;
               })}

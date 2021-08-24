@@ -20,8 +20,7 @@ export default class Product extends React.Component {
       srcImage: "/images/tents/tent.jpg",
       quan: 0,
     };
-    this.show = this.show.bind(this);
-    this.hide = this.hide.bind(this);
+
     this.addOne = this.addOne.bind(this);
     this.subOne = this.subOne.bind(this);
   }
@@ -32,13 +31,6 @@ export default class Product extends React.Component {
       .then((res) => {
         console.log(res["cards"]);
       });
-  }
-
-  show() {
-    this.setState({ display: "block" });
-  }
-  hide() {
-    this.setState({ display: "hidden" });
   }
 
   changeImage(pic) {

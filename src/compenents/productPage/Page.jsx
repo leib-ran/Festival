@@ -4,10 +4,11 @@ import BottomPage from "../footer/BottomPage";
 import Content from "./Content";
 
 export default class Page extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       cartStatus: 0,
+      data: this.props.data,
     };
     this.addToCart = this.addToCart.bind(this);
   }
@@ -31,7 +32,7 @@ export default class Page extends React.Component {
           ></Navbar> */}
         </header>
         <main>
-          <Content addToCart={this.addToCart}></Content>
+          <Content addToCart={this.addToCart} data={this.state.data}></Content>
         </main>
         <footer>{/* <BottomPage></BottomPage> */}</footer>
       </div>

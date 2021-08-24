@@ -1,6 +1,25 @@
 {
     "data":[
         {
+            "nameProduct":"Felice Tent",
+            "category":"tents",
+            "brand":"felice_tent",
+            "icon":"icon",
+            "Usdprice":"$233",
+            "content":["Size: 2 people" , "Material:cutton", "poles: cooper with rubber","Colors: white and oranges","Brand: fl tents","weight:2kg"],
+            "photo":"/images/tents/tent.jpg",
+            "UsdbeforeDiscount":"400$",
+            "shipping":true,
+            "instoke": true,
+            "subpics":["/images/tents/tent2","/images/tents/tent3","/images/tents/tent4"],
+            "tags":["Leds","Sleeping bag"],
+            "stars":4,
+            "sells":"600",
+            "description":"fabulas",
+            "color":"pink"
+        },
+
+        {
             "nameProduct":"solar powered led",
             "category":"led",
             "brand":"",
@@ -13,7 +32,6 @@
             "shipping":true,
             "ships_description":"",
             "color":"yellow"
-
         },
         {
             "nameProduct":"solar RGB 5M powered led",
