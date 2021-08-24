@@ -8,7 +8,7 @@ import LogIn from "./compenents/sighnin/SighnIn";
 import Blog from "./compenents/Blog/Blog";
 import signUp from "./compenents/sighnup/sighnup";
 import Navbar from "./compenents/header/Navbar";
-import BottomPage from "./compenents/footer/BottomPage";
+import BottomPage from "./compenents/Footer/BottomPage";
 import HomePage from "./compenents/HomePage/HomePage";
 
 function App() {

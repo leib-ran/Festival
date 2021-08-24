@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../header/Navbar";
-import BottomPage from "../footer/BottomPage";
+import BottomPage from "../Footer/BottomPage";
 import Content from "./Content";
 
 export default class Page extends React.Component {
