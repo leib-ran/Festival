@@ -6,6 +6,7 @@ export default class Content extends React.Component {
     super(props);
     this.state = {
       nothing: 0,
+      data: this.props.data,
     };
   }
 
@@ -13,7 +14,10 @@ export default class Content extends React.Component {
     return (
       <div>
         <h1 className="text-center text-5xl">Holy Mally</h1>
-        <Product addToCart={this.props.addToCart}></Product>
+        <Product
+          addToCart={this.props.addToCart}
+          data={this.props.data}
+        ></Product>
       </div>
     );
   }
