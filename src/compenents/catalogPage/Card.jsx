@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Page from "../productPage/Page";
+import Page from "../ProductPage/Page";
 
 export default function Card(props) {
   return (

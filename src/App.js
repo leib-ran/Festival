@@ -1,13 +1,13 @@
 import "./App.css";
-import Page from "./compenents/productPage/Page";
+import Page from "./compenents/ProductPage/Page";
 import MainCatalogPage from "./compenents/CatalogPage/MainCatalogPage";
 import { Route, Switch } from "react-router";
 import Contact from "./compenents/ContactPage/Contact";
 import About from "./compenents/About/About";
-import LogIn from "./compenents/sighnin/SighnIn";
+import LogIn from "./compenents/Sighnin/SighnIn";
 import Blog from "./compenents/Blog/Blog";
-import signUp from "./compenents/sighnup/sighnup";
-import Navbar from "./compenents/header/Navbar";
+import signUp from "./compenents/Sighnup/sighnup";
+import Navbar from "./compenents/Header/Navbar";
 import BottomPage from "./compenents/Footer/BottomPage";
 import HomePage from "./compenents/HomePage/HomePage";
 
