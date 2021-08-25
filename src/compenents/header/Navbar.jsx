@@ -8,6 +8,12 @@ export default function Navbar(props) {
     <div className="flex justify-between bg-red-800 opacity-80">
       <div className="flex">
         <Link
+          to="/"
+          className="w-16 pt-3 hover:bg-blue-900 text-white text-center cursor-pointer	 align-bottom "
+        >
+          Home Page
+        </Link>
+        <Link
           to="/login"
           className="w-16 pt-3 hover:bg-blue-900 text-white text-center cursor-pointer	 align-bottom "
         >

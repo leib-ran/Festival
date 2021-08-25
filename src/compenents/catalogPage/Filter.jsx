@@ -16,10 +16,6 @@ export default class Filter extends React.Component {
         this.setState({ categories: data["categories"] });
       });
   }
-  //   render() {
-  //     console.log(this.props.filterData);
-  //     return <div></div>;
-  //   }
 
   render() {
     let categories = {};

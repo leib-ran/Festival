@@ -1,5 +1,5 @@
 import "./App.css";
-import Page from "./compenents/ProductPage/Page";
+import ProductPage from "./compenents/ProductPage/ProductPage";
 import MainCatalogPage from "./compenents/CatalogPage/MainCatalogPage";
 import { Route, Switch } from "react-router";
 import Contact from "./compenents/ContactPage/Contact";
@@ -14,7 +14,12 @@ import HomePage from "./compenents/HomePage/HomePage";
 function App() {
   return (
     <div>
-      <div className="flex flex-col justify-between	min-h-screen">
+      <div
+        className="flex flex-col justify-between bg-no-repeat bg-cover bg-center min-h-screen"
+        style={{
+          backgroundImage: "url(/images/links/link_desert_item.jpg)",
+        }}
+      >
         <Switch>
           <Route exact path="/store" component={MainCatalogPage} />
 
@@ -23,7 +28,7 @@ function App() {
               <Navbar />
               <Route exact path="/" component={HomePage} />
               <Route exact path="/login" component={LogIn} />
-              <Route path="/productPage" component={Page} />
+              <Route path="/productPage/:id" component={ProductPage} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/About" component={About} />
               <Route exact path="/Blog" component={Blog} />

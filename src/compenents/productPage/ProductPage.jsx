@@ -3,7 +3,7 @@ import Navbar from "../Header/Navbar";
 import BottomPage from "../Footer/BottomPage";
 import Content from "./Content";
 
-export default class Page extends React.Component {
+export default class ProductPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +15,16 @@ export default class Page extends React.Component {
 
   addToCart(quan) {
     this.setState({ cartStatus: quan });
+  }
+
+  componentDidMount() {
+    fetch("/products.json")
+      .then((res) => res.json())
+      .then((res) => {
+        let data = res["data"];
+        let product = this.props.match.params.id;
+        this.setState({ data: data[product] });
+      });
   }
 
   render() {

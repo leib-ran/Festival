@@ -25,9 +25,10 @@ export default class CategoryArea extends React.Component {
         return res.json();
       })
       .then((products) => {
+        let data = Object.values(products["data"]);
         this.setState({
-          prodArr: products["data"],
-          sortedData: products["data"],
+          prodArr: data,
+          sortedData: data,
         });
       });
   }
