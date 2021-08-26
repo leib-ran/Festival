@@ -1,6 +1,6 @@
 import "./App.css";
 import ProductPage from "./compenents/ProductPage/ProductPage";
-import MainCatalogPage from "./compenents/CatalogPage/MainCatalogPage";
+import CategoryArea from "./compenents/CatalogPage/CategoryArea";
 import { Route, Switch } from "react-router";
 import Contact from "./compenents/ContactPage/Contact";
 import About from "./compenents/About/About";
@@ -21,21 +21,18 @@ function App() {
         }}
       >
         <Switch>
-          <Route exact path="/store" component={MainCatalogPage} />
-
-          <Switch>
-            <div className="flex flex-col justify-between	min-h-screen">
-              <Navbar />
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/login" component={LogIn} />
-              <Route path="/productPage/:id" component={ProductPage} />
-              <Route exact path="/contact" component={Contact} />
-              <Route exact path="/About" component={About} />
-              <Route exact path="/Blog" component={Blog} />
-              <Route exact path="/SignUp" component={signUp} />
-              <BottomPage />
-            </div>
-          </Switch>
+          <div className="flex flex-col justify-between	min-h-screen">
+            <Navbar />
+            <Route exact path="/store" component={CategoryArea} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/login" component={LogIn} />
+            <Route path="/productPage/:id" component={ProductPage} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/About" component={About} />
+            <Route exact path="/Blog" component={Blog} />
+            <Route exact path="/SignUp" component={signUp} />
+            <BottomPage />
+          </div>
         </Switch>
       </div>
     </div>

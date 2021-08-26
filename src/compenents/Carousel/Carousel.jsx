@@ -16,7 +16,6 @@ export default class Carousel extends React.Component {
     }
   }
   next() {
-    console.log(this.state.index);
     if (this.state.index < this.state.slideNumber - this.state.show - 1) {
       this.setState({ index: this.state.index + 1 });
     }

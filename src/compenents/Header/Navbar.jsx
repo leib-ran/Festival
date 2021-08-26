@@ -1,9 +1,18 @@
 import React from "react";
 import Logo from "../Logo/Logo";
 import Links from "./Links";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-export default function Navbar(props) {
+function Navbar(props) {
+  let q = "";
+  let value = "";
+  const handelSearch = (e) => {
+    e.preventDefault();
+    q = e.target[0].name;
+    value = e.target[0].value;
+    props.history.push(`/store?${q}=${value}`);
+  };
+
   return (
     <div className="flex justify-between bg-red-800 opacity-80">
       <div className="flex">
@@ -35,13 +44,13 @@ export default function Navbar(props) {
           to="/store"
           className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
         >
-          store
+          Store
         </Link>
         <Link
           to="/contact"
           className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
         >
-          contact
+          Contact
         </Link>
         <Link
           to="/About"
@@ -81,11 +90,14 @@ export default function Navbar(props) {
           linkName="NIGHT ITEMS"
         ></Links>
         <div className="pt-2">
-          <input
-            className=" h-8 w-40 ml-2 pl-2 rounded-md	"
-            placeholder="Search for an item"
-            onChange={(e) => props.searchfunc(e.target)}
-          />
+          <form onSubmit={handelSearch}>
+            <input
+              name="q"
+              className=" h-8 w-40 ml-2 pl-2 rounded-md	"
+              placeholder="Search for an item"
+            />
+            <button className="bg-white ml-2 p-1 font-bold">search</button>
+          </form>
         </div>
         <div className="h-16 pt-1 w-16">
           <Logo></Logo>
@@ -94,3 +106,5 @@ export default function Navbar(props) {
     </div>
   );
 }
+
+export default withRouter(Navbar);
