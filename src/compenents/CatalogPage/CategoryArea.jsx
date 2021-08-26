@@ -2,7 +2,6 @@ import Card from "./Card";
 import React from "react";
 import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 import Filter from "../CatalogPage/Filter";
-import Carousel from "../Carousel/Carousel";
 import queryString from "query-string";
 
 export default class CategoryArea extends React.Component {
@@ -101,13 +100,10 @@ export default class CategoryArea extends React.Component {
   }
 
   render() {
-    console.log("ran");
+    const searchWord = this.state.searchWord || "";
     const pattern =
-      this.state.searchWord.length >= 3
-        ? new RegExp(
-            `.*(${this.state.searchWord.split(" ").join("|")}).*`,
-            "im"
-          )
+      searchWord.length >= 3
+        ? new RegExp(`.*(${searchWord.split(" ").join("|")}).*`, "im")
         : new RegExp(".*");
 
     let filteredData = this.state.sortedData.filter((element, index) => {
