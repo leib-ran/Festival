@@ -1,6 +1,6 @@
 {
-    "data":[
-        {
+    "data":{
+        "Felice Tent":{
             "nameProduct":"Felice Tent",
             "category":"tents",
             "brand":"felice_tent",
@@ -19,7 +19,7 @@
             "color":"pink"
         },
 
-        {
+        "solar powered led":{
             "nameProduct":"solar powered led",
             "category":"led",
             "brand":"",
@@ -33,7 +33,7 @@
             "ships_description":"",
             "color":"yellow"
         },
-        {
+        "solar RGB 5M powered led":{
             "nameProduct":"solar RGB 5M powered led",
             "category":"led",
             "brand":"",
@@ -48,7 +48,7 @@
             "color":"RGB"
         },
 
-        {
+        "lycra fabric good for tents 24Meter":{
             "nameProduct":"lycra fabric good for tents 24Meter",
             "category":"tents",
             "brand":"",
@@ -62,8 +62,8 @@
             "ships_description":"to Israel",
             "color":"pink"
         },
-        {
-            "nameProduct":"Decorated burning man hat ",
+        "Decorated burning man hat":{
+            "nameProduct":"Decorated burning man hat",
             "category":"hat",
             "brand":"",
             "categories":{"brand":"home made","color":"brown", "Field":"desert"},
@@ -76,7 +76,7 @@
             "ships_description":"to Israel",
             "color":"black"
         },
-        {
+        "speakers with stands ,with mixer":{
             "nameProduct":"speakers with stands ,with mixer",
             "category":"mixer",
             "brand":"https://just4funpartyrentals.com/wp-content/uploads/2011/07/Events-Portable-PA-System-Package-with-2-Eurolive-Speaker-Mixer.jpg",
@@ -90,7 +90,7 @@
             "ships_description":"to Israel",
             "color":"black"
         },
-        {
+        "Mixer of dj":{
             "nameProduct":"Mixer of dj",
             "category":"mixer",
             "brand":"Pioneer Dj",
@@ -105,5 +105,5 @@
             "color":"black"
         }
 
-    ]
+    }
 }

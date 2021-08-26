@@ -8,6 +8,8 @@ export default class ToggelCategory extends React.Component {
   }
 
   render() {
-    <div></div>;
+    <div>
+      <FontAwesomeIcon icon={faFilter}></FontAwesomeIcon>
+    </div>;
   }
 }

@@ -2,16 +2,17 @@ import Card from "./Card";
 import React from "react";
 import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 import Filter from "../CatalogPage/Filter";
-import Carousel from "../Carousel/Carousel";
+import queryString from "query-string";
 
 export default class CategoryArea extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       prodArr: [],
       searchWord: "",
       checked: [],
       sortedData: [],
+      prevLocation: [],
     };
     this.selectedSubCategories = this.selectedSubCategories.bind(this);
   }
@@ -25,11 +26,27 @@ export default class CategoryArea extends React.Component {
         return res.json();
       })
       .then((products) => {
+        let searchWord = this.getSearchWord();
+        let data = Object.values(products["data"]);
         this.setState({
-          prodArr: products["data"],
-          sortedData: products["data"],
+          prodArr: data,
+          sortedData: data,
+          searchWord: searchWord,
         });
       });
+  }
+  componentDidUpdate() {
+    let newSearchWord = this.getSearchWord();
+    if (this.state.searchWord != newSearchWord) {
+      this.setState({ searchWord: newSearchWord });
+    }
+  }
+
+  getSearchWord() {
+    let url = this.props.location.search;
+    let parsedObj = queryString.parse(url);
+    let searchWord = parsedObj.q;
+    return searchWord;
   }
 
   selectedSubCategories(target) {
@@ -83,12 +100,10 @@ export default class CategoryArea extends React.Component {
   }
 
   render() {
+    const searchWord = this.state.searchWord || "";
     const pattern =
-      this.props.searchWord.length >= 3
-        ? new RegExp(
-            `.*(${this.props.searchWord.split(" ").join("|")}).*`,
-            "im"
-          )
+      searchWord.length >= 3
+        ? new RegExp(`.*(${searchWord.split(" ").join("|")}).*`, "im")
         : new RegExp(".*");
 
     let filteredData = this.state.sortedData.filter((element, index) => {

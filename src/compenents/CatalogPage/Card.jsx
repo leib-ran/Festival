@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import Page from "../productPage/Page";
+import ProductPage from "../ProductPage/ProductPage";
 
 export default function Card(props) {
   return (
     <Link
       to={`/productPage/${props.data.nameProduct}`}
-      render={() => <Page data={props.data}></Page>}
+      render={() => <ProductPage data={props.data}></ProductPage>}
     >
       <div className="h-10px">
         <div className="bg-red-800 mr-2 w-40" style={{}}>
