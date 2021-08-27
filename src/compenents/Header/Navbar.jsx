@@ -14,7 +14,7 @@ function Navbar(props) {
   };
 
   return (
-    <div className="flex justify-between bg-red-800 opacity-80">
+    <div className="flex justify-between bg-black opacity-80">
       <div className="flex">
         <Link
           to="/"
