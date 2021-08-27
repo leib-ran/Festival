@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "../Carousel/Carousel";
 import Globe from "./Globe";
+import WelcomingTitle from "./WelcomingTitle";
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -16,13 +17,9 @@ export default class HomePage extends React.Component {
         />
         <div className="absolute  top-1/4 left-1/4 w-2/3  mr-auto">
           <div className="absolute  w-2/3 bg-red-500 mb-2 mt-2 h-48 opacity-10"></div>
-          <div className="leading-10 ">
-            <h1 className="cursor-default  font-bold  text-white text-7xl	">
-              Holy mally
-            </h1>
-            <div className="text-white leading-4">
-              <p>Welcome</p>
-              <h1>Set up your journy</h1>
+          <div className="">
+            <div className="text-white ">
+              <WelcomingTitle />
             </div>
           </div>
         </div>
