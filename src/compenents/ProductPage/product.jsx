@@ -20,8 +20,10 @@ export default class Product extends React.Component {
       mainImage: "/images/tents/tent.jpg",
       srcImage: "/images/tents/tent.jpg",
       quan: 0,
+      show: "hidden",
     };
 
+    this.addToCart = this.addToCart.bind(this);
     this.addOne = this.addOne.bind(this);
     this.subOne = this.subOne.bind(this);
   }
@@ -36,6 +38,23 @@ export default class Product extends React.Component {
     let num = this.state.quan + 1;
     this.setState({ quan: num });
   }
+
+  addToCart(quan, target) {
+    console.log("ran");
+    this.addToLocalStorage(target);
+    setTimeout(this.setState({ show: "" }), 10000);
+  }
+  addToLocalStorage(item) {
+    let items = localStorage.getItem("itmes") || "";
+    let parsedObj = {};
+    if (items.length == 0) {
+      localStorage.setItem("items", [JSON.stringify(item)]);
+    } else {
+      parsedObj = JSON.parse(items);
+      localStorage.setItem("items", JSON.stringify(parsedObj.concat(item)));
+    }
+  }
+
   subOne() {
     let num = this.state.quan == 0 ? 0 : this.state.quan - 1;
     this.setState({ quan: num });
@@ -183,9 +202,12 @@ export default class Product extends React.Component {
                       <div
                         className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
                         onClick={(e, props) =>
-                          this.props.addToCart(this.state.quan, this.props.data)
+                          this.addToCart(this.state.quan, this.props.data)
                         }
                       >
+                        <div className={`${this.state.show}`}>
+                          your product is added to the cart
+                        </div>
                         <span>Add to cart</span>
                       </div>
 

@@ -10,21 +10,6 @@ export default class ProductPage extends React.Component {
       cartStatus: 0,
       data: this.props.data,
     };
-    this.addToCart = this.addToCart.bind(this);
-  }
-
-  addToCart(quan, target) {
-    this.addToLocalStorage(target);
-    this.setState({ cartStatus: quan });
-  }
-
-  addToLocalStorage(item) {
-    let items = localStorage.getItem("itmes") || "";
-    console.log(this.props);
-
-    if (items.length == 0) {
-      localStorage.setItem("items", [JSON.stringify(item)]);
-    }
   }
 
   componentDidMount() {
@@ -47,7 +32,7 @@ export default class ProductPage extends React.Component {
       >
         <header></header>
         <main>
-          <Content addToCart={this.addToCart} data={this.state.data}></Content>
+          <Content data={this.state.data}></Content>
         </main>
       </div>
     );
