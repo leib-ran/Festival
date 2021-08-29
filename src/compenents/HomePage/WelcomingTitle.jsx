@@ -10,7 +10,7 @@ export default class WelcomingTitle extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ index: 0 });
-    }, 10000);
+    }, 3000);
   }
 
   render() {

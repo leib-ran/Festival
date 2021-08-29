@@ -1,8 +1,9 @@
 import Card from "./Card";
 import React from "react";
 import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
-import Filter from "../CatalogPage/Filter";
+import Filter from "./Filter";
 import queryString from "query-string";
+import ToggelCategory from "../ToggelCategory/ToggelCategory";
 
 export default class CategoryArea extends React.Component {
   constructor(props) {
@@ -133,9 +134,11 @@ export default class CategoryArea extends React.Component {
         <div className="flex">
           <div>
             <div>
+              <ToggelCategory></ToggelCategory>
               <select
                 className="border-black border-2 m-0"
-                onChange={(e) => this.sortProduct(e.target)}
+                onChang
+                e={(e) => this.sortProduct(e.target)}
                 name=""
                 id=""
               >
@@ -154,9 +157,10 @@ export default class CategoryArea extends React.Component {
             />
           </div>
           <div className="ml-auto mr-auto">
-            <h1 className="text-center">products</h1>
+            <h1 className="text-left">categories:</h1>
+            <h1 className="text-left">results:</h1>
 
-            <div className="flex flex-wrap ml-auto mr-auto">
+            <div className="flex flex-wrap ml mr-auto">
               {filteredData.map((element, index) => {
                 return <Card key={index} data={element}></Card>;
               })}

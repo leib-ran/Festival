@@ -5,7 +5,7 @@ import WelcomingTitle from "./WelcomingTitle";
 
 export default class HomePage extends React.Component {
   constructor(props) {
-    super();
+    super(props);
   }
 
   render() {
@@ -26,7 +26,6 @@ export default class HomePage extends React.Component {
 
         <div className="realtive">
           <div className="flex">
-            {/* <Globe /> */}
             {/* <Carousel>
                 <img
                   src="/images/caruselLink/leftCarusel.jpg"
@@ -55,6 +54,7 @@ export default class HomePage extends React.Component {
             allowfullscreen
           ></iframe> */}
         </div>
+        <Globe />
       </div>
     );
   }

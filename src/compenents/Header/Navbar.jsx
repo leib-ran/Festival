@@ -59,8 +59,8 @@ function Navbar(props) {
           About
         </Link>
 
-        <a
-          src="#"
+        <Link
+          to="/cart"
           className="cursor-pointer bg-white ml-1 mt-2 h-8 w-8 pt-1.5 pl-1.5 rounded-full flex "
         >
           <svg
@@ -74,7 +74,7 @@ function Navbar(props) {
           <div className="rounded-full bg-red-800 text-center bg-yellow-500 text-xs w-4 h-4">
             {props["quan-cart"]}
           </div>
-        </a>
+        </Link>
       </div>
       <div className="flex h-full">
         <Links

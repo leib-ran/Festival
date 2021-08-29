@@ -6,17 +6,19 @@ export default function Card(props) {
     <Link
       to={`/productPage/${props.data.nameProduct}`}
       render={() => <ProductPage data={props.data}></ProductPage>}
+      className="w-1/2"
     >
-      <div className="h-10px">
-        <div className="bg-red-800 mr-2 w-40" style={{}}>
-          <h1 className="h-8 text-center text-white">
-            {props.data.nameProduct}
-          </h1>
-          <img className="h-40" src={props.data.photo} />
-          <h1 className="bg-yellow-400">price {props.data.Usdprice}</h1>
-          <h1 className="block bg-white">rank: {props.data.rank}</h1>
-          <span className="block bg-white">{props.data.description}</span>
+      <div className="ml-2">
+        <div
+          className="bg-gray-200 pt-5 h-9/10 overflow-hidden mr-2"
+          style={{}}
+        >
+          <img className=" m-auto w-full" src={props.data.photo} />
         </div>
+        <h1 className="h-8 text-left text-3xl">{props.data.nameProduct}</h1>
+        <h1 className="">price {props.data.Usdprice}</h1>
+        <h1 className="block bg-white">rank: {props.data.rank}</h1>
+        <span className="block bg-white">{props.data.description}</span>
       </div>
     </Link>
   );
