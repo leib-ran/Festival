@@ -1,17 +1,20 @@
 import React from "react";
+import Item from "./item";
 
 export default class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: localStorage.getItem("itmes") || "",
+      items: localStorage.getItem("items") || [],
     };
   }
 
   render() {
     return (
       <div>
-        <h1>ran</h1>
+        {JSON.parse(this.state.items).map((data) => {
+          return <Item data={data}></Item>;
+        })}
       </div>
     );
   }

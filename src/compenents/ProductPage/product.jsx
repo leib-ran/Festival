@@ -45,13 +45,13 @@ export default class Product extends React.Component {
     setTimeout(this.setState({ show: "" }), 10000);
   }
   addToLocalStorage(item) {
-    let items = localStorage.getItem("itmes") || "";
-    let parsedObj = {};
+    let items = localStorage.getItem("itmes") || [];
     if (items.length == 0) {
-      localStorage.setItem("items", [JSON.stringify(item)]);
+      localStorage.setItem("items", JSON.stringify([item]));
     } else {
-      parsedObj = JSON.parse(items);
-      localStorage.setItem("items", JSON.stringify(parsedObj.concat(item)));
+      let parsedObj = JSON.parse(items).concat(item);
+      console.log(parsedObj);
+      localStorage.setItem("items", JSON.stringify(parsedObj));
     }
   }
 
