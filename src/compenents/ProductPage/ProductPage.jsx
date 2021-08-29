@@ -13,8 +13,18 @@ export default class ProductPage extends React.Component {
     this.addToCart = this.addToCart.bind(this);
   }
 
-  addToCart(quan) {
+  addToCart(quan, target) {
+    this.addToLocalStorage(target);
     this.setState({ cartStatus: quan });
+  }
+
+  addToLocalStorage(item) {
+    let items = localStorage.getItem("itmes") || "";
+    console.log(this.props);
+
+    if (items.length == 0) {
+      localStorage.setItem("items", [JSON.stringify(item)]);
+    }
   }
 
   componentDidMount() {
@@ -35,16 +45,10 @@ export default class ProductPage extends React.Component {
           backgroundImage: `url("/images/links/link_desert_item.jpg")`,
         }}
       >
-        <header>
-          {/* <Navbar
-            quan-cart={this.state.cartStatus}
-            className="mb-auto"
-          ></Navbar> */}
-        </header>
+        <header></header>
         <main>
           <Content addToCart={this.addToCart} data={this.state.data}></Content>
         </main>
-        <footer>{/* <BottomPage></BottomPage> */}</footer>
       </div>
     );
   }

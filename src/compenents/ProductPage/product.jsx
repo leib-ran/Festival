@@ -183,7 +183,7 @@ export default class Product extends React.Component {
                       <div
                         className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
                         onClick={(e, props) =>
-                          this.props.addToCart(this.state.quan)
+                          this.props.addToCart(this.state.quan, this.props.data)
                         }
                       >
                         <span>Add to cart</span>

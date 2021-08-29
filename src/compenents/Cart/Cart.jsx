@@ -3,7 +3,9 @@ import React from "react";
 export default class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      items: localStorage.getItem("itmes") || "",
+    };
   }
 
   render() {
