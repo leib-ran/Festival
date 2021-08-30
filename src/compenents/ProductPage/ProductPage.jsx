@@ -32,7 +32,7 @@ export default class ProductPage extends React.Component {
       >
         <header></header>
         <main>
-          <Content data={this.state.data}></Content>
+          <Content data={this.state.data} update={this.props.update}></Content>
         </main>
       </div>
     );

@@ -27,6 +27,7 @@ export default class Product extends React.Component {
     this.addOne = this.addOne.bind(this);
     this.subOne = this.subOne.bind(this);
     this.updateQuan = this.updateQuan.bind(this);
+    this.input = React.createRef();
   }
 
   changeImage(pic) {
@@ -46,6 +47,7 @@ export default class Product extends React.Component {
     setTimeout(this.setState({ show: "" }), 10000);
   }
   addToLocalStorage(item) {
+    item["quan"] = this.input.current.value;
     let items = localStorage.getItem("items") || [];
     if (items.length == 0) {
       localStorage.setItem("items", JSON.stringify([item]));
@@ -197,25 +199,28 @@ export default class Product extends React.Component {
                           icon={faPlus}
                           onClick={this.addOne}
                         ></FontAwesomeIcon>
-                        <div className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default">
-                          <span>{this.state.quan}</span>
-                        </div>
+                        <input
+                          className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default"
+                          value={this.state.quan}
+                          ref={this.input}
+                        />
                         <FontAwesomeIcon
                           className="text-gray-400 text-2xl ml-1 cursor-pointer"
                           icon={faMinus}
-                          onClick={this.subOne}
+                          onClick={() => this.subOne}
                         ></FontAwesomeIcon>
                       </div>
                       <div
                         className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
-                        onClick={(e, props) =>
-                          this.addToCart(this.state.quan, this.props.data)
-                        }
+                        onClick={(e, props) => {
+                          this.addToCart(this.state.quan, this.props.data);
+                          this.props.update(this.input.current.value);
+                        }}
                       >
-                        <div className={`${this.state.show}`}>
-                          your product is added to the cart
-                        </div>
                         <span>Add to cart</span>
+                      </div>
+                      <div className={`${this.state.show}`}>
+                        your product is added to the cart
                       </div>
 
                       <div className="bg-red-800 pb-2 text-white mt-2 cursor-pointer hover:bg-yellow-500 hover:text-gray-900">

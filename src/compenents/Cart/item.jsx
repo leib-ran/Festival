@@ -3,9 +3,7 @@ import React from "react";
 export default class Item extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      amount: 0,
-    };
+    this.state = {};
     this.addOne = this.addOne.bind(this);
     this.subMinus = this.subMinus.bind(this);
   }
@@ -36,18 +34,8 @@ export default class Item extends React.Component {
                 <div className="cursor-pointer" onClick={this.addOne}>
                   +
                 </div>
-                <div
-                  className="border-2 border-black h-6"
-                  //   onChange={(e) => {
-                  //     let priceString = this.props.data["Usdprice"];
-                  //     let price = priceString.substring(
-                  //       0,
-                  //       priceString.length - 1
-                  //     );
-                  //     return this.props.setPrice(e.target, price);
-                  //   }}
-                >
-                  {this.state.amount}
+                <div className="border-2 border-black h-6">
+                  {this.props.data["quan"]}
                 </div>
                 <div className="cursor-pointer" onClick={this.subMinus}>
                   -

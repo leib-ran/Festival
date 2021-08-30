@@ -10,7 +10,6 @@ export default class PaymentArea extends React.Component {
 
   componentDidMount() {
     let data = JSON.parse(localStorage.getItem("items"));
-    let itemNumber = data.length;
   }
 
   render() {
