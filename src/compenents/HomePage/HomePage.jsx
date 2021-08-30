@@ -10,10 +10,10 @@ export default class HomePage extends React.Component {
 
   render() {
     return (
-      <div className="relative min-h-screen flex">
+      <div className="relative min-h-screen z-1 flex">
         <img
           src="/images/homePagebackground/home_page_image.jpg"
-          className="inset-0 absolut filter  saturate-200 hue-rotate-180 invert"
+          className="inset-0 absolute z-0 filter saturate-200 hue-rotate-180 invert"
         />
         <div className="absolute  top-1/4 left-1/4 w-2/3  mr-auto">
           <div className="absolute  w-2/3 bg-red-500 mb-2 mt-2 h-48 opacity-10"></div>
