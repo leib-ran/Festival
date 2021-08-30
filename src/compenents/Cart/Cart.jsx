@@ -6,8 +6,15 @@ export default class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: localStorage.getItem("items") || [],
+      items: localStorage.getItem("items") || "[]",
+      priceOfItem: 0,
     };
+    this.setPrice = this.setPrice.bind(this);
+  }
+
+  setPrice(target, price) {
+    let priceProduct = Number(target.value) * Number(price);
+    this.setState({ priceOfItem: priceProduct });
   }
 
   render() {
@@ -15,10 +22,10 @@ export default class Cart extends React.Component {
       <div className="flex justify-center">
         <div className="ml-5">
           {JSON.parse(this.state.items).map((data) => {
-            return <Item data={data}></Item>;
+            return <Item data={data} setPrice={this.setPrice}></Item>;
           })}
         </div>
-        <PaymentArea />
+        <PaymentArea itemPrice={this.state.priceOfItem} />
       </div>
     );
   }

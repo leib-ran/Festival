@@ -11,6 +11,10 @@ class Navbar extends React.Component {
     };
   }
 
+  // componentDidMount() {
+  //   localStorage.setItem("quan", this.state["qua"]);
+  // }
+
   handelSearch = (e) => {
     e.preventDefault();
     let q = e.target[0].name;
@@ -21,6 +25,9 @@ class Navbar extends React.Component {
     return (
       <div className="flex justify-between bg-black opacity-80">
         <div className="flex">
+          <div className="h-16 pt-1 w-16">
+            <Logo></Logo>
+          </div>
           <Link
             to="/"
             className="w-16 pt-3 hover:bg-blue-900 text-white text-center cursor-pointer	 align-bottom "
@@ -103,9 +110,6 @@ class Navbar extends React.Component {
               />
               <button className="bg-white ml-2 p-1 font-bold">search</button>
             </form>
-          </div>
-          <div className="h-16 pt-1 w-16">
-            <Logo></Logo>
           </div>
         </div>
       </div>

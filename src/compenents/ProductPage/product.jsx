@@ -19,13 +19,14 @@ export default class Product extends React.Component {
       display: "hidden",
       mainImage: "/images/tents/tent.jpg",
       srcImage: "/images/tents/tent.jpg",
-      quan: 0,
+      quan: 1,
       show: "hidden",
     };
 
     this.addToCart = this.addToCart.bind(this);
     this.addOne = this.addOne.bind(this);
     this.subOne = this.subOne.bind(this);
+    this.updateQuan = this.updateQuan.bind(this);
   }
 
   changeImage(pic) {
@@ -40,7 +41,7 @@ export default class Product extends React.Component {
   }
 
   addToCart(quan, target) {
-    console.log("ran");
+    this.updateQuan();
     this.addToLocalStorage(target);
     setTimeout(this.setState({ show: "" }), 10000);
   }
@@ -55,8 +56,14 @@ export default class Product extends React.Component {
     }
   }
 
+  updateQuan() {
+    let newQuan =
+      Number(localStorage.getItem("quan")) + Number(this.state["quan"]);
+    localStorage.setItem("quan", newQuan);
+  }
+
   subOne() {
-    let num = this.state.quan == 0 ? 0 : this.state.quan - 1;
+    let num = this.state.quan == 1 ? 1 : this.state.quan - 1;
     this.setState({ quan: num });
   }
 
