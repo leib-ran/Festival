@@ -45,7 +45,7 @@ export default class Product extends React.Component {
     setTimeout(this.setState({ show: "" }), 10000);
   }
   addToLocalStorage(item) {
-    let items = localStorage.getItem("itmes") || [];
+    let items = localStorage.getItem("items") || [];
     if (items.length == 0) {
       localStorage.setItem("items", JSON.stringify([item]));
     } else {

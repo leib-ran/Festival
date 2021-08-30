@@ -21,7 +21,7 @@ export default class Item extends React.Component {
 
   render() {
     return (
-      <div className="border-2  h-40 shadow-lg w-2/3">
+      <div className="border-2 h-40 shadow-lg w-2/3">
         <div className="flex h-full justify-between">
           <img className="h-2/3" src={this.props.data["photo"]} />
           <div className="ml-2">

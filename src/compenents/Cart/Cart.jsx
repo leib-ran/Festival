@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "./item";
+import PaymentArea from "./PaymentArea";
 
 export default class Cart extends React.Component {
   constructor(props) {
@@ -11,10 +12,13 @@ export default class Cart extends React.Component {
 
   render() {
     return (
-      <div>
-        {JSON.parse(this.state.items).map((data) => {
-          return <Item data={data}></Item>;
-        })}
+      <div className="flex justify-center">
+        <div className="ml-5">
+          {JSON.parse(this.state.items).map((data) => {
+            return <Item data={data}></Item>;
+          })}
+        </div>
+        <PaymentArea />
       </div>
     );
   }
