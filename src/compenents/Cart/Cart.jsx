@@ -21,11 +21,11 @@ export default class Cart extends React.Component {
     return (
       <div className="flex justify-center">
         <div className="ml-5">
-          {JSON.parse(this.state.items).map((data) => {
-            return <Item data={data} setPrice={this.setPrice}></Item>;
+          {JSON.parse(this.state.items).map((item) => {
+            return <Item data={item} setPrice={this.setPrice}></Item>;
           })}
         </div>
-        <PaymentArea itemPrice={this.state.priceOfItem} />
+        <PaymentArea data={JSON.parse(this.state.items)} />
       </div>
     );
   }

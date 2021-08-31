@@ -10,6 +10,7 @@ class Navbar extends React.Component {
     this.state = {
       qua: localStorage.getItem("quan") || 0,
       show: "hidden",
+      data: localStorage.getItem("items") || "[]",
     };
   }
 
@@ -75,6 +76,7 @@ class Navbar extends React.Component {
               className="cursor-pointer relative bg-white ml-1 mt-2 h-8 w-8 pt-1.5 pl-1.5 rounded-full flex "
             >
               <div
+                className="flex"
                 onMouseEnter={() => {
                   this.setState({ show: "" });
                 }}
@@ -93,13 +95,13 @@ class Navbar extends React.Component {
               </div>
             </Link>
             <div
-              className={`${this.state.show} h-52 w-80 bg-gray-100 z-80 absolute`}
+              className={`${this.state.show} bg-gray-100 z-80 absolute`}
               onMouseLeave={() => this.setState({ show: "hidden" })}
             >
-              {/* {console.log(localStorage.getItem["items"])}
-              {JSON.parse(localStorage.getItem["items"]).map((data) => (
+              {console.log(localStorage.getItem["items"])}
+              {JSON.parse(this.state.data).map((data) => (
                 <Item data={data}></Item>
-              ))} */}
+              ))}
               <Link
                 to="/cart"
                 className="cursor-pointer relative bg-white bg-red-600 text-white font-bold pt-1 pb-1 pl-5 pr-5"
