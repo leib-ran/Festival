@@ -3,9 +3,12 @@ import React from "react";
 export default class Item extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      amount: Number(this.props.data["quan"]),
+    };
     this.addOne = this.addOne.bind(this);
     this.subMinus = this.subMinus.bind(this);
+    this.remove = this.remove.bind(this);
   }
 
   addOne() {
@@ -15,6 +18,19 @@ export default class Item extends React.Component {
   subMinus() {
     let newAmount = this.state.amount <= 0 ? 0 : this.state.amount - 1;
     this.setState({ amount: newAmount });
+  }
+
+  remove() {
+    let index = this.props.index;
+    let storage = JSON.parse(localStorage.getItem("items"));
+    let quan = localStorage.getItem("quan");
+    let item = storage[index];
+    quan = Number(quan) - Number(item["quan"]);
+    storage = storage.slice(0, index).concat(storage.slice(index + 1));
+    console.log(storage);
+    localStorage.setItem("items", storage);
+    localStorage.setItem("quan", quan);
+    this.props.setItems();
   }
 
   render() {
@@ -35,13 +51,16 @@ export default class Item extends React.Component {
                   +
                 </div>
                 <div className="border-2 border-black h-6">
-                  {this.props.data["quan"]}
+                  {this.state.amount}
                 </div>
                 <div className="cursor-pointer" onClick={this.subMinus}>
                   -
                 </div>
               </div>
-              <div className="bg-red-600 w-36 font-bold text-center text-white">
+              <div
+                className="bg-red-600 w-36 font-bold text-center text-white"
+                onClick={this.remove}
+              >
                 Remove
               </div>
             </h1>

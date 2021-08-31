@@ -99,8 +99,8 @@ class Navbar extends React.Component {
               onMouseLeave={() => this.setState({ show: "hidden" })}
             >
               {console.log(localStorage.getItem["items"])}
-              {JSON.parse(this.state.data).map((data) => (
-                <Item data={data}></Item>
+              {JSON.parse(this.state.data).map((data, index) => (
+                <Item data={data} key={`item-${index}`} index={index}></Item>
               ))}
               <Link
                 to="/cart"

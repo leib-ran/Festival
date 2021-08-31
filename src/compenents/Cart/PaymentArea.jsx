@@ -18,6 +18,19 @@ export default class PaymentArea extends React.Component {
     this.getTotalPrice();
   }
 
+  static getDerivedStateFromProps(props, state) {
+    // if (localStorage.getItem("items")) {
+    //   this.getTotalPrice();
+    // }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps["data"] == nextState["data"]) {
+      console.log("shiki");
+    }
+    return false;
+  }
+
   getTotalPrice() {
     let totalAmountItems = 0;
     let totalprice = 0;
