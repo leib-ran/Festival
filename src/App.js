@@ -12,6 +12,7 @@ import BottomPage from "./compenents/Footer/BottomPage";
 import HomePage from "./compenents/HomePage/HomePage";
 import Cart from "./compenents/Cart/Cart";
 import React from "react";
+import CheckoutPage from "./compenents/CheckoutPage/CheckoutPage";
 
 class App extends React.Component {
   constructor() {
@@ -52,6 +53,7 @@ class App extends React.Component {
               <Route exact path="/Blog" component={Blog} />
               <Route exact path="/SignUp" component={signUp} />
               <Route exact path="/cart" component={Cart} />
+              <Route exact path="/checkout" component={CheckoutPage} />
               <BottomPage />
             </div>
           </Switch>

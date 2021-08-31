@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class PaymentArea extends React.Component {
   constructor(props) {
@@ -97,9 +98,12 @@ export default class PaymentArea extends React.Component {
           <h1>Total</h1>
           <h1>{this.state["totalpriceVat"]}$</h1>
         </div>
-        <div className="bg-red-500 hover:bg-yellow-500 cursor-pointer text-white text-center font-bold p-2">
+        <Link
+          to="/checkout"
+          className="bg-red-500 hover:bg-yellow-500 cursor-pointer text-white text-center font-bold p-2"
+        >
           checkout
-        </div>
+        </Link>
       </div>
     );
   }
