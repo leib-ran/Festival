@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Form extends React.Component {
+export default class FormPart extends React.Component {
   constructor() {
     super();
   }
@@ -8,18 +8,18 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <Form>
+        <form>
           <div className="flex">
             <label className="w-36" placeholder="">
               first name
             </label>
-            <input type="text" />
+            <input type="text" className="border-2 border-black" />
             <label className="w-36" placeholder="">
               last name
             </label>
-            <input type="text" />
+            <input className="border-2 border-black" type="text" />
           </div>
-        </Form>
+        </form>
       </div>
     );
   }
