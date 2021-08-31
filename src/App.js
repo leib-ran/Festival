@@ -1,7 +1,7 @@
 import "./App.css";
 import ProductPage from "./compenents/ProductPage/ProductPage";
 import CategoryArea from "./compenents/CatalogPage/CategoryArea";
-import { Route, Switch } from "react-router";
+import { Route, Switch } from "react-router-dom";
 import Contact from "./compenents/ContactPage/Contact";
 import About from "./compenents/About/About";
 import LogIn from "./compenents/SignIn/SignIn";

@@ -25,12 +25,12 @@ export default class PaymentArea extends React.Component {
     // }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps["data"] == nextState["data"]) {
-      console.log("shiki");
-    }
-    return false;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (nextProps["data"] == nextState["data"]) {
+  //     console.log("shiki");
+  //   }
+  //   return false;
+  // }
 
   getTotalPrice() {
     let totalAmountItems = 0;
