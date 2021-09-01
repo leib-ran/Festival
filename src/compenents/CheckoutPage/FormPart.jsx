@@ -1,91 +1,68 @@
 import React from "react";
-import {
-  isEmailValid,
-  isNameValid,
-  isAddressValid,
-} from "../../helper/validation";
+import Field from "./Field";
+import { isNameValid } from "../../helper/validation";
 
 export default class FormPart extends React.Component {
   constructor() {
     super();
     this.state = {
-      validObj: {},
+      fields: [],
+      show: true,
+      errors: {},
     };
-    this.handelchange = this.handelchange.bind(this);
+    this.changeHandler.bind(this);
   }
 
-  handelchange(e) {
-    let objNames = {
-      firstname: isNameValid,
-      emaliAddress: isAddressValid,
-    };
-    let errorsmessage = {
-      firstname: "the name is filled wrong only alpha betic nospaces",
-      lastname: "the name is filled wrong only alpha betic nospaces",
-    };
-    let validObj = { ...this.state.validObj };
-    let nameComponent = e.target.name;
-    let flag = true;
-    if (!objNames[nameComponent]()) {
-      validObj[nameComponent] = false;
+  componentDidMount() {
+    fetch("/formCheckout.json")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        this.setState({ fields: res["data"] });
+      });
+  }
+
+  submitHandel(e) {
+    e.preventDefault();
+  }
+
+  changeHandler(e) {
+    let feildName = e.target.name;
+    let errors = { ...this.state.errors };
+    if (e.target.value == "") {
+      errors[feildName] = this.fields[feildName].required;
     }
-    this.setState({ validObj: validObj });
   }
 
   render() {
     return (
-      <div className="w-1/3 m-auto">
-        <form>
-          <div className="">
-            <div className="text-5xl text-center mb-10">Checkout Form</div>
-            <div className="flex justify-between">
-              <div>
-                <label className="w-36" placeholder="">
-                  first name
-                </label>
-                <input
-                  name="firstname"
-                  type="text"
-                  className="border-2 border-black"
-                />
-              </div>
-
-              <div>
-                <label className="w-36">last name</label>
-                <input
-                  name="lastName"
-                  className="border-2 border-black"
-                  type="text"
-                  placeholder="Enter firstname and fullname"
-                />
-              </div>
+      <div>
+        <form className="m-auto" action="">
+          <div className="m-auto text-center font-bold text-4xl">
+            Checkout Form
+          </div>
+          <div className="w-1/3 m-auto mt-4">
+            <div className="flex">
+              {this.state["fields"].map((field) => {
+                return (
+                  <Field
+                    name={field["fieldName"]}
+                    changeHandler={this.changeHandler}
+                    msg={this.state.errors}
+                  ></Field>
+                );
+              })}
+            </div>
+            <div className="m-auto mt-4 w-40">
+              <button
+                className="bg-red-500 text-white border-black border-2"
+                onClick={this.submitHandel}
+              >
+                Checkout
+              </button>
             </div>
           </div>
-          <label>Address</label>
-          <input
-            className="border-2 border-black"
-            name="address"
-            type="text"
-          ></input>
-          <label>Country/Region</label>
-          <input className="border-2 border-black" name="country" type="text" />
-          <label>state</label>
-          <input type="text"></input>
-
-          <label>zipcode</label>
-          <input
-            className="border-2 border-black"
-            name="zipcode"
-            type="text"
-          ></input>
-          <label>Email address</label>
-          <input
-            name="emaliAddress"
-            className="border-2 border-black"
-            type="text"
-          />
-          <label>passward</label>
-          <input className="border-2 border-black" type="submit" value="ran" />
         </form>
       </div>
     );

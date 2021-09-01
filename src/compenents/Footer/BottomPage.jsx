@@ -15,7 +15,7 @@ export default function BottomPage() {
         <a href="https://www.instagram.com/">
           <FontAwesomeIcon
             icon={faInstagram}
-            className="text-3xl text-black"
+            className="text-3xl text-white"
           ></FontAwesomeIcon>
         </a>
         <a href="https://www.facebook.com/">
