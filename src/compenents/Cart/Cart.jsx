@@ -20,7 +20,6 @@ export default class Cart extends React.Component {
 
   setItems() {
     let items = localStorage.getItem("items") || "[]";
-    console.log("ran");
     this.setState({ items: items });
   }
 
