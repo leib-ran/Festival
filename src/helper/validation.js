@@ -5,17 +5,17 @@ function emailValidation(value, pattern) {
   return false;
 }
 
-function isEmailValid(value) {
+export function isEmailValid(value) {
   let pattern = /^[a-z]{2}[\w]{0,15}@[\w]{0,5}[.][\w]{2,5}$/gi;
   return emailValidation(value, pattern);
 }
 
-function isFullName(value) {
-  let pattern = /^[a-z]{0,10}\s$/gi;
+export function isNameValid(value) {
+  let pattern = /^[a-z]{2,10}\s$/gi;
   return emailValidation(value, pattern);
 }
 
-function isAddressValid(value) {
+export function isAddressValid(value) {
   let pattern = /[a-z]{2,10}/gi;
   return emailValidation(value, pattern);
 }
