@@ -1,8 +1,8 @@
 export default function Field(props) {
   return (
-    <div>
+    <div className="w-1/3 m-2">
       <label>
-        {props.name}
+        <div>{props.name}</div>
         <input
           className="border-2 border-black"
           name={props.name}
@@ -12,7 +12,7 @@ export default function Field(props) {
           }}
         />
       </label>
-      <div> {props.show && props.msg}</div>
+      <div className="text-red-500 text-xs h-2"> {props.show && props.msg}</div>
     </div>
   );
 }

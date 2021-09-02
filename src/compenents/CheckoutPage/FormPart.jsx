@@ -1,16 +1,20 @@
 import React from "react";
 import Field from "./Field";
 import { isNameValid } from "../../helper/validation";
+import validationFuncs from "../../helper/validation";
+import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
+import { faCcPaypal } from "@fortawesome/free-brands-svg-icons";
 
 export default class FormPart extends React.Component {
   constructor() {
     super();
     this.state = {
       fields: [],
-      show: true,
+      show: false,
       errors: {},
     };
-    this.changeHandler.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
+    this.submitHandel = this.submitHandel.bind(this);
   }
 
   componentDidMount() {
@@ -19,20 +23,51 @@ export default class FormPart extends React.Component {
         return res.json();
       })
       .then((res) => {
-        this.setState({ fields: res["data"] });
+        let feildsArr = res["data"][0];
+        let errors = this.fillRequireError(feildsArr);
+        this.setState({ fields: feildsArr, errors: errors });
       });
   }
 
   submitHandel(e) {
     e.preventDefault();
+    this.setState({ show: true });
+  }
+
+  fillRequireError(feildsArr) {
+    console.log(feildsArr);
+    let errors = {};
+    Object.values(feildsArr).map((field) => {
+      if (field["required"]) {
+        errors[field["fieldName"]] = this.require();
+      }
+    });
+    return errors;
   }
 
   changeHandler(e) {
     let feildName = e.target.name;
-    let errors = { ...this.state.errors };
+    let errors = { ...this.state.errors } || "";
+    let feild = this.state.fields[feildName];
+    let feildValidations = feild["validation"];
+
     if (e.target.value == "") {
-      errors[feildName] = this.fields[feildName].required;
+      errors[feildName] = this.require();
+    } else {
+      errors[feildName] = "";
     }
+
+    for (let index = 0; index < feildValidations.length; index++) {
+      if (!validationFuncs[feildValidations[index]](e.target.value)) {
+        errors[feildName] = feild["msgError"][index];
+      }
+    }
+
+    this.setState({ errors: errors });
+  }
+
+  require() {
+    return "This field is required to be filled";
   }
 
   render() {
@@ -43,13 +78,17 @@ export default class FormPart extends React.Component {
             Checkout Form
           </div>
           <div className="w-1/3 m-auto mt-4">
-            <div className="flex">
-              {this.state["fields"].map((field) => {
+            <div className="flex flex-wrap justify-between">
+              {Object.values(this.state["fields"]).map((field) => {
+                {
+                  console.log(this.state.errors);
+                }
                 return (
                   <Field
                     name={field["fieldName"]}
                     changeHandler={this.changeHandler}
-                    msg={this.state.errors}
+                    msg={this.state.errors[field["fieldName"]] || ""}
+                    show={this.state.show}
                   ></Field>
                 );
               })}
@@ -61,6 +100,10 @@ export default class FormPart extends React.Component {
               >
                 Checkout
               </button>
+              <faFontAwesome
+                className="text-yellow-500"
+                icon={faCcPaypal}
+              ></faFontAwesome>
             </div>
           </div>
         </form>
