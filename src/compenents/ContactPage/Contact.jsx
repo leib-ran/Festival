@@ -1,11 +1,17 @@
 import React from "react";
-import Map from "../Map/Map";
+import ContactMap from "./ContactMap";
 
-export default function Contact() {
-  return (
-    <div>
-      <Map></Map>
-      <h1>contact</h1>
-    </div>
-  );
+export default class Contact extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <div>
+        <div className="flex">
+          <ContactMap></ContactMap>
+        </div>
+      </div>
+    );
+  }
 }
