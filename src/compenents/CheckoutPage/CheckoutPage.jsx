@@ -7,7 +7,7 @@ export default class CheckoutPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="h-">
         <FormPart />
       </div>
     );

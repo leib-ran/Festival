@@ -1,0 +1,49 @@
+{ "data":
+    [
+     {"First Name": {
+            "fieldName":"First Name",
+            "required":true,
+            "validation":["alpha","maxTwenty","minTwo"],
+            "msgError":["character only","first limited to 20 charcters","the minimum number is two"]
+
+        },
+        "Last Name": {
+            "fieldName":"Last Name",
+            "required":true,
+            "validation":["alpha","maxTwenty","minTwo"],
+            "msgError":["character only","Last Name limited to 20 charcters","the minimum number is two"]
+        
+        }, 
+         "Street Name": {
+            "fieldName":"Street Name",
+            "required":true,
+            "validation":["alpha","maxTwenty","minTwo"],
+            "msgError":["character only","lastname limited to 20 charcters","the minimum number is two"]
+
+    },
+    "Street Number": {
+        "fieldName":"Street Number",
+        "required":false,
+        "validation":["alpha","maxTwenty","minTwo"],
+        "msgError":["character only","lastname limited to 20 charcters","the minimum number is two"]
+
+},
+    "city" : {
+        "fieldName":"city",
+        "required":true,
+        "validation":["alpha","maxTwenty","minTwo"],
+        "msgError":["character only","lastname limited to 20 charcters","the minimum number is two"]
+
+},
+"Phone": {
+    "fieldName":"Phone",
+    "required":false,
+    "validation":["alpha","maxTwenty","minTwo"],
+    "msgError":["character only","lastname limited to 20 charcters","the minimum number is two"]
+
+}
+
+
+}
+    ]
+}
