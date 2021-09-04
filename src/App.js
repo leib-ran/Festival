@@ -31,10 +31,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className=" bg-no-repeat bg-cover bg-center min-h-screen">
+      <div className="min-h-screen flex flex-col">
+        <div className=" ">
           <Switch>
-            <div className="\	">
+            <div className="\	min-h-screen flex flex-col">
               <Navbar quan={this.state.quan} />
               <Route exact path="/store" component={CategoryArea} />
               <Route exact path="/" component={HomePage} />
