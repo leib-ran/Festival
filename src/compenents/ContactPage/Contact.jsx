@@ -8,7 +8,7 @@ export default class Contact extends React.Component {
   render() {
     return (
       <div>
-        <div className="flex">
+        <div className="flex justify-between">
           <ContactMap></ContactMap>
         </div>
       </div>

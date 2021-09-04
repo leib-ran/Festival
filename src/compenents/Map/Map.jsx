@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 export default function Map(props) {
   let { center, zoom, scrollWheelZoom } = { ...props.mapContainer };
   let { attribution, url } = { ...props.TileLayer };
-  console.log(center);
   return (
     <div>
       {console.log("ran")}

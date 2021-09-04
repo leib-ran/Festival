@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../Carousel/Carousel";
 import Globe from "./Globe";
 import WelcomingTitle from "./WelcomingTitle";
+import HomePageMap from "./HomePageMap";
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -15,17 +16,17 @@ export default class HomePage extends React.Component {
           src="/images/homePagebackground/home_page_image.jpg"
           className="inset-0 absolute z-0 filter saturate-200 hue-rotate-180 invert"
         />
-        <div className="absolute  top-1/4 left-1/4 w-2/3  mr-auto">
-          <div className="absolute  w-2/3 bg-red-500 mb-2 mt-2 h-48 opacity-10"></div>
+        <div className="absolute  top-1/6 left-1/5 m-2 w-2/3 h-full  mr-auto">
+          <div className="absolute w-full bg-red-500 mb-2 mt-2 h-48 opacity-10"></div>
           <div className="">
-            <div className="text-white ">
+            <div className="text-white flex">
               <WelcomingTitle />
             </div>
           </div>
         </div>
 
         <div className="realtive">
-          <div className="flex">
+          <div className="flex ">
             {/* <Carousel>
                 <img
                   src="/images/caruselLink/leftCarusel.jpg"
