@@ -91,7 +91,7 @@ export default class FormPart extends React.Component {
           <div className="m-auto text-center font-bold text-4xl">
             {`${this.props.formName}`}
           </div>
-          <div className="w-1/3 m-auto mt-4">
+          <div className="w-9/12 m-auto mt-4">
             <div className="flex flex-wrap justify-between">
               {Object.values(this.state["fields"]).map((field) => {
                 return (
