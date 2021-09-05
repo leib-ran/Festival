@@ -4,6 +4,7 @@ import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 import Filter from "./Filter";
 import queryString from "query-string";
 import ToggelCategory from "../ToggelCategory/ToggelCategory";
+import ModalFilterSort from "./ModalFilterSort";
 
 export default class CategoryArea extends React.Component {
   constructor(props) {
@@ -14,8 +15,11 @@ export default class CategoryArea extends React.Component {
       checked: [],
       sortedData: [],
       prevLocation: [],
+      showToggle: true,
+      modalWidth: 0,
     };
     this.selectedSubCategories = this.selectedSubCategories.bind(this);
+    this.hideToggle = this.hideToggle.bind(this);
   }
 
   componentDidMount() {
@@ -100,6 +104,10 @@ export default class CategoryArea extends React.Component {
     }
   }
 
+  hideToggle() {
+    this.setState({ filterSortModalDisplay: true, modalWidth: "full" });
+  }
+
   render() {
     const searchWord = this.state.searchWord || "";
     const pattern =
@@ -131,11 +139,14 @@ export default class CategoryArea extends React.Component {
 
     return (
       <div>
-        <div className="flex">
-          <div>
+        <div>
+          {!this.state.filterSortModalDisplay && (
+            <ToggelCategory hideToggle={this.hideToggle}></ToggelCategory>
+          )}
+          <div className="flex">
             <div>
-              <ToggelCategory></ToggelCategory>
-              <select
+              <div>
+                {/* <select
                 className="border-black border-2 m-0"
                 onChang
                 e={(e) => this.sortProduct(e.target)}
@@ -149,22 +160,23 @@ export default class CategoryArea extends React.Component {
                 <option value="lowUsdprice">low price to high price</option>
                 <option value="Usdprice">high price to low price</option>
                 <option value="nameProduct">alef beit</option>
-              </select>
-            </div>
-            <Filter
+              </select> */}
+              </div>
+              {/* <Filter
               filterData={filteredData}
               selectBox={this.selectedSubCategories}
-            />
-          </div>
-          <div className="ml-auto mr-auto">
-            <h1 className="text-left">categories:</h1>
-            <h1 className="text-left">results:</h1>
-
-            <div className="flex flex-wrap ml mr-auto">
-              {filteredData.map((element, index) => {
-                return <Card key={index} data={element}></Card>;
-              })}
+            /> */}
             </div>
+            <div className="ml-auto mr-auto">
+              <div className="flex flex-wrap ml mr-auto">
+                {filteredData.map((element, index) => {
+                  return <Card key={index} data={element}></Card>;
+                })}
+              </div>
+            </div>
+            <ModalFilterSort
+              modalWidth={this.state.modalWidth}
+            ></ModalFilterSort>
           </div>
         </div>
       </div>

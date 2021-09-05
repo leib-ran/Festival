@@ -732,6 +732,7 @@ module.exports = {
       500: "500ms",
       700: "700ms",
       1000: "1000ms",
+      10000: "10000ms",
     },
     transitionDuration: {
       DEFAULT: "150ms",
@@ -743,12 +744,13 @@ module.exports = {
       500: "500ms",
       700: "700ms",
       1000: "1000ms",
+      10000: "10000ms",
     },
     transitionProperty: {
       none: "none",
       all: "all",
       DEFAULT:
-        "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+        "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,w ,backdrop-filter",
       colors: "background-color, border-color, color, fill, stroke",
       opacity: "opacity",
       shadow: "box-shadow",
