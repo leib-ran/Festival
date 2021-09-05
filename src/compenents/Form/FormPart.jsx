@@ -1,5 +1,5 @@
 import React from "react";
-import Field from "../Form/Field";
+import Field from "./Field";
 import { isNameValid } from "../../helper/validation";
 import validationFuncs from "../../helper/validation";
 import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
