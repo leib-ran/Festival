@@ -8,8 +8,11 @@ export default class Contact extends React.Component {
   render() {
     return (
       <div>
-        <div className="flex justify-between">
-          <ContactMap></ContactMap>
+        <div className="flex justify-center">
+          <div className="w-96">ran</div>
+          <div className="w-96 h-96 filter overflow-hidden invert">
+            <ContactMap></ContactMap>
+          </div>
         </div>
       </div>
     );

@@ -5,8 +5,8 @@ export default function Contact() {
   let mapContainer = {
     scrollWheelZoom: true,
     className: "w-1.2 h-40	",
-    center: [34.1628718, 20.8452393],
-    zoom: 1,
+    center: [28.1628718, 34.8452393],
+    zoom: 5,
     scrollWheelZoom: false,
   };
   let position = [32.1628718, 34.8452393];

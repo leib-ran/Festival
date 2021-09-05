@@ -12,7 +12,9 @@ export default function Field(props) {
           }}
         />
       </label>
-      <div className="text-red-500 text-xs h-2"> {props.show && props.msg}</div>
+      <div className={"text-red-500 text-xs h-2" + props.classNameField}>
+        {props.show && props.msg}
+      </div>
     </div>
   );
 }
