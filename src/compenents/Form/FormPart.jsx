@@ -89,7 +89,7 @@ export default class FormPart extends React.Component {
       <div>
         <form className="m-auto" action="">
           <div className="m-auto text-center font-bold text-4xl">
-            Checkout Form
+            {`${this.props.formName}`}
           </div>
           <div className="w-1/3 m-auto mt-4">
             <div className="flex flex-wrap justify-between">
@@ -110,7 +110,7 @@ export default class FormPart extends React.Component {
                 className={`bg-red-500 text-white border-black border-2`}
                 onClick={this.submitHandel}
               >
-                Checkout
+                {this.props.buttonValue}
               </button>
             </div>
           </div>
