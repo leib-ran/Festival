@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
         <div className="relative h-screen  z-1 flex">
           <img
             src="/images/homePagebackground/home_page_image.jpg"
-            className="inset-0 absolute w-full z-0 filter saturate-200 hue-rotate-180 invert"
+            className="inset-0 absolute w-full h-screen z-0 filter saturate-200 hue-rotate-180 invert"
           />
           <div className="absolute w-full top-1/6 left-1/5 m-2">
             <div className="absolute w-full bg-red-500 mb-2 mt-2 opacity-10"></div>

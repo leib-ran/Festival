@@ -2,7 +2,7 @@ import React from "react";
 export default function About(params) {
   return (
     <div className="w-full text-center">
-      <h1>About us</h1>
+      <h1 className="font-bold">About us</h1>
       <div className="flex justify-center ">
         <p className="w-96">
           Dionisos Company help any person from all over the world to enter to

@@ -168,10 +168,12 @@ export default class CategoryArea extends React.Component {
             /> */}
             </div>
             <div className="ml-auto mr-auto">
-              <div className="flex flex-wrap ml mr-auto">
-                {filteredData.map((element, index) => {
-                  return <Card key={index} data={element}></Card>;
-                })}
+              <div className="w-1/2">
+                <div className="flex flex-wrap ml mr-auto">
+                  {filteredData.map((element, index) => {
+                    return <Card key={index} data={element}></Card>;
+                  })}
+                </div>
               </div>
             </div>
             <ModalFilterSort

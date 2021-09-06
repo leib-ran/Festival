@@ -17,18 +17,18 @@ export default class WelcomingTitle extends React.Component {
 
   render() {
     return (
-      <div className="w-5/12 overflow-hidden">
+      <div className="lg:w-5/12 md:w-8/12 sm:m-auto md:m-0 sm:w-full overflow-hidden">
         <div
-          className={` transition-all  relative duration-1000 ease-in-out "`}
+          className={`transition-all relative duration-1000 ease-in-out "`}
           style={{
             transform: `translateY(${this.state.index * 100}%)`,
           }}
         >
-          <div className="relative ">
+          <div className="relative">
             <div className="absolute w-full h-full bg-gray-500 opacity-60"></div>
             <div className="text-4xl  text-center relative">
               Choose Festival
-              <div className="  overflow-hidden  h-full  m-auto   filter  brightness-75  contrast-150	rounded-full invert	saturate-200	opacity-90">
+              <div className="  overflow-hidden  h-full  m-auto   filter  brightness-75 md:rounded-full	 contrast-150	lg:rounded-full sm:rounded-none	 invert	saturate-200	opacity-90">
                 <HomePageMap />
               </div>
             </div>
