@@ -1,5 +1,6 @@
 import React from "react";
 import HomePageMap from "./HomePageMap";
+import LocationArea from "./LocationArea";
 
 export default class WelcomingTitle extends React.Component {
   constructor() {
@@ -7,11 +8,12 @@ export default class WelcomingTitle extends React.Component {
     this.state = {
       index: -1,
       show: "100",
+      showCategoryArea: "0",
     };
   }
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ index: 0, show: "0" });
+      this.setState({ index: 0, show: "0", showCategoryArea: "100" });
     }, 3000);
   }
 
@@ -30,6 +32,11 @@ export default class WelcomingTitle extends React.Component {
               Choose Festival
               <div className="  overflow-hidden  h-full  m-auto   filter  brightness-75 md:rounded-full	 contrast-150	lg:rounded-full sm:rounded-none	 invert	saturate-200	opacity-90">
                 <HomePageMap />
+              </div>
+              <div
+                className={`opacity-${this.state.showCategoryArea} transition delay-1000 duration-1000 ease-in-out`}
+              >
+                <LocationArea />
               </div>
             </div>
           </div>
