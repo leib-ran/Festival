@@ -5,7 +5,6 @@ export default function Map(props) {
   let { attribution, url } = { ...props.TileLayer };
   return (
     <div>
-      {console.log("ran")}
       <MapContainer
         center={center}
         zoom={zoom}

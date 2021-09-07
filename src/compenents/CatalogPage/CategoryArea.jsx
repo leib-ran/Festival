@@ -14,8 +14,6 @@ export default class CategoryArea extends React.Component {
       searchWord: "",
       checked: [],
       sortedData: [],
-      prevLocation: [],
-      showToggle: true,
       modalWidth: 0,
     };
     this.selectedSubCategories = this.selectedSubCategories.bind(this);

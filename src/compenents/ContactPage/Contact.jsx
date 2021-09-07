@@ -1,6 +1,7 @@
 import React from "react";
 import ContactMap from "./ContactMap";
 import ContactForm from "./ContactForm";
+import ConctactDetail from "./ConctactDetail";
 
 export default class Contact extends React.Component {
   constructor() {
@@ -15,11 +16,7 @@ export default class Contact extends React.Component {
             <ContactMap></ContactMap>
           </div>
         </div>
-        <div className="font-bold text-center">
-          <div>Isreal Offices</div>
-          <p>Ygal alon St</p>
-          <p>Tel Aviv 190909,Israel</p>
-        </div>
+        <ConctactDetail />
       </div>
     );
   }

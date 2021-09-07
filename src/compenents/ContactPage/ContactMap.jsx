@@ -1,7 +1,7 @@
 import React from "react";
 import Map from "../Map/Map";
 
-export default function Contact() {
+export default function ContactMap() {
   let mapContainer = {
     scrollWheelZoom: true,
     className: "w-1.2 h-40	",

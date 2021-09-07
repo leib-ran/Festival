@@ -10,6 +10,7 @@ import {
   faBed,
   faEraser,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
 
 export default class Product extends React.Component {
   constructor(props) {
