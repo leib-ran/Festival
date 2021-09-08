@@ -1,6 +1,6 @@
 const initialState = localStorage.getItem("items")
   ? JSON.parse(localStorage.getItem("items"))
-  : {};
+  : [];
 
 export const itemHandlerReducer = (state = initialState, action) => {
   switch (action.type) {

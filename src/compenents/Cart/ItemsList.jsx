@@ -8,7 +8,6 @@ function ItemsList() {
       {items.map((item, index) => {
         return <Item data={item} key={`item-${index}`} index={index}></Item>;
       })}
-      ;
     </div>
   );
 }
