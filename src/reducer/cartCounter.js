@@ -3,10 +3,11 @@ const initialState = localStorage.getItem("quan") || 0;
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case "INCREAMENT":
-      return state + 1;
+      console.log(state);
+      return Number(state) + Number(action.payload);
 
     case "DECREAMENT":
-      return state - 1;
+      return Number(state) - Number(action.payload);
   }
   return state;
 };

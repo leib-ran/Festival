@@ -10,7 +10,7 @@ import {
   faBed,
   faEraser,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
+import AddToCartRe from "./AddToCart";
 
 export default class Product extends React.Component {
   constructor(props) {
@@ -45,7 +45,7 @@ export default class Product extends React.Component {
   addToCart(quan, target) {
     this.updateQuan();
     this.addToLocalStorage(target);
-    setTimeout(this.setState({ show: "" }), 10000);
+    setTimeout(this.setState({ show: "" }), 1000);
   }
   addToLocalStorage(item) {
     item["quan"] = this.input.current.value;
@@ -220,10 +220,11 @@ export default class Product extends React.Component {
                       >
                         <span>Add to cart</span>
                       </div>
+
                       <div className={`${this.state.show}`}>
                         your product is added to the cart
                       </div>
-
+                      <AddToCartRe quan={this.state.quan} />
                       <div className="bg-red-800 pb-2 text-white mt-2 cursor-pointer hover:bg-yellow-500 hover:text-gray-900">
                         <span>Buy</span>
                       </div>

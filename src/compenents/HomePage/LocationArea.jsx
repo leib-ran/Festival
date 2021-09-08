@@ -10,16 +10,18 @@ import LocationButton from "./LocationButton";
 
 export default function LocationArea(props) {
   const ContinentsIcons = [
-    { name: "AFRIKA", icon: faGlobeAfrica },
+    { name: "AFRIKA", icon: faGlobeAfrica, center: [0, 0] },
     {
       name: "AMERICA",
       icon: faGlobeAmericas,
+      center: [0, 0],
     },
     {
       name: "ASIA",
       icon: faGlobeAsia,
+      center: [0, 0],
     },
-    { name: "EUROPE", icon: faGlobeEurope },
+    { name: "EUROPE", icon: faGlobeEurope, center: [0, 0] },
   ];
 
   return (
