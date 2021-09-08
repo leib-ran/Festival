@@ -8,7 +8,9 @@ export const itemHandlerReducer = (state = initialState, action) => {
       return state.concat(action.payload);
 
     case "REMOVEITEM":
-      break;
+      return state
+        .slice(0, action.payload)
+        .concat(state.slice(action.payload + 1));
   }
   return state;
 };

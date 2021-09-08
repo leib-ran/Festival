@@ -19,9 +19,9 @@ export const addItem = (item) => {
   };
 };
 
-export const removeItem = (item) => {
+export const removeItem = (index) => {
   return {
     type: "REMOVEITEM",
-    payload: item,
+    payload: index,
   };
 };

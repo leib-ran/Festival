@@ -1,4 +1,5 @@
 import React from "react";
+import Remove from "./Remove";
 
 export default class Item extends React.Component {
   constructor(props) {
@@ -57,12 +58,7 @@ export default class Item extends React.Component {
                   -
                 </div>
               </div>
-              <div
-                className="bg-red-600 w-36 font-bold text-center text-white"
-                onClick={this.remove}
-              >
-                Remove
-              </div>
+              <Remove index={this.props.index} />
             </h1>
           </div>
         </div>

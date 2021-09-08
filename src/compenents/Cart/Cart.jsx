@@ -16,7 +16,7 @@ export default class Cart extends React.Component {
         <div className="bg-gray-100 pt-4 pb-4 text-center mt-20 text-3xl font-medium	">
           Cart
         </div>
-        <div className="md:flex mt-4 ">
+        <div className="md:flex mt-4  ">
           <div className="ml-5">
             <ItemsList />
           </div>
