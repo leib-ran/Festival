@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "./item";
+import ItemsList from "./ItemsList";
 import PaymentArea from "./PaymentArea";
 
 export default class Cart extends React.Component {
@@ -27,7 +28,7 @@ export default class Cart extends React.Component {
     return (
       <div className="flex justify-center">
         <div className="ml-5">
-          {JSON.parse(this.state.items).map((item, index) => {
+          {/* {JSON.parse(this.state.items).map((item, index) => {
             return (
               <Item
                 data={item}
@@ -36,7 +37,8 @@ export default class Cart extends React.Component {
                 index={index}
               ></Item>
             );
-          })}
+          })} */}
+          <ItemsList />
         </div>
         <PaymentArea data={JSON.parse(this.state.items)} />
       </div>
