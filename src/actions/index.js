@@ -11,3 +11,17 @@ export const decreament = (quan) => {
     payload: quan,
   };
 };
+
+export const addItem = (item) => {
+  return {
+    type: "ADDITEM",
+    payload: item,
+  };
+};
+
+export const removeItem = (item) => {
+  return {
+    type: "REMOVEITEM",
+    payload: item,
+  };
+};
