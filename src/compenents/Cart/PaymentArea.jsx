@@ -60,8 +60,8 @@ export default class PaymentArea extends React.Component {
 
   render() {
     return (
-      <div className="w-1/4 h-min-80  mr-8 bg-gray-100">
-        <div className="h-12 font-bold text-4xl border-black border-b-2">
+      <div className="lg:w-1/4 md:w-min-5/12 w-full h-min-80 m-auto md:mr-8 bg-gray-100">
+        <div className="h-min-12 font-bold text-4xl border-black border-b-2">
           total item {this.state["totalAmountItems"]}
         </div>
         <div className="flex justify-between">
