@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "./item";
+import ItemsList from "./ItemsList";
 import PaymentArea from "./PaymentArea";
 
 export default class Cart extends React.Component {
@@ -7,38 +7,21 @@ export default class Cart extends React.Component {
     super(props);
     this.state = {
       items: localStorage.getItem("items") || "[]",
-      priceOfItem: 0,
     };
-    this.setPrice = this.setPrice.bind(this);
-    this.setItems = this.setItems.bind(this);
-  }
-
-  setPrice(target, price) {
-    let priceProduct = Number(target.value) * Number(price);
-    this.setState({ priceOfItem: priceProduct });
-  }
-
-  setItems() {
-    let items = localStorage.getItem("items") || "[]";
-    this.setState({ items: items });
   }
 
   render() {
     return (
-      <div className="flex justify-center">
-        <div className="ml-5">
-          {JSON.parse(this.state.items).map((item, index) => {
-            return (
-              <Item
-                data={item}
-                setItems={this.setItems}
-                key={`item-${index}`}
-                index={index}
-              ></Item>
-            );
-          })}
+      <div>
+        <div className="bg-gray-100 pt-4 pb-4 text-center mt-20 text-3xl font-medium	">
+          Cart
         </div>
-        <PaymentArea data={JSON.parse(this.state.items)} />
+        <div className="md:flex mt-4  ">
+          <div className="ml-5">
+            <ItemsList />
+          </div>
+          <PaymentArea data={JSON.parse(this.state.items)} />
+        </div>
       </div>
     );
   }

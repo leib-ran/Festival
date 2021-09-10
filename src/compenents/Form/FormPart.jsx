@@ -6,15 +6,17 @@ import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 import { faCcPaypal } from "@fortawesome/free-brands-svg-icons";
 
 export default class FormPart extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       fields: [],
       show: false,
       errors: {},
+      opacity: 100,
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandel = this.submitHandel.bind(this);
+    this.filterWantedFiels = this.filterWantedFiels.bind(this);
   }
 
   componentDidMount() {
@@ -24,18 +26,30 @@ export default class FormPart extends React.Component {
       })
       .then((res) => {
         let feildsArr = res["data"][0];
-        let errors = this.fillRequireError(feildsArr);
-        this.setState({ fields: feildsArr, errors: errors });
+        let wantedFields = this.filterWantedFiels(feildsArr);
+        let errors = this.fillRequireError(wantedFields);
+        this.setState({ fields: wantedFields, errors: errors });
       });
+  }
+
+  filterWantedFiels(feildsArr) {
+    let filteredFields = [];
+    if (this.props.fieldArr == undefined) {
+      return feildsArr;
+    } else {
+      this.props.fieldArr.map((element, index) => {
+        filteredFields.push(feildsArr[element]);
+      });
+    }
+    return filteredFields;
   }
 
   submitHandel(e) {
     e.preventDefault();
-    this.setState({ show: true });
+    this.setState({ show: true, opacity: 0 });
   }
 
   fillRequireError(feildsArr) {
-    console.log(feildsArr);
     let errors = {};
     Object.values(feildsArr).map((field) => {
       if (field["required"]) {
@@ -75,35 +89,29 @@ export default class FormPart extends React.Component {
       <div>
         <form className="m-auto" action="">
           <div className="m-auto text-center font-bold text-4xl">
-            Checkout Form
+            {`${this.props.formName}`}
           </div>
-          <div className="w-1/3 m-auto mt-4">
+          <div className="w-9/12 m-auto mt-4">
             <div className="flex flex-wrap justify-between">
               {Object.values(this.state["fields"]).map((field) => {
-                {
-                  console.log(this.state.errors);
-                }
                 return (
                   <Field
                     name={field["fieldName"]}
                     changeHandler={this.changeHandler}
                     msg={this.state.errors[field["fieldName"]] || ""}
                     show={this.state.show}
+                    classNameField={`delay-10000 transition opacity-${this.state.opacity} ease-in-out`}
                   ></Field>
                 );
               })}
             </div>
             <div className="m-auto mt-4 w-40">
               <button
-                className="bg-red-500 text-white border-black border-2"
+                className={`bg-red-500 text-white border-black border-2`}
                 onClick={this.submitHandel}
               >
-                Checkout
+                {this.props.buttonValue}
               </button>
-              <faFontAwesome
-                className="text-yellow-500"
-                icon={faCcPaypal}
-              ></faFontAwesome>
             </div>
           </div>
         </form>

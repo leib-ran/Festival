@@ -98,7 +98,6 @@ module.exports = {
       "gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
       "gradient-to-tl":
         "linear-gradient(to top left, var(--tw-gradient-stops))",
-      desert: "url('/images/links/link_desert_item.jpg')",
     },
     backgroundOpacity: (theme) => theme("opacity"),
     backgroundPosition: {
@@ -732,6 +731,7 @@ module.exports = {
       500: "500ms",
       700: "700ms",
       1000: "1000ms",
+      10000: "10000ms",
     },
     transitionDuration: {
       DEFAULT: "150ms",
@@ -743,12 +743,18 @@ module.exports = {
       500: "500ms",
       700: "700ms",
       1000: "1000ms",
+      2000: "2000ms",
+      3000: "3000ms",
+      4000: "4000ms",
+      5000: "5000ms",
+
+      10000: "10000ms",
     },
     transitionProperty: {
       none: "none",
       all: "all",
       DEFAULT:
-        "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+        "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, width, height, backdrop-filter",
       colors: "background-color, border-color, color, fill, stroke",
       opacity: "opacity",
       shadow: "box-shadow",

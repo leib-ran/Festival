@@ -13,7 +13,7 @@
             "instoke": true,
             "subpics":["/images/tents/tent2","/images/tents/tent3","/images/tents/tent4"],
             "tags":["Leds","Sleeping bag"],
-            "stars":4,
+            "rank":4,
             "sells":"600",
             "description":"fabulas",
             "color":"pink"

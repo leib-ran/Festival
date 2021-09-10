@@ -24,10 +24,10 @@ export default class Carousel extends React.Component {
   render() {
     return (
       <div>
-        <div className="flex  overflow-hidden w-96">
-          <div className="transition duration-300 ml-auto mr-auto flex w-full relative bg-red-500">
+        <div className="flex w-full  overflow-hidden">
+          <div className="transition  duration-300 ml-auto mr-auto flex  relative">
             <div
-              className="absolute text-white text-5xl inset-y-2/4 left-2 cursor-pointer z-10"
+              className="absolute  text-white text-5xl inset-y-2/4 left-2 cursor-pointer z-10"
               onClick={this.prev.bind(this)}
             >
               &#8249;

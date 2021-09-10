@@ -1,5 +1,5 @@
 import React from "react";
-import FormPart from "./FormPart";
+import FormPart from "../Form/FormPart";
 export default class CheckoutPage extends React.Component {
   constructor() {
     super();
@@ -8,7 +8,7 @@ export default class CheckoutPage extends React.Component {
   render() {
     return (
       <div className="h-">
-        <FormPart />
+        <FormPart buttonValue="checkout" formName="Conact Us" />
       </div>
     );
   }

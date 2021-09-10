@@ -1,4 +1,5 @@
 import React from "react";
+import Remove from "./Remove";
 
 export default class Item extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class Item extends React.Component {
 
   render() {
     return (
-      <div className="border-2 h-40 shadow-lg w-2/3">
+      <div className="border-2 h-min-40 shadow-lg md:w-2/3 w-full">
         <div className="flex h-full justify-between">
           <img className="w-24 h-2/3" src={this.props.data["photo"]} />
           <div className="ml-2">
@@ -57,12 +58,7 @@ export default class Item extends React.Component {
                   -
                 </div>
               </div>
-              <div
-                className="bg-red-600 w-36 font-bold text-center text-white"
-                onClick={this.remove}
-              >
-                Remove
-              </div>
+              <Remove index={this.props.index} />
             </h1>
           </div>
         </div>
