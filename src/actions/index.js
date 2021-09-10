@@ -25,3 +25,27 @@ export const removeItem = (index) => {
     payload: index,
   };
 };
+
+export const shortendHide = () => {
+  return {
+    type: "SHORTENDHEIGHt",
+  };
+};
+
+export const extendHeight = () => {
+  return {
+    type: "EXTENDHEIGHT",
+  };
+};
+
+export const shortendHideWidth = () => {
+  return {
+    type: "SHORTENDWIDTH",
+  };
+};
+
+export const extendWidth = () => {
+  return {
+    type: "EXTENDWIDTH",
+  };
+};

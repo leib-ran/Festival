@@ -24,8 +24,11 @@ import { useSelector } from "react-redux";
 
 function Navbar() {
   const quantity = useSelector((state) => state.count);
+  const navbarHeight = useSelector((state) => state.heightHandler);
   return (
-    <div className="flex justify-between bg-gray-900  relative z-10">
+    <div
+      className={`flex justify-between bg-gray-900 h-${navbarHeight} overflow-hidden transition duration-1000 ease-in-out relative z-10`}
+    >
       <div className="flex">
         <div className="h-16 pt-1 w-16">
           <Logo></Logo>

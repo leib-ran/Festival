@@ -13,6 +13,7 @@ import HomePage from "./compenents/HomePage/HomePage";
 import Cart from "./compenents/Cart/Cart";
 import React from "react";
 import CheckoutPage from "./compenents/CheckoutPage/CheckoutPage";
+import CatlogPage from "./compenents/CatalogPage/CatlogPage";
 
 class App extends React.Component {
   constructor() {
@@ -36,7 +37,7 @@ class App extends React.Component {
           <Switch>
             <div className="\	min-h-screen flex flex-col">
               <Navbar quan={this.state.quan} />
-              <Route exact path="/store" component={CategoryArea} />
+              <Route exact path="/store" component={CatlogPage} />
               <Route exact path="/" component={HomePage} />
               <Route exact path="/login" component={LogIn} />
               <Route

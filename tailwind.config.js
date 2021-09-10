@@ -754,7 +754,7 @@ module.exports = {
       none: "none",
       all: "all",
       DEFAULT:
-        "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,w ,backdrop-filter",
+        "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, width, height, backdrop-filter",
       colors: "background-color, border-color, color, fill, stroke",
       opacity: "opacity",
       shadow: "box-shadow",

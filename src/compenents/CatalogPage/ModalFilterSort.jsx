@@ -1,24 +1,22 @@
 import React from "react";
-import CategoryButton from "./ModalCategoryButton";
+import { useSelector } from "react-redux";
+import ModalCategoryButton from "./ModalCategoryButton";
 
-export default class ModalFilterSort extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div
-        className={`transition shadow-2xl	 duration-10000 ease-in-out w-${this.props.modalWidth} overflow-hidden`}
-      >
-        <div className="">
-          <div className="flex bg-white  justify-between">
-            <div></div>
-            <div>Filter&Sort</div>
-            <div>x</div>
-          </div>
-          <CategoryButton name="Flight" />
+export default function ModalFilterSort() {
+  const width = useSelector((state) => state.widthFilterSortModal);
+
+  return (
+    <div
+      className={`transition shadow-2xl	 duration-2000 delay-1000 ease-in-out w-${width} overflow-hidden`}
+    >
+      <div className="">
+        <div className="flex bg-white  justify-between">
+          <div></div>
+          <div>Filter&Sort</div>
+          <div>x</div>
         </div>
+        <ModalCategoryButton name="Flight" />
       </div>
-    );
-  }
+    </div>
+  );
 }
