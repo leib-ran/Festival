@@ -14,6 +14,7 @@ import Cart from "./compenents/Cart/Cart";
 import React from "react";
 import CheckoutPage from "./compenents/CheckoutPage/CheckoutPage";
 import CatlogPage from "./compenents/CatalogPage/CatlogPage";
+import BlogContent from "./compenents/Blog/BlogContent";
 
 class App extends React.Component {
   constructor() {
@@ -48,6 +49,10 @@ class App extends React.Component {
                     update={this.updateCart}
                   ></ProductPage>
                 )}
+              />
+              <Route
+                path="/Blog/:id"
+                component={(props) => <BlogContent {...props} />}
               />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/About" component={About} />

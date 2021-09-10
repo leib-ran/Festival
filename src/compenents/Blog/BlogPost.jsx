@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function BlogPost() {
   return (
@@ -16,6 +17,13 @@ function BlogPost() {
             </p>
             <h1 className="text-gray-300 text-xs">30/08/20008</h1>
           </div>
+
+          <Link
+            to={`/Blog/${"name"}`}
+            className="text-blue-400 text-xs hover:text-blue-200 cursor-pointer underline"
+          >
+            read me
+          </Link>
         </div>
       </div>
       <div className="shadow-lg overflow-hidden h-96">
