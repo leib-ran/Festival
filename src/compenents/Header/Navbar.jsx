@@ -47,7 +47,7 @@ function Navbar() {
           Sign In
         </Link>
         <Link
-          to="/"
+          to="/signup"
           className="w-16 pt-3 hover:bg-white hover:text-blue-900 text-white text-center cursor-pointer	 align-bottom "
         >
           Sign Up

@@ -6,7 +6,7 @@ import Contact from "./compenents/ContactPage/Contact";
 import About from "./compenents/About/About";
 import LogIn from "./compenents/SignIn/SignIn";
 import Blog from "./compenents/Blog/Blog";
-import signUp from "./compenents/SignUp/SignUp";
+import SignUp from "./compenents/SignUp/SignUp";
 import Navbar from "./compenents/Header/Navbar";
 import BottomPage from "./compenents/Footer/BottomPage";
 import HomePage from "./compenents/HomePage/HomePage";
@@ -57,7 +57,7 @@ class App extends React.Component {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/About" component={About} />
               <Route exact path="/Blog" component={Blog} />
-              <Route exact path="/SignUp" component={signUp} />
+              <Route exact path="/SignUp" component={SignUp} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <BottomPage />
