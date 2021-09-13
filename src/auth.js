@@ -7,11 +7,18 @@ class Auth {
   }
 
   login(email, pass, cb) {
-    auth.signInWithEmailAndPassword(email, pass).then((user) => {
-      console.log(user);
-      this.authenticated = true;
-      cb();
-    });
+    return auth
+      .signInWithEmailAndPassword(email, pass)
+      .then((user) => {
+        console.log(user);
+        this.authenticated = true;
+        cb();
+        return "";
+      })
+      .catch((e) => {
+        console.log(e.message);
+        return e.message;
+      });
   }
 
   signup(email, pass) {

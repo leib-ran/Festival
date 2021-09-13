@@ -4,10 +4,12 @@ import { useRef } from "react";
 import { facebookProvider, googleProvider } from "../../authMethod";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 export default function LogIn(props) {
   const email = useRef(null);
   const passward = useRef(null);
+  const [error, setError] = useState("");
   const handelOnClick = async (provider) => {
     const res = auth.socialMediaAuth(provider);
   };
@@ -16,6 +18,7 @@ export default function LogIn(props) {
     <form action="">
       <div className="w-136 h-min-56 p-5 font-medium mt-5 m-auto bg-gray-300">
         <div className="text-center font-bold text-5xl">Sign In</div>
+        <div className="text-red-400 h-4"> {error}</div>
         <div className="flex justify-center pt-20 mb-2 ">
           <div className="w-40">Email</div>
           <input
@@ -34,10 +37,6 @@ export default function LogIn(props) {
           className="text-center w-40 block m-auto mt-2 bg-red-500 text-white p-2"
           onClick={(e) => {
             e.preventDefault();
-            console.log(passward.current.value);
-            auth.login(email.current.value, passward.current.value, () =>
-              props.history.push("/")
-            );
           }}
         >
           Sign In
