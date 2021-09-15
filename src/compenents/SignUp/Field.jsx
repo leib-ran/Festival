@@ -1,7 +1,6 @@
 function Field(props) {
   return (
     <div>
-      {console.log({ props })}
       <div>
         <div className="flex text-left mt-4">
           <div text-left className="w-40">

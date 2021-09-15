@@ -16,14 +16,11 @@ export default function SignUp(props) {
           <Field name="Passward" type="passward" ref={passward} />
           <input ref={passward} />
           <Field name="Confirm passward" type="passward" />
-          {console.log(email.value)}
           <button
             className="bg-red-300 text-white mt-2 p-2 rounded-lg w-40 text-2xl"
             onClick={(e) => {
               e.preventDefault();
-              console.log(email.current.value);
               auth.signup(email.current.value, passward.current.value);
-              console.log(props);
               props.history.push("/login");
             }}
           >
