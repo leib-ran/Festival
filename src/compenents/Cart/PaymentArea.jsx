@@ -19,9 +19,7 @@ export default function PaymentArea(props) {
       </div>
       <div>
         {items.map((item) => {
-          price =
-            Number(item["quan"]) *
-            Number(item["Usdprice"].slice(0, item["Usdprice"].length - 1));
+          price = Number(item["quan"]) * Number(item["price"]);
           sum += price;
           return (
             <div className="flex justify-between">

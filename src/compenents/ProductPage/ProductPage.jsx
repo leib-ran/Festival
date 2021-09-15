@@ -13,12 +13,12 @@ export default class ProductPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/products.json")
+    fetch(`http://localhost:5000/products/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) => {
-        let data = res["data"];
+        let data = res;
         let product = this.props.match.params.id;
-        this.setState({ data: data[product] });
+        this.setState({ data: data });
       });
   }
 

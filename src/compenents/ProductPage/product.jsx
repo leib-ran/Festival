@@ -18,8 +18,8 @@ export default class Product extends React.Component {
     this.state = {
       data: "",
       display: "hidden",
-      mainImage: "/images/tents/tent.jpg",
-      srcImage: "/images/tents/tent.jpg",
+      mainImage: this.props.data ? this.props.data.imageUrl : "",
+      srcImage: this.props.data ? this.props.data.imageUrl : "",
       quan: 1,
       show: "hidden",
     };
@@ -47,7 +47,6 @@ export default class Product extends React.Component {
       localStorage.setItem("items", JSON.stringify([item]));
     } else {
       let parsedObj = JSON.parse(items).concat(item);
-      console.log(parsedObj);
       localStorage.setItem("items", JSON.stringify(parsedObj));
     }
   }
@@ -145,13 +144,16 @@ export default class Product extends React.Component {
                           icon={faCampground}
                         ></FontAwesomeIcon>
                       }
-                      {this.props.data["nameProduct"]}
+                      {this.props.data["title"]}
                     </h1>
                     <div className="text-left   ">
                       <span className="text-left text-  xl font-bold ">
                         price:
                       </span>
-                      <span className="text-green-800 text-3xl">USD $233 </span>
+                      <span className="text-green-800 text-3xl">
+                        USD {this.props.data["price"]}
+                        {"$"}
+                      </span>
                       <span className="line-through text-xs"> $400</span>
                     </div>
                     <div className="text-left">

@@ -28,7 +28,6 @@ export default class Item extends React.Component {
     let item = storage[index];
     quan = Number(quan) - Number(item["quan"]);
     storage = storage.slice(0, index).concat(storage.slice(index + 1));
-    console.log(storage);
     localStorage.setItem("items", storage);
     localStorage.setItem("quan", quan);
     this.props.setItems();
@@ -38,7 +37,7 @@ export default class Item extends React.Component {
     return (
       <div className="border-2 h-min-40 shadow-lg md:w-2/3 w-full">
         <div className="flex h-full justify-between">
-          <img className="w-24 h-2/3" src={this.props.data["photo"]} />
+          <img className="w-24 h-2/3" src={this.props.data["imageUrl"]} />
           <div className="ml-2">
             <h1 className="font-bold">{this.props.data["nameProduct"]}</h1>
             <h1>

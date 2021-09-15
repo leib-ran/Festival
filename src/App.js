@@ -6,7 +6,7 @@ import Contact from "./compenents/ContactPage/Contact";
 import About from "./compenents/About/About";
 import LogIn from "./compenents/SignIn/SignIn";
 import Blog from "./compenents/Blog/Blog";
-import signUp from "./compenents/SignUp/SignUp";
+import SignUp from "./compenents/SignUp/SignUp";
 import Navbar from "./compenents/Header/Navbar";
 import BottomPage from "./compenents/Footer/BottomPage";
 import HomePage from "./compenents/HomePage/HomePage";
@@ -14,6 +14,7 @@ import Cart from "./compenents/Cart/Cart";
 import React from "react";
 import CheckoutPage from "./compenents/CheckoutPage/CheckoutPage";
 import CatlogPage from "./compenents/CatalogPage/CatlogPage";
+import BlogContent from "./compenents/Blog/BlogContent";
 
 class App extends React.Component {
   constructor() {
@@ -49,10 +50,14 @@ class App extends React.Component {
                   ></ProductPage>
                 )}
               />
+              <Route
+                path="/Blog/:id"
+                component={(props) => <BlogContent {...props} />}
+              />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/About" component={About} />
               <Route exact path="/Blog" component={Blog} />
-              <Route exact path="/SignUp" component={signUp} />
+              <Route exact path="/SignUp" component={SignUp} />
               <Route exact path="/cart" component={Cart} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <BottomPage />

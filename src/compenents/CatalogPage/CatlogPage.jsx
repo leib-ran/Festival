@@ -3,9 +3,10 @@ import React from "react";
 import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 import Filter from "./Filter";
 import queryString from "query-string";
-import ToggelCategory from "../ToggelCategory/ToggelCategory";
+import ToggelCategory from "./ToggelCategory";
 import ModalFilterSort from "./ModalFilterSort";
 import CategoryArea from "./CategoryArea";
+import ModalCategoryButton from "./ModalCategoryButton";
 
 export default class CatlogPage extends React.Component {
   constructor() {
@@ -19,19 +20,18 @@ export default class CatlogPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/products.json")
+    fetch("http://localhost:5000/products?_page=10")
       .then((res) => {
         return res;
       })
       .then((res) => {
         return res.json();
       })
-      .then((products) => {
+      .then((res) => {
         // let searchWord = this.getSearchWord();
-        let data = Object.values(products["data"]);
         this.setState({
-          rawData: data,
-          sortedData: data,
+          rawData: res,
+          sortedData: res,
           // searchWord: searchWord,
         });
       });
@@ -40,6 +40,7 @@ export default class CatlogPage extends React.Component {
   render() {
     return (
       <div>
+        <ToggelCategory />
         <CategoryArea data={this.state.rawData} />
       </div>
     );
