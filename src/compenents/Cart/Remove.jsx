@@ -7,7 +7,7 @@ function Remove(props) {
   const items = useSelector((state) => state.itemHandler);
   return (
     <div
-      className="bg-red-600 cursor-pointer w-36 font-bold text-center text-white"
+      className="bg-red-600 cursor-pointer w-36 h-8 font-bold text-center text-white"
       onClick={() => {
         localStorage.setItem(
           "quan",

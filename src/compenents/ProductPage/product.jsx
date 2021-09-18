@@ -35,6 +35,7 @@ export default class Product extends React.Component {
   componentDidMount() {
     this.setState({ data: this.props.data });
   }
+
   addOne() {
     let num = this.state.quan + 1;
     this.setState({ quan: num });

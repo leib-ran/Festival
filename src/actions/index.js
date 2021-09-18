@@ -26,6 +26,13 @@ export const removeItem = (index) => {
   };
 };
 
+export const updateItem = (items) => {
+  return {
+    type: "UPDATEITEMS",
+    payload: items,
+  };
+};
+
 export const shortendHide = () => {
   return {
     type: "SHORTENDHEIGHt",

@@ -17,7 +17,6 @@ export default class Content extends React.Component {
         <Product
           addToCart={this.props.addToCart}
           data={this.props.data}
-          update={this.props.update}
         ></Product>
       </div>
     );

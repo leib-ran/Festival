@@ -8,7 +8,7 @@ export default function PaymentArea(props) {
   let sum = 0;
   let price = 0;
   return (
-    <div className="md:w-120 w-full h-min-80  md:mr-8 bg-gray-100">
+    <div className="md:w-120 w-full h-min-80 mt-4 p-4 md:mr-8 bg-gray-100">
       <div className="h-min-12 font-bold text-4xl border-black border-b-2">
         total item {total}
       </div>
@@ -46,12 +46,14 @@ export default function PaymentArea(props) {
         <h1>Total</h1>
         <h1>{Number((sum * 0.17).toFixed(2)) + Number(sum)}$</h1>
       </div>
-      <Link
-        to="/checkout"
-        className="bg-red-500 hover:bg-yellow-500 cursor-pointer text-white text-center font-bold p-2"
-      >
-        checkout
-      </Link>
+      <div className="mt-4 text-center">
+        <Link
+          to="/checkout"
+          className="bg-red-500 hover:bg-yellow-500 cursor-pointer text-white  font-bold p-2"
+        >
+          checkout
+        </Link>
+      </div>
     </div>
   );
 }

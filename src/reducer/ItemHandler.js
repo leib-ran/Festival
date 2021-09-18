@@ -11,6 +11,8 @@ export const itemHandlerReducer = (state = initialState, action) => {
       return state
         .slice(0, action.payload)
         .concat(state.slice(action.payload + 1));
+    case "UPDATEITEMS":
+      return action.payload;
   }
   return state;
 };

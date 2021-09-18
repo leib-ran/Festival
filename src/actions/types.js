@@ -1,0 +1,8 @@
+export const INCREAMENT = "INCREAMENT";
+export const DECREAMENT = "DECREAMENT";
+export const ADDITEM = "ADDITEM";
+export const REMOVEITEM = "REMOVEITEM";
+export const SHORTENDHEIGHt = "SHORTENDHEIGHt";
+export const EXTENDHEIGHT = "EXTENDHEIGHT";
+export const SHORTENDWIDTH = "SHORTENDWIDTH";
+export const EXTENDWIDTH = "EXTENDWIDTH";

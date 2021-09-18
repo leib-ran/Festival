@@ -17,7 +17,6 @@ export default class ProductPage extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         let data = res;
-        let product = this.props.match.params.id;
         this.setState({ data: data });
       });
   }
@@ -32,7 +31,7 @@ export default class ProductPage extends React.Component {
       >
         <header></header>
         <main>
-          <Content data={this.state.data} update={this.props.update}></Content>
+          <Content data={this.state.data}></Content>
         </main>
       </div>
     );
