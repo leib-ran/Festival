@@ -1,5 +1,5 @@
 import Card from "./Card";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 import Filter from "./Filter";
 import queryString from "query-string";
@@ -7,45 +7,46 @@ import ToggelCategory from "./ToggelCategory";
 import ModalFilterSort from "./ModalFilterSort";
 import CategoryArea from "./CategoryArea";
 import ModalCategoryButton from "./ModalCategoryButton";
+import axios from "axios";
+import { products } from "../../helper/databaseKeyName";
+import { useSelector } from "react-redux";
+import PagesButton from "./pagesButton";
 
-export default class CatlogPage extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      rawData: [],
-      searchWord: "",
-      checked: [],
-      sortedData: [],
-    };
-  }
+export default function CatlogPage() {
+  const [sortedData, setSortedData] = useState([]);
+  const [rawData, setRawData] = useState([]);
+  const pageNumber = useSelector((state) => state.pagination);
 
-  componentDidMount() {
-    fetch("http://localhost:5000/products?_page=10")
-      .then((res) => {
-        return res;
-      })
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        // let searchWord = this.getSearchWord();
-        this.setState({
-          rawData: res,
-          sortedData: res,
-          // searchWord: searchWord,
-        });
-      });
-  }
-
-  render() {
-    return (
-      <div>
-        <ToggelCategory />
-        <CategoryArea data={this.state.rawData} />
-      </div>
+  useEffect(async () => {
+    const result = await axios(
+      `http://localhost:5000/products?_page=${pageNumber}`
     );
-  }
+    setRawData(result.data);
+  }, [pageNumber]);
+
+  return (
+    <div>
+      <div className="text-center text-4xl">{titleCatlog()}</div>
+      <ToggelCategory />
+      <CategoryArea data={rawData} />
+      <PagesButton></PagesButton>
+    </div>
+  );
 }
+
+function titleCatlog() {
+  return "Catalog";
+}
+
+// constructor() {
+//   super();
+//   this.state = {
+//     rawData: [],
+//     searchWord: "",
+//     checked: [],
+//     sortedData: [],
+//   };
+// }
 
 // const searchWord = this.state.searchWord || "";
 // const pattern =

@@ -10,10 +10,7 @@ export default function Card(props) {
       className="w-56 m-5"
     >
       <div className="ml-2">
-        <div
-          className="bg-gray-200 pt-5 h-9/10 overflow-hidden mr-2"
-          style={{}}
-        >
+        <div className="bg-gray-200 pt-5 h-9/10 overflow-hidden mr-2">
           <img className=" m-auto h-40 w-full" src={props.data.imageUrl} />
         </div>
         <h1 className="h-min-16 text-left text-3xl">{props.data.title}</h1>

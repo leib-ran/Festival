@@ -13,7 +13,7 @@ export default function ModalFilterSort() {
       <div className="">
         <div className="flex bg-white  justify-between">
           <div></div>
-          <div>Filter&Sort</div>
+          <div>{titleFilterSort()}</div>
           <div
             className="cursor-pointer"
             onClick={() => {
@@ -28,4 +28,8 @@ export default function ModalFilterSort() {
       </div>
     </div>
   );
+}
+
+function titleFilterSort() {
+  return "Filter&Sort";
 }

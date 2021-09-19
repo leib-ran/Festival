@@ -16,9 +16,13 @@ export default function ToggelCategory(props) {
           className="cursor-pointer "
         >
           <FontAwesomeIcon icon={faSlidersH}></FontAwesomeIcon>
-          Sort & Filter
+          {titleFilter()}
         </div>
       </div>
     </div>
   );
+}
+
+function titleFilter() {
+  return "Sort & Filter";
 }

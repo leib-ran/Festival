@@ -1,3 +1,5 @@
+import { PAGENUMBER } from "./types";
+
 export const increament = (quan) => {
   return {
     type: "INCREAMENT",
@@ -54,5 +56,12 @@ export const shortendHideWidth = () => {
 export const extendWidth = () => {
   return {
     type: "EXTENDWIDTH",
+  };
+};
+
+export const pageNumberGlobal = (pageNumber) => {
+  return {
+    type: PAGENUMBER,
+    payload: pageNumber,
   };
 };
