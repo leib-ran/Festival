@@ -10,6 +10,7 @@ export default class HomePage extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <div className="relative h-screen  z-1 flex">

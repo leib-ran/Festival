@@ -10,13 +10,11 @@ class Auth {
     return auth
       .signInWithEmailAndPassword(email, pass)
       .then((user) => {
-        console.log(user);
         this.authenticated = true;
         cb();
         return "";
       })
       .catch((e) => {
-        console.log(e.message);
         return e.message;
       });
   }
@@ -37,12 +35,9 @@ class Auth {
       .auth()
       .signInWithRedirect(provider)
       .then((res) => {
-        console.log(res);
         return res.user;
       })
       .catch((err) => {
-        console.log(err);
-
         return err;
       });
   };

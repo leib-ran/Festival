@@ -1,67 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decreament, increament, updateItem } from "../../actions";
+import {
+  addOne,
+  changeQuantityOfItemFromItemsArray,
+  getItemDescrpitionName,
+  getItemsStorageParsed,
+  getQuantityFromStorage,
+  getQuantityKeyNameForItems,
+  getTitleFromItems,
+  setItemsStorage,
+  setQuantityFromStorage,
+  subOne,
+} from "../../helper/config";
 import Remove from "./Remove";
 
-export default class Item extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      amount: Number(this.props.data["quan"]),
-    };
-    this.addOne = this.addOne.bind(this);
-    this.subMinus = this.subMinus.bind(this);
-    this.remove = this.remove.bind(this);
+export default function Item(props) {
+  const [quantityItem, setCount] = useState(
+    props.data[getQuantityKeyNameForItems()]
+  );
+  const quantityProducts = getQuantityFromStorage();
+  const items = getItemsStorageParsed();
+  const dispatch = useDispatch();
+
+  function handleClick(Action, funcOperation) {
+    const newquantityItem = funcOperation(quantityItem);
+    setQuantityFromStorage(funcOperation(quantityProducts));
+
+    const items = changeQuantityOfItemFromItemsArray(
+      props.data,
+      newquantityItem
+    );
+    if (newquantityItem) {
+      dispatch(updateItem(items));
+      dispatch(Action(1));
+      setItemsStorage(items);
+      setCount(newquantityItem);
+    }
   }
 
-  addOne() {
-    let newAmount = this.state.amount + 1;
-    this.setState({ amount: newAmount });
-  }
-  subMinus() {
-    let newAmount = this.state.amount <= 0 ? 0 : this.state.amount - 1;
-    this.setState({ amount: newAmount });
-  }
-
-  remove() {
-    let index = this.props.index;
-    let storage = JSON.parse(localStorage.getItem("items"));
-    let quan = localStorage.getItem("quan");
-    let item = storage[index];
-    quan = Number(quan) - Number(item["quan"]);
-    storage = storage.slice(0, index).concat(storage.slice(index + 1));
-    localStorage.setItem("items", storage);
-    localStorage.setItem("quan", quan);
-    this.props.setItems();
-  }
-
-  render() {
-    return (
-      <div className="border-2 h-min-40 shadow-lg md:w-2/3 w-full">
-        <div className="flex h-full justify-between">
-          <img className="w-24 h-2/3" src={this.props.data["imageUrl"]} />
-          <div className="ml-2">
-            <h1 className="font-bold">{this.props.data["nameProduct"]}</h1>
-            <h1>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis
-              dolorum deleniti quasi, similique fugit eius sit consectetur
-              reprehenderit? Mollitia quisquam distinctio alias corporis
-              obcaecati suscipit optio, soluta aliquam illum quia.
-              <div className="flex">
-                <div>Qty</div>
-                <div className="cursor-pointer" onClick={this.addOne}>
-                  +
-                </div>
-                <div className="border-2 border-black h-6">
-                  {this.state.amount}
-                </div>
-                <div className="cursor-pointer" onClick={this.subMinus}>
-                  -
-                </div>
-              </div>
-              <Remove index={this.props.index} />
-            </h1>
+  return (
+    <div className="shadow-lg">
+      <div className="m-2 overflow-hidden">
+        <h1 className="font-bold">{props.data["nameProduct"]}</h1>
+        <div className="float-left min-h-full w-4/12 p-2">
+          <img className="" src={props.data["imageUrl"]} alt="cart photo" />
+        </div>
+        <div>
+          <div className="font-bold">{props.data[getTitleFromItems()]}</div>
+          <p className="clear-right p-2">
+            {props.data[getItemDescrpitionName()]}
+          </p>
+          <div className="flex">
+            <div>Qty</div>
+            <div
+              className="cursor-pointer"
+              onClick={(e) => {
+                handleClick(increament, addOne);
+              }}
+            >
+              +
+            </div>
+            <div className="border-2 border-black text-center m-2 mt-0 w-6 h-6">
+              {quantityItem}
+            </div>
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                handleClick(decreament, subOne);
+              }}
+            >
+              -
+            </div>
+          </div>
+          <div className="float-left bottom-2 clear-right ">
+            <Remove index={props.index} />
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

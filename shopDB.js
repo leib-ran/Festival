@@ -1,8 +1,10 @@
 const faker = require("faker");
+const totalNumberitems = 200;
+const productPerPage = 10;
 
 module.exports = () => {
   const categories = ["flight", "sleeping", "leds", "speakers"];
-  const num = 200;
+  const num = totalNumberitems;
   const data = {
     products: [],
     categories: ["flight", "sleeping", "leds", "speakers"],

@@ -1,3 +1,5 @@
+import { PAGENUMBER } from "./types";
+
 export const increament = (quan) => {
   return {
     type: "INCREAMENT",
@@ -26,6 +28,13 @@ export const removeItem = (index) => {
   };
 };
 
+export const updateItem = (items) => {
+  return {
+    type: "UPDATEITEMS",
+    payload: items,
+  };
+};
+
 export const shortendHide = () => {
   return {
     type: "SHORTENDHEIGHt",
@@ -47,5 +56,12 @@ export const shortendHideWidth = () => {
 export const extendWidth = () => {
   return {
     type: "EXTENDWIDTH",
+  };
+};
+
+export const pageNumberGlobal = (pageNumber) => {
+  return {
+    type: PAGENUMBER,
+    payload: pageNumber,
   };
 };
