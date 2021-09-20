@@ -1,6 +1,6 @@
 import { Redirect, Route } from "react-router";
 import { auth } from "../../firebase";
-import { login } from "../../helper/PagesName";
+import { login } from "../../helper/PathName";
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
@@ -13,7 +13,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
           return (
             <Redirect
               to={{
-                pathname: login,
+                pathname: login.getPath(),
                 state: {
                   from: props.location,
                 },

@@ -5,10 +5,27 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import { createHashHistory } from "history";
+import { createBrowserHistory } from "history";
+
+import createAdminStore from "./createAdminStore";
+import jsonServerProvider from "ra-data-json-server";
+import auth from "./auth";
+import authProvider from "./authProvider";
+
+export const dataProvider = jsonServerProvider("http://localhost:5000");
+export const history = createBrowserHistory();
+console.log("http://localhost:5000/users");
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider
+      store={createAdminStore({
+        authProvider,
+        dataProvider,
+        history,
+      })}
+    >
       <Router>
         <App />
       </Router>
