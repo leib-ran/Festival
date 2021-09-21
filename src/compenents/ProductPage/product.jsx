@@ -11,6 +11,7 @@ import {
   faEraser,
 } from "@fortawesome/free-solid-svg-icons";
 import AddToCartRe from "./AddToCart";
+import { ProductDisplay } from "./ProductDisplay";
 
 export default class Product extends React.Component {
   constructor(props) {
@@ -41,17 +42,6 @@ export default class Product extends React.Component {
     this.setState({ quan: num });
   }
 
-  addToLocalStorage(item) {
-    item["quan"] = this.input.current.value;
-    let items = localStorage.getItem("items") || [];
-    if (items.length == 0) {
-      localStorage.setItem("items", JSON.stringify([item]));
-    } else {
-      let parsedObj = JSON.parse(items).concat(item);
-      localStorage.setItem("items", JSON.stringify(parsedObj));
-    }
-  }
-
   subOne() {
     let num = this.state.quan == 1 ? 1 : this.state.quan - 1;
     this.setState({ quan: num });
@@ -64,89 +54,13 @@ export default class Product extends React.Component {
           <div>
             <div
               style={{ width: "80rem" }}
-              className="border-red-800 bg-white opacity-70 border-2 w-80 m-auto text-center "
+              className=" bg-white opacity-70 w-80 m-auto text-center "
             >
-              <div className="opacity-false cursor-default">
-                <div className="flex justify-between">
-                  <div>
-                    <img
-                      className="ml-2 w-96 opacity-false"
-                      src={this.state.mainImage}
-                    ></img>
-                    <div className="flex justify-center">
-                      <span className="mr-2 text-xs cursor-pointer">
-                        reviews
-                      </span>
-                      <FontAwesomeIcon
-                        className="text-yellow-300 cursor-pointer"
-                        icon={faStar}
-                      ></FontAwesomeIcon>
-                      <FontAwesomeIcon
-                        className="text-yellow-300 cursor-pointer"
-                        icon={faStar}
-                      ></FontAwesomeIcon>
-                      <FontAwesomeIcon
-                        className="text-yellow-300 cursor-pointer"
-                        icon={faStar}
-                      ></FontAwesomeIcon>
-                      <FontAwesomeIcon
-                        className="text-yellow-300 cursor-pointer"
-                        icon={faStar}
-                      ></FontAwesomeIcon>
-                      <FontAwesomeIcon
-                        className="text-gray-300 cursor-pointer"
-                        icon={faStar}
-                      ></FontAwesomeIcon>
-                    </div>
-                    <div className="flex justify-center mt-2">
-                      <img
-                        onClick={(e) => this.changeImage(e.target.src)}
-                        className="rounded-full w-16 h-16 mr-2"
-                        src="/images/tents/tent2.jpg"
-                        alt="tent pic"
-                      />
-                      <img
-                        onClick={(e) => this.changeImage(e.target.src)}
-                        className="rounded-full w-16 h-16 mr-2"
-                        src="/images/tents/tent3.jpg"
-                        alt="tent pic"
-                      />
-                      <img
-                        onClick={(e) => this.changeImage(e.target.src)}
-                        className="rounded-full w-16 h-16  mr-2"
-                        src="/images/tents/tent4.jpg"
-                        alt="tent pic"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-bold font-bold">Tags </p>
-                      <a className="mr-1 cursor-pointer	 " src="#"></a>
-                      <a className="mr-5 cursor-pointer	 " src="#">
-                        Leds
-                        <FontAwesomeIcon
-                          className="ml-1 cursor-pointer"
-                          icon={faLightbulb}
-                        ></FontAwesomeIcon>
-                      </a>
-                      <a className="mr-5 cursor-pointer	 " src="#">
-                        Sleeping bag
-                        <FontAwesomeIcon
-                          className="ml-1 cursor-pointer"
-                          icon={faBed}
-                        ></FontAwesomeIcon>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="mr-auto ml-auto">
-                    <h1 className="font-bold text-5xl">
-                      {
-                        <FontAwesomeIcon
-                          className=""
-                          icon={faCampground}
-                        ></FontAwesomeIcon>
-                      }
-                      {this.props.data["title"]}
-                    </h1>
+              <div className="mt-5 opacity-false cursor-default">
+                <div className="flex justify-center">
+                  <ProductDisplay data={this.props.data} />
+                  <div className="ml-4 w-96">
+                    <h1 className=" text-3xl">{this.props.data["title"]}</h1>
                     <div className="text-left   ">
                       <span className="text-left text-  xl font-bold ">
                         price:
@@ -156,14 +70,9 @@ export default class Product extends React.Component {
                         {"$"}
                       </span>
                       <span className="line-through text-xs"> $400</span>
+                      <div>{this.props.data.productDescription}</div>
                     </div>
                     <div className="text-left">
-                      <p>Size: 2 people</p>
-                      <p>Material:cutton</p>
-                      <p>poles: cooper with rubber</p>
-                      <p> Colors: white and oranges</p>
-                      <p>Brand: fl tents</p>
-                      <p> weight:2kg</p>
                       <div>
                         <p>
                           <FontAwesomeIcon
@@ -219,6 +128,12 @@ export default class Product extends React.Component {
             </div>
           </div>
         )}{" "}
+        {/* <p>Size: 2 people</p>
+                      <p>Material:cutton</p>
+                      <p>poles: cooper with rubber</p>
+                      <p> Colors: white and oranges</p>
+                      <p>Brand: fl tents</p>
+                      <p> weight:2kg</p> */}
       </div>
     );
   }
