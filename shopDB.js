@@ -88,7 +88,7 @@ module.exports = () => {
     product.price = faker.commerce.price();
     product.productAdjective = faker.commerce.productAdjective();
     product.productMaterial = faker.commerce.productMaterial();
-    product.product = faker.commerce.product();
+    product.stokeQuantity = faker.datatype.number();
     product.productDescription = faker.commerce.productDescription();
     product.companyName = faker.company.companyName();
     product.rank = (Math.random() * 5).toFixed(2);

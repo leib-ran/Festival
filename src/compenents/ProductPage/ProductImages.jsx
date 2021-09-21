@@ -1,7 +1,7 @@
 import { faBed, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export function ProductDisplay(props) {
+export function ProductImages(props) {
   return (
     <div>
       <div>
@@ -26,8 +26,7 @@ export function ProductDisplay(props) {
           })}
         </div>
         <div>
-          <p className="text-bold font-bold">Tags </p>
-          <a className="mr-1 cursor-pointer" src="#"></a>
+          <p className="text-bold font-bold">{GetSubCategoryName()} </p>
           <a className="mr-5 cursor-pointer" src="#">
             Leds
             <FontAwesomeIcon
@@ -46,4 +45,8 @@ export function ProductDisplay(props) {
       </div>
     </div>
   );
+}
+
+function GetSubCategoryName() {
+  return "Tags";
 }

@@ -28,6 +28,10 @@ export const getItemDescrpitionName = () => {
   return "productDescription";
 };
 
+export const getstokeQuantity = () => {
+  return "stokeQuantity";
+};
+
 export const getItemsStorageParsed = () => {
   return JSON.parse(getItemsStorage());
 };
