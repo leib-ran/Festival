@@ -10,7 +10,12 @@ class SubCategory {
   }
 }
 
+function randmNumberInteger(num, theshhold = 0) {
+  return Math.round(Math.random()) * num + theshhold;
+}
+
 module.exports = () => {
+  const orderStatus = ["delivered", "ordered", "cancelled"];
   const num = totalNumberitems;
   const data = {
     products: [],
@@ -20,6 +25,7 @@ module.exports = () => {
     posts: [],
     comments: [],
     users: [],
+    orders: [],
   };
 
   const categories = [
@@ -76,6 +82,7 @@ module.exports = () => {
   for (let index = 0; index < num; index++) {
     let fakeUser = {};
     let name = {};
+    const order = {};
 
     fakeUser.id = index;
 
@@ -100,16 +107,33 @@ module.exports = () => {
     ];
     data.products.push(product);
 
-    user = {};
-    uid = +(+index) * num;
+    const user = {};
+    user.uid = +(+index) * num;
     user.firstName = faker.name.firstName();
     user.lastName = faker.name.lastName();
     user.gender = faker.name.gender();
     user.phoneNumber = faker.phone.phoneNumber();
-    userImage = faker.image.avatar();
-    useremail = faker.internet.email();
+    user.userImage = faker.image.avatar();
+    user.useremail = faker.internet.email();
 
     data.users.push(user);
+    order.id = faker.datatype.uuid();
+    order.date = faker.date.past();
+    order.costumer = [
+      {
+        avatar: faker.image.avatar(),
+        firstName: user.firstName,
+        lastName: user.lastName,
+      },
+    ];
+
+    order.Address = faker.address.streetAddress();
+    order.NbItem = faker.datatype.number();
+    order.Total = faker.datatype.number();
+    order.tax = 17;
+    order.reference = faker.datatype.uuid();
+    order.status = orderStatus[randmNumberInteger(2)];
+    data.orders.push(order);
   }
   return data;
 };
