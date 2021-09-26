@@ -1,5 +1,6 @@
 import { faBed, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Stars from "../Stars.jsx/Stars";
 
 export function ProductImages(props) {
   return (
@@ -11,7 +12,7 @@ export function ProductImages(props) {
         ></img>
         <div className="flex justify-center">
           <span className="mr-2 text-xs cursor-pointer">reviews</span>
-          stars
+          <Stars rank={props.data.rank} />
         </div>
         <div className="flex justify-center mt-2">
           {props.data.galleryImages.map((src) => {

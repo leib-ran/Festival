@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import ProductPage from "../ProductPage/ProductPage";
 import BeautyStars from "beauty-stars";
+import Stars from "../Stars.jsx/Stars";
 
 export default function Card(props) {
   return (
@@ -16,7 +17,7 @@ export default function Card(props) {
         <h1 className="h-min-16 text-left text-3xl">{props.data.title}</h1>
         <h1 className="">price {props.data.price}</h1>
         <h1 className="block bg-white">
-          <BeautyStars className="w-4" size="14px" value={props.data["rank"]} />
+          <Stars className="w-4" size="14px" rank={props.data["rank"]} />
         </h1>
         <span className="block bg-white">{props.data.productDescription}</span>
       </div>
