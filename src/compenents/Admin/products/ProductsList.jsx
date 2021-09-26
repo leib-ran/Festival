@@ -8,8 +8,17 @@ import {
   ArrayField,
   FieldTitleProps,
   NumberField,
+  TextInput,
+  ReferenceInput,
   EditButton,
 } from "react-admin";
+import PostIcon from "@material-ui/icons/Book";
+
+// const productFilter = [
+//   <TextInput source ="q" lable="Search" alwaysOn />
+//   <ReferenceInput source=""/>
+// ]
+
 export const ProductList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">

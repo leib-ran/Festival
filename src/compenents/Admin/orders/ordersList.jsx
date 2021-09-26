@@ -7,16 +7,26 @@ import {
   TextField,
   ArrayField,
   FieldTitleProps,
+  ReferenceField,
   NumberField,
   DateField,
   EditButton,
 } from "react-admin";
 
+const tabs = [
+  { id: "ordered", name: "ordered" },
+  { id: "delivered", name: "delivered" },
+  { id: "cancelled", name: "cancelled" },
+];
 export const OrderList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <DateField source="date" />
       <TextField source="reference" />
+      <ReferenceField source="ProductID" reference="products">
+        <TextField source="title" />
+      </ReferenceField>
+
       <ArrayField source="costumer">
         <Datagrid>
           <ImageField source={"avatar"} />
