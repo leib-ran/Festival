@@ -23,6 +23,9 @@ module.exports = function productsGenrator(numberIter, subcategory) {
       faker.image.city(),
       faker.image.fashion(),
       faker.image.nature(),
+      faker.image.business(),
+      faker.image.nightlife(),
+      faker.image.people(),
     ];
     products.push(product);
   }

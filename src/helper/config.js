@@ -70,6 +70,26 @@ export const addOne = (number) => {
   return Number(number) + 1;
 };
 
+export const addOneWithlimit = (number, limit) => {
+  return Number(number) === limit ? limit : addOne(number);
+};
+
 export const subOne = (number) => {
   return Number(number) == 0 ? 0 : Number(number) - 1;
+};
+
+export const isPatternFound = (searchWord, string) => {
+  const pattern = new RegExp(searchWord, "gi");
+  return pattern.test(string);
+};
+
+export const removeSearch = (wordToRemove, string) => {
+  console.log(wordToRemove);
+  console.log(string);
+  return isPatternFound(wordToRemove, string)
+    ? string.replace(wordToRemove, "")
+    : string;
+};
+export const addWord = (text, string) => {
+  return `${text} ${string}`;
 };

@@ -29,7 +29,6 @@ function getStar(paint, icon) {
 }
 
 function getFullStar() {
-  console.log("yellow");
   return getStar("yellow", faStar);
 }
 

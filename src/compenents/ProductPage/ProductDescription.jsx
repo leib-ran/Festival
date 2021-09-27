@@ -32,7 +32,6 @@ export function ProductDescription(props) {
               className="mr-1 cursor-pointer"
               icon={faPlane}
             ></FontAwesomeIcon>
-            {console.log(props.data[getstokeQuantity()])}
             {props.data[getstokeQuantity()] ? <VButton /> : <XButton />}
             <div>
               <span className="mr-1">finstock</span>
@@ -64,30 +63,17 @@ export function ProductDescription(props) {
         </div>
 
         <AddToCartRe quan={productQuan} data={props.data} />
-        <div className="bg-red-800 pb-2 text-white mt-2 cursor-pointer hover:bg-yellow-500 hover:text-gray-900">
+        <div className="bg-red-800 text-center pb-2 text-white mt-2 cursor-pointer hover:bg-yellow-500 hover:text-gray-900">
           <span>Buy</span>
         </div>
       </div>
 
-      {
-        // changeImage(pic) {
-        //   this.setState({ mainImage: pic });
-        // }
-        // addOne() {
-        //   let num = this.state.quan + 1;
-        //   this.setState({ quan: num });
-        // }
-        // subOne() {
-        //   let num = this.state.quan == 1 ? 1 : this.state.quan - 1;
-        //   this.setState({ quan: num });
-        // }}
-        /* <p>Size: 2 people</p>
+      {/* <p>Size: 2 people</p>
                       <p>Material:cutton</p>
                       <p>poles: cooper with rubber</p>
                       <p> Colors: white and oranges</p>
                       <p>Brand: fl tents</p>
-                      <p> weight:2kg</p> */
-      }
+                      <p> weight:2kg</p> */}
     </div>
   );
 }
