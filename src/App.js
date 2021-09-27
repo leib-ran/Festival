@@ -22,6 +22,7 @@ import {
   admin,
   blog,
   cart,
+  category,
   checkout,
   contact,
   homePage,
@@ -31,6 +32,7 @@ import {
   store,
 } from "./helper/PathName";
 
+import { CategoryPage } from "./compenents/CategoriesPage/CategoryPage";
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -41,6 +43,7 @@ function App() {
             <Route exact path={store.getPath()} component={CatlogPage} />
             <Route exact path={homePage.getPath()} component={HomePage} />
             <Route exact path={login.getPath()} component={LogIn} />
+            <Route exact path={category.getPath()} component={CategoryPage} />
             <Route path={productPage.getPath()} component={ProductPage} />
             <Route path={blog.getPath()} component={<BlogContent />} />
             <Route exact path={contact.getPath()} component={Contact} />

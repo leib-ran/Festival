@@ -11,7 +11,7 @@ export default function Carousel(props) {
     <div className="flex">
       {index != 0 && (
         <div
-          className=" text-5xl  left-2 cursor-pointer z-10"
+          className=" text-5xl text-gray-400 hover:text-gray-800 text-gray-400 hover:text-black left-2 cursor-pointer z-10"
           onClick={(e) => {
             setIndex(subOne(index));
           }}
@@ -35,7 +35,7 @@ export default function Carousel(props) {
 
       {index != slideNumber - props.show && (
         <div
-          className="text-5xl  right-2  cursor-pointer bg-white  z-10 right-2 inset-y-2/4 align-middle	"
+          className="text-5xl  right-2 text-gray-400 hover:text-gray-800 cursor-pointer bg-white  z-10 right-2 inset-y-2/4 align-middle	"
           onClick={(e) => {
             setIndex(addOneWithlimit(index, slideNumber - props.show));
           }}
