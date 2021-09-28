@@ -1,4 +1,4 @@
-const { randomIdFromTable } = require("./helpers");
+const { getRandomTable } = require("./helpers");
 
 const faker = require("faker");
 module.exports = function productsGenrator(numberIter, subcategory) {
@@ -6,7 +6,9 @@ module.exports = function productsGenrator(numberIter, subcategory) {
   for (let index = 0; index < numberIter; index++) {
     let product = {};
     product.id = index;
-    product.subcategoryId = randomIdFromTable(subcategory, "id");
+    const subcategoryRandom = getRandomTable(subcategory);
+    product.subcategoryId = subcategoryRandom["id"];
+    product.categoryId = subcategoryRandom["categoryid"];
     product.title = faker.commerce.productName();
     product.color = faker.commerce.color();
     product.department = faker.commerce.department();

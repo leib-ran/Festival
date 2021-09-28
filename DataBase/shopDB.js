@@ -28,7 +28,7 @@ module.exports = () => {
 
   data.subcategory = subCategoryGenrator();
   data.categories = categoriesGenerator();
-  data.products = productsGenrator(200, data.subcategory);
+  data.products = productsGenrator(1000, data.subcategory);
   data.orders = orderGenrator(100, data.products);
   data.userRoles = rolesGenerator();
   data.users = userGenerator(50, data.userRoles);

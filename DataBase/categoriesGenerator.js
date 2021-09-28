@@ -1,9 +1,10 @@
 const faker = require("faker");
+const { getRandomId } = require("./helpers");
 
-const transporationId = faker.datatype.uuid();
-const exhibtsId = faker.datatype.uuid();
-const clothingId = faker.datatype.uuid();
-const camping = faker.datatype.uuid();
+const transporationId = getRandomId();
+const exhibtsId = getRandomId();
+const clothingId = getRandomId();
+const camping = getRandomId();
 
 class SubCategory {
   constructor(id, name, icon, categoryId) {
@@ -41,24 +42,29 @@ function categoriesGenerator() {
   const categories = [
     {
       title: "transporation",
-      id: faker.datatype.uuid(),
+      id: transporationId,
       icon: "plane",
+      image: "/images/categories/Flight.jpg",
     },
     {
       title: "exhibts",
-      id: faker.datatype.uuid(),
+      id: exhibtsId,
       icon: "rocket",
+      image: "/images/links/technodrom.jpg",
     },
     {
       title: "clothing",
-      id: faker.datatype.uuid(),
+      id: clothingId,
       icon: "shirt",
+      image: "/images/categories/clothing.jpg",
     },
 
     {
       title: "camping",
-      id: faker.datatype.uuid(),
+      id: camping,
       icon: "tent",
+      image:
+        "/images/categories/Northern_Nights_Music_Festival_2015_Lights_in_the_Trees_Conner_Coughenour-3.jpg",
     },
   ];
 

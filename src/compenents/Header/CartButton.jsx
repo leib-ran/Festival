@@ -34,7 +34,7 @@ export function CartButton() {
             >
               {JSON.parse(this.state.data).map((data, index) => (
                 <Item data={data} key={`item-${index}`} index={index}></Item>} */}
-      ))
+
       <Link
         to="/cart"
         className="cursor-pointer relative bg-white bg-red-600 text-white font-bold pt-1 pb-1 pl-5 pr-5"

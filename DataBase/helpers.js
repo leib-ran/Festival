@@ -1,7 +1,17 @@
-function randomIdFromTable(table, idName) {
-  const randomNum = Math.floor(Math.random() * table.length);
+const faker = require("faker");
 
-  return table[randomNum][idName];
+function randomIdFromTable(table, idName) {
+  return getRandomTable(table)[idName];
 }
 
-module.exports = { randomIdFromTable };
+function getRandomTable(table) {
+  const randomNum = Math.floor(Math.random() * table.length);
+  return table[randomNum];
+}
+
+function getRandomId() {
+  const randomId = String(faker.datatype.uuid()).replace("-", "").substr(0, 6);
+  return randomId;
+}
+
+module.exports = { randomIdFromTable, getRandomTable, getRandomId };

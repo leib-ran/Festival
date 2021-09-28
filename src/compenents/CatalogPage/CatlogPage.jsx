@@ -12,17 +12,18 @@ import { products } from "../../helper/databaseKeyName";
 import { useSelector } from "react-redux";
 import PagesButton from "./pagesButton";
 
-export default function CatlogPage() {
+export default function CatlogPage(props) {
   const [sortedData, setSortedData] = useState([]);
   const [rawData, setRawData] = useState([]);
   const pageNumber = useSelector((state) => state.pagination);
+  const catrgory = useSelector((state) => state.categoryname);
 
   useEffect(async () => {
     const result = await axios(
-      `http://localhost:5000/products?_page=${pageNumber}`
+      `http://localhost:5000/products?categoryId=${catrgory}&_page=${pageNumber}`
     );
     setRawData(result.data);
-  }, [pageNumber]);
+  }, [pageNumber, catrgory]);
 
   return (
     <div>

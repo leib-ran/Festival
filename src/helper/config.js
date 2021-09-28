@@ -18,6 +18,9 @@ export const getTitleFromItems = () => {
 export const getIdName = () => {
   return "id";
 };
+export const getIdcategoryName = () => {
+  return "categoryid";
+};
 
 export const getItemsStorage = () => {
   const localStorageName = getStorageItemName();

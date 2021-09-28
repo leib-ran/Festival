@@ -40,10 +40,11 @@ function App() {
         <Switch>
           <div className="\	min-h-screen flex flex-col">
             <Navbar />
-            <Route exact path={store.getPath()} component={CatlogPage} />
+
+            <Route exact path={store.getPath()} component={CategoryPage} />
             <Route exact path={homePage.getPath()} component={HomePage} />
             <Route exact path={login.getPath()} component={LogIn} />
-            <Route exact path={category.getPath()} component={CategoryPage} />
+            <Route exact path={category.getPath()} component={CatlogPage} />
             <Route path={productPage.getPath()} component={ProductPage} />
             <Route path={blog.getPath()} component={<BlogContent />} />
             <Route exact path={contact.getPath()} component={Contact} />
