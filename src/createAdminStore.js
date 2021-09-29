@@ -10,6 +10,8 @@ import { heightReducer } from "./reducer/heightReducer";
 import { widthFilterSortModalReducer } from "./reducer/widthfilterReducer";
 import { paginationReducer } from "./reducer/pagination";
 import { categoryReducer } from "./reducer/categoryReducer";
+import { subCategoryReducer } from "./reducer/subcategory";
+import { sorttypeReducer } from "./reducer/sortReducer";
 
 export default ({ authProvider, dataProvider, history }) => {
   const reducer = combineReducers({
@@ -21,6 +23,8 @@ export default ({ authProvider, dataProvider, history }) => {
     widthFilterSortModal: widthFilterSortModalReducer,
     pagination: paginationReducer,
     categoryname: categoryReducer,
+    subCategory: subCategoryReducer,
+    sorttype: sorttypeReducer,
   });
   const resettableAppReducer = (state, action) =>
     reducer(action.type !== USER_LOGOUT ? state : undefined, action);

@@ -31,7 +31,6 @@ export default function Carousel(props) {
           </div>
         </div>
       </div>
-      {console.log(slideNumber)}
 
       {index != slideNumber - props.show && (
         <div

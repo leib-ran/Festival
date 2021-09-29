@@ -87,8 +87,6 @@ export const isPatternFound = (searchWord, string) => {
 };
 
 export const removeSearch = (wordToRemove, string) => {
-  console.log(wordToRemove);
-  console.log(string);
   return isPatternFound(wordToRemove, string)
     ? string.replace(wordToRemove, "")
     : string;

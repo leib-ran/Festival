@@ -14,6 +14,8 @@ import {
   faLeaf,
   faBatteryEmpty,
   faRocket,
+  faMitten,
+  faMinusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 const icons = {
   plane: faPlane,
@@ -31,5 +33,7 @@ const icons = {
   genrator: faBatteryEmpty,
   wood: faLeaf,
   rocket: faRocket,
+  winter: faMitten,
+  refrigraotr: faMinusSquare,
 };
 export default icons;

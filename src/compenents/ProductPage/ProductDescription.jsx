@@ -49,7 +49,7 @@ export function ProductDescription(props) {
           <FontAwesomeIcon
             className="text-gray-400 text-2xl mr-1 cursor-pointer"
             icon={faPlus}
-            // onClick={this.addOne}
+            onClick={() => setProductQuan(addOne(productQuan))}
           ></FontAwesomeIcon>
           <input
             className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default"
@@ -58,7 +58,7 @@ export function ProductDescription(props) {
           <FontAwesomeIcon
             className="text-gray-400 text-2xl ml-1 cursor-pointer"
             icon={faMinus}
-            // onClick={() => this.subOne}
+            onClick={() => setProductQuan(subOne(productQuan))}
           ></FontAwesomeIcon>
         </div>
 

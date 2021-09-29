@@ -9,6 +9,7 @@ module.exports = function productsGenrator(numberIter, subcategory) {
     const subcategoryRandom = getRandomTable(subcategory);
     product.subcategoryId = subcategoryRandom["id"];
     product.categoryId = subcategoryRandom["categoryid"];
+    product.icon = subcategoryRandom["icon"];
     product.title = faker.commerce.productName();
     product.color = faker.commerce.color();
     product.department = faker.commerce.department();

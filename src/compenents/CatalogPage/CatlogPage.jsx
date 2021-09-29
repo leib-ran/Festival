@@ -9,26 +9,36 @@ import CategoryArea from "./CategoryArea";
 import ModalCategoryButton from "./ModalCategoryButton";
 import axios from "axios";
 import { products } from "../../helper/databaseKeyName";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PagesButton from "./pagesButton";
+import { sorttype, subCategoryName } from "../../actions";
 
 export default function CatlogPage(props) {
-  const [sortedData, setSortedData] = useState([]);
+  const subcategory = useSelector((state) => state.subCategory);
+  const dispatch = useDispatch();
   const [rawData, setRawData] = useState([]);
   const pageNumber = useSelector((state) => state.pagination);
-  const catrgory = useSelector((state) => state.categoryname);
+  const categoryName = props.history.location.pathname.split("/").pop();
+  const sortType = useSelector((state) => state.sorttype);
 
   useEffect(async () => {
     const result = await axios(
-      `http://localhost:5000/products?categoryId=${catrgory}&_page=${pageNumber}`
+      `http://localhost:5000/products?categoryId=${categoryName}${subcategory}${sortType}&_page=${pageNumber}`
     );
     setRawData(result.data);
-  }, [pageNumber, catrgory]);
+  }, [pageNumber, subcategory, categoryName, sortType]);
+
+  useEffect(() => {
+    dispatch(sorttype(``));
+    dispatch(subCategoryName(``));
+  }, [categoryName]);
 
   return (
     <div>
       <div className="text-center text-4xl">{titleCatlog()}</div>
-      <ToggelCategory />
+      <div className="float-right">
+        <ToggelCategory categoryName={categoryName} />
+      </div>
       <CategoryArea data={rawData} />
       <PagesButton></PagesButton>
     </div>
@@ -38,7 +48,6 @@ export default function CatlogPage(props) {
 function titleCatlog() {
   return "Catalog";
 }
-
 // constructor() {
 //   super();
 //   this.state = {

@@ -1,10 +1,10 @@
 const faker = require("faker");
 const { getRandomId } = require("./helpers");
 
-const transporationId = getRandomId();
-const exhibtsId = getRandomId();
-const clothingId = getRandomId();
-const camping = getRandomId();
+const transporationId = "transporation";
+const exhibtsId = "exhibts";
+const clothingId = "clothing";
+const camping = "camping";
 
 class SubCategory {
   constructor(id, name, icon, categoryId) {
@@ -32,7 +32,6 @@ const subCategoryGenrator = function () {
     new SubCategory("ten10", "Tents", "tent", camping),
     new SubCategory("slee2", "Sleeping bag", "sleepingbag", camping),
     new SubCategory("gen5", "Generator", "genrator", camping),
-    new SubCategory("refregirator", "refrigraotr", "refrigraotr", camping),
     new SubCategory("refregirator", "refrigraotr", "refrigraotr", camping),
   ];
   return subCategoris;

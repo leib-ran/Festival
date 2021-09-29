@@ -1,14 +1,11 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { categoryName, increament } from "../../actions";
-import { getIdcategoryName } from "../../helper/config";
+import { categoryName } from "../../actions";
 import { iconKey, imageKey } from "../../helper/databaseKeyName";
 import icons from "../../helper/iconsdictionary";
-import { categoryReducer } from "../../reducer/categoryReducer";
-import CatlogPage from "../CatalogPage/CatlogPage";
+import CategorySymbol from "../CategorySymbol/CategorySymbol";
 
 export default function CategoriesDisplay(props) {
   const [isLoading, setLoading] = useState(false);
@@ -36,12 +33,7 @@ export default function CategoriesDisplay(props) {
                 >
                   <div className="text-2xl relative justify-center w-96 h-96 align-middle  cursor-pointer m-2 text-center">
                     <div className="relative text-left top-2 ">
-                      <div className=" rounded-full absolute z-10 text-white right-2 bg-gray-800 opacity-75 text-lg w-12 h-12 text-center pt-2">
-                        <FontAwesomeIcon
-                          icon={icons[element[iconKey]]}
-                          className=" rounded-full"
-                        ></FontAwesomeIcon>
-                      </div>
+                      <CategorySymbol icon={icons[element[iconKey]]} />
 
                       <img
                         src={element[imageKey]}

@@ -4,7 +4,7 @@ export const heightReducer = (state = 16, action) => {
       return 0;
 
     case "EXTENDHEIGHT":
-      return;
+      return 16;
   }
   return state;
 };

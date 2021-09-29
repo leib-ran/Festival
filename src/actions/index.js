@@ -1,4 +1,4 @@
-import { CATEGORYTYPE, PAGENUMBER } from "./types";
+import { CATEGORYTYPE, PAGENUMBER, SORTTYPE, SUBCATEGORYTYPE } from "./types";
 
 export const increament = (quan) => {
   return {
@@ -69,6 +69,20 @@ export const pageNumberGlobal = (pageNumber) => {
 export const categoryName = (name) => {
   return {
     type: CATEGORYTYPE,
+    payload: name,
+  };
+};
+
+export const subCategoryName = (name) => {
+  return {
+    type: SUBCATEGORYTYPE,
+    payload: name,
+  };
+};
+
+export const sorttype = (name) => {
+  return {
+    type: SORTTYPE,
     payload: name,
   };
 };
