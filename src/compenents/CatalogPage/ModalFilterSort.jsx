@@ -3,23 +3,20 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { extendHeight, shortendHideWidth } from "../../actions";
 import {
-  extendHeight,
-  shortendHide,
-  shortendHideWidth,
-  sorttype,
-  subCategoryName,
-} from "../../actions";
+  getQueryValue,
+  isQueryFound,
+  pushTheUpdatedUrl,
+} from "../../helper/catalogHandlers";
 
 import ModalCategoryButton from "./ModalCategoryButton";
 
 export default function ModalFilterSort(props) {
   const width = useSelector((state) => state.widthFilterSortModal);
   const subcategory = useSelector((state) => state.subCategory);
-  const [typeSort, setTypeSort] = useState("asc");
+  const typeSortDefault = "asc";
   const dispatch = useDispatch();
-  const dispatch2 = useDispatch();
-  const dispatch3 = useDispatch();
 
   const [subCategories, setSubCategory] = useState([]);
   useEffect(async () => {
@@ -51,8 +48,7 @@ export default function ModalFilterSort(props) {
           return (
             <div
               onClick={(e) => {
-                const s = `&subcategoryId=${element.id}`;
-                dispatch2(subCategoryName(s));
+                pushTheUpdatedUrl(props.props, [{ subcategoryId: element.id }]);
               }}
             >
               <ModalCategoryButton name={element.name} />
@@ -65,12 +61,10 @@ export default function ModalFilterSort(props) {
             return (
               <div
                 onClick={() => {
-                  setTypeSort(sortObj[typeSort]);
-                  dispatch3(
-                    sorttype(
-                      `&_sort=${Object.values(element)[0]}&_order=${typeSort}`
-                    )
-                  );
+                  pushTheUpdatedUrl(props.props, [
+                    { _sort: Object.values(element)[0] },
+                    { _order: getOrder(props.props) },
+                  ]);
                 }}
               >
                 <ModalCategoryButton name={Object.keys(element)[0]} />
@@ -83,9 +77,18 @@ export default function ModalFilterSort(props) {
   );
 }
 
+function getOrder(props) {
+  if (!isQueryFound(props, "_order")) {
+    return "desc";
+  } else {
+    return sortObj[getQueryValue(props, "_order")];
+  }
+}
+
 function titleFilterSort() {
   return "Filter&Sort";
 }
+
 function getSortList() {
   return [{ price: "price" }, { rank: "rank" }, { name: "title" }];
 }

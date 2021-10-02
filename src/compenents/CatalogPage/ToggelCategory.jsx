@@ -25,7 +25,12 @@ export default function ToggelCategory(props) {
           </div>
         </div>
 
-        {<ModalFilterSort categoryName={props.categoryName} />}
+        {
+          <ModalFilterSort
+            categoryName={props.categoryName}
+            props={props.props}
+          />
+        }
       </div>
     </div>
   );

@@ -15,7 +15,6 @@ import { firebaseConfig } from "../../firebase";
 const options = {};
 const authProvider = FirebaseAuthProvider(firebaseConfig, options);
 
-// const dataProvider = jsonServerProvider("http://localhost:5000");
 export function AdminPage() {
   return (
     <Admin

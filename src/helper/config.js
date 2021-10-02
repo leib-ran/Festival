@@ -22,6 +22,13 @@ export const getIdcategoryName = () => {
   return "categoryid";
 };
 
+export const getUrlDataBase = () => {
+  return "http://localhost:5000";
+};
+export const getUrlproducts = () => {
+  return getUrlDataBase() + "/products";
+};
+
 export const getItemsStorage = () => {
   const localStorageName = getStorageItemName();
   return localStorage.getItem(localStorageName) || "[]";
