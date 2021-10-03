@@ -16,6 +16,11 @@ import {
   faRocket,
   faMitten,
   faMinusSquare,
+  faCalendarAlt,
+  faMoneyBill,
+  faGlobeEurope,
+  faScroll,
+  faCopy,
 } from "@fortawesome/free-solid-svg-icons";
 const icons = {
   plane: faPlane,
@@ -35,5 +40,10 @@ const icons = {
   rocket: faRocket,
   winter: faMitten,
   refrigraotr: faMinusSquare,
+  date: faCalendarAlt,
+  price: faMoneyBill,
+  country: faGlobeEurope,
+  description: faScroll,
+  ticketPrice: faCopy,
 };
 export default icons;

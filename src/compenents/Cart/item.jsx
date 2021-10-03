@@ -61,7 +61,7 @@ export default function Item(props) {
             >
               +
             </div>
-            <div className="border-2 border-black text-center m-2 mt-0 w-6 h-6">
+            <div className="border-2 border-black text-center m-2 mt-0 min-w-6 h-6">
               {quantityItem}
             </div>
             <div

@@ -1,4 +1,10 @@
-import { CATEGORYTYPE, PAGENUMBER, SORTTYPE, SUBCATEGORYTYPE } from "./types";
+import {
+  CATEGORYTYPE,
+  MAPSTATE,
+  PAGENUMBER,
+  SORTTYPE,
+  SUBCATEGORYTYPE,
+} from "./types";
 
 export const increament = (quan) => {
   return {
@@ -84,5 +90,12 @@ export const sorttype = (name) => {
   return {
     type: SORTTYPE,
     payload: name,
+  };
+};
+
+export const updatemap = (map) => {
+  return {
+    type: MAPSTATE,
+    payload: map,
   };
 };

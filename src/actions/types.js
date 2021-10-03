@@ -10,3 +10,4 @@ export const PAGENUMBER = "PAGENUMBER";
 export const CATEGORYTYPE = "CATEGORYTYPE";
 export const SUBCATEGORYTYPE = "SUBCATEGORYTYPE";
 export const SORTTYPE = "SORTTYPE";
+export const MAPSTATE = "MAP";

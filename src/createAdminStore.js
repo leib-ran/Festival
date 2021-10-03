@@ -12,6 +12,7 @@ import { paginationReducer } from "./reducer/pagination";
 import { categoryReducer } from "./reducer/categoryReducer";
 import { subCategoryReducer } from "./reducer/subcategory";
 import { sorttypeReducer } from "./reducer/sortReducer";
+import { mapReducer } from "../src/reducer/mapReducer";
 
 export default ({ authProvider, dataProvider, history }) => {
   const reducer = combineReducers({
@@ -25,6 +26,7 @@ export default ({ authProvider, dataProvider, history }) => {
     categoryname: categoryReducer,
     subCategory: subCategoryReducer,
     sorttype: sorttypeReducer,
+    mapUpdate: mapReducer,
   });
   const resettableAppReducer = (state, action) =>
     reducer(action.type !== USER_LOGOUT ? state : undefined, action);

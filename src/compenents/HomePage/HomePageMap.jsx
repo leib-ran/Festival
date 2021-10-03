@@ -8,7 +8,7 @@ export default function HomePageMap() {
     zoom: 3,
     scrollWheelZoom: false,
   };
-  let position = [2.1628718, 22.8452393];
+  let position = [0, -100];
   let TileLayer = {
     attribution:
       '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
