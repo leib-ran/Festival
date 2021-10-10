@@ -15,18 +15,11 @@ import {
   store,
 } from "../../helper/PathName";
 import { CartButton } from "./CartButton";
-
-// handelSearch = (e) => {
-//   e.preventDefault();
-//   let q = e.target[0].name;
-//   let value = e.target[0].value;
-//   this.props.history.push(`/store?${q}=${value}`);
-// };
-// onSubmit={this.handelSearch}
+import { UserButton } from "./UserButton";
 
 function Navbar() {
   const navbarHeight = useSelector((state) => state.heightHandler);
-  const arrPages = [homePage, login, signUp, blog, store, contact, about];
+  const arrPages = [homePage, blog, store, contact, about];
   return (
     <div
       className={`flex justify-between bg-gray-900 h-${navbarHeight} overflow-hidden transition duration-1000 ease-in-out relative z-10`}
@@ -45,17 +38,18 @@ function Navbar() {
             </Link>
           );
         })}
-        <CartButton />
       </div>
       <div className="flex h-full">
         <div className="pt-2">
-          <form>
+          <form className="flex">
             <input
               name="q"
               className=" h-8 w-40 ml-2 pl-2 rounded-md	"
               placeholder="Search for an item"
             />
             <button className="bg-white ml-2 p-1 font-bold">search</button>
+            <CartButton />
+            <UserButton />
           </form>
         </div>
       </div>
@@ -64,3 +58,11 @@ function Navbar() {
 }
 
 export default withRouter(Navbar);
+
+// handelSearch = (e) => {
+//   e.preventDefault();
+//   let q = e.target[0].name;
+//   let value = e.target[0].value;
+//   this.props.history.push(`/store?${q}=${value}`);
+// };
+// onSubmit={this.handelSearch}

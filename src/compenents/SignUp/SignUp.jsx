@@ -21,7 +21,6 @@ export default function SignUp(props) {
             onClick={(e) => {
               e.preventDefault();
               auth.signup(email.current.value, passward.current.value);
-              props.history.push("/login");
             }}
           >
             Sign up

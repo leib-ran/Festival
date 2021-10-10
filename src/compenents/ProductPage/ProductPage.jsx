@@ -1,39 +1,27 @@
-import React from "react";
-import Navbar from "../Header/Navbar";
-import BottomPage from "../Footer/BottomPage";
-import Content from "./Content";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Product from "./product";
 
-export default class ProductPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cartStatus: 0,
-      data: this.props.data,
-    };
-  }
+export default function ProductPage(props) {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  componentDidMount() {
-    fetch(`http://localhost:5000/products/${this.props.match.params.id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        let data = res;
-        this.setState({ data: data });
-      });
-  }
-
-  render() {
-    return (
-      <div
-        className=" bg-no-repeat bg-cover bg-center"
-        style={{
-          backgroundImage: `url("/images/links/link_desert_item.jpg")`,
-        }}
-      >
-        <header></header>
-        <main>
-          <Content data={this.state.data}></Content>
-        </main>
-      </div>
+  useEffect(async () => {
+    const result = await axios(
+      `http://localhost:8000/products/${props.match.params.id}`
     );
-  }
+    console.log(props.match.params.id);
+    setData(result.data);
+    setLoading(true);
+  }, []);
+
+  return (
+    <div className=" bg-no-repeat bg-cover bg-center">
+      <header></header>
+      <main>
+        <div className="text-center text-5xl">Dionisos Project</div>
+        {loading && <Product data={data}></Product>}
+      </main>
+    </div>
+  );
 }

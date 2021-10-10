@@ -1,54 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { addOne, addOneWithlimit, addWord, subOne } from "../../helper/config";
 
-export default class Carousel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: this.props.show || 0,
-      slideNumber: this.props.children.length,
-      index: 0,
-    };
-  }
-  prev() {
-    if (this.state.index > 0) {
-      this.setState({ index: this.state.index - 1 });
-    }
-  }
-  next() {
-    if (this.state.index < this.state.slideNumber - this.state.show - 1) {
-      this.setState({ index: this.state.index + 1 });
-    }
-  }
+export default function Carousel(props) {
+  const initialshow = props.show || 0;
+  const [show, setShow] = useState(initialshow);
+  const slideNumber = props.children.length;
+  const [index, setIndex] = useState(0);
 
-  render() {
-    return (
-      <div>
-        <div className="flex w-full  overflow-hidden">
-          <div className="transition  duration-300 ml-auto mr-auto flex  relative">
-            <div
-              className="absolute  text-white text-5xl inset-y-2/4 left-2 cursor-pointer z-10"
-              onClick={this.prev.bind(this)}
-            >
-              &#8249;
-            </div>
-            <div
-              className="flex"
-              style={{
-                transform: `translateX(-${this.state.index * 100}%)`,
-              }}
-            >
-              {this.props.children}
-            </div>
-
-            <div
-              className="absolute  text-5xl cursor-pointer bg-white text-white z-10 right-2 inset-y-2/4 align-middle	"
-              onClick={this.next.bind(this)}
-            >
-              &#8250;
-            </div>
+  return (
+    <div className="flex">
+      {index != 0 && (
+        <div
+          className=" text-5xl text-gray-400 hover:text-gray-800 text-gray-400 hover:text-black left-2 cursor-pointer z-10"
+          onClick={(e) => {
+            setIndex(subOne(index));
+          }}
+        >
+          &#8249;
+        </div>
+      )}
+      <div className="flex w-full justify-center  overflow-hidden">
+        <div className="transition   ml-auto mr-auto flex relative">
+          <div
+            className={`flex transform duration-1000 ease-in-out`}
+            style={{
+              transform: `translateX(-${index * (1 / props.show) * 100}%)`,
+            }}
+          >
+            {props.children}
           </div>
         </div>
       </div>
-    );
-  }
+
+      {index != slideNumber - props.show && (
+        <div
+          className="text-5xl  right-2 text-gray-400 hover:text-gray-800 cursor-pointer bg-white  z-10 right-2 inset-y-2/4 align-middle	"
+          onClick={(e) => {
+            setIndex(addOneWithlimit(index, slideNumber - props.show));
+          }}
+        >
+          &#8250;
+        </div>
+      )}
+    </div>
+  );
 }

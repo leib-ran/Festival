@@ -19,7 +19,7 @@ function AddToCartRe(props) {
   return (
     <div>
       <div
-        className="bg-red-800 pb-2 text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
+        className="bg-blue-900 pb-2 text-center text-white cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
         onClick={(e) => {
           const currentItemQuantity = getCurrentQuantity(item);
           const newItemQuantity =

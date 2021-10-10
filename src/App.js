@@ -22,6 +22,7 @@ import {
   admin,
   blog,
   cart,
+  category,
   checkout,
   contact,
   homePage,
@@ -29,8 +30,13 @@ import {
   productPage,
   signUp,
   store,
+  profile,
 } from "./helper/PathName";
 
+import { CategoryPage } from "./compenents/CategoriesPage/CategoryPage";
+import { AcountPage } from "./compenents/SignIn/AcountPage";
+import { AuthRouter } from "./compenents/AuthRouter/AuthRouter";
+import { Profile } from "./compenents/Profile/Profile";
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -38,22 +44,26 @@ function App() {
         <Switch>
           <div className="\	min-h-screen flex flex-col">
             <Navbar />
-            <Route exact path={store.getPath()} component={CatlogPage} />
+
+            <Route exact path={store.getPath()} component={CategoryPage} />
             <Route exact path={homePage.getPath()} component={HomePage} />
-            <Route exact path={login.getPath()} component={LogIn} />
-            <Route path={productPage.getPath()} component={ProductPage} />
-            <Route path={blog.getPath()} component={<BlogContent />} />
+
+            <Route exact path={category.getPath()} component={CatlogPage} />
             <Route exact path={contact.getPath()} component={Contact} />
             <Route exact path={about.getPath()} component={About} />
             <Route exact path={blog.getPath()} component={Blog} />
-            <Route exact path={signUp.getPath()} component={SignUp} />
             <Route exact path={cart.getPath()} component={CartPage} />
             <Route exact path={admin.getPath()} component={AdminPage} />
-            <ProtectedRoute
+            <Route exact path={signUp.getPath()} component={SignUp} />
+            <Route exact path={profile.getPath()} component={Profile} />
+            <AuthRouter path={login.getPath()} component={AcountPage} />
+            <Route path={productPage.getPath()} component={ProductPage} />
+            <Route path={blog.getPath()} component={BlogContent} />
+            {/* <ProtectedRoute
               exact
               path={checkout.path}
               component={CheckoutPage}
-            />
+            /> */}
             <BottomPage />
           </div>
         </Switch>

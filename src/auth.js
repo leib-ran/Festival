@@ -1,5 +1,6 @@
 import { auth } from "./firebase";
 import firebase from "firebase";
+import axios from "axios";
 
 class Auth {
   constructor() {
@@ -11,8 +12,7 @@ class Auth {
       .signInWithEmailAndPassword(email, pass)
       .then((user) => {
         this.authenticated = true;
-        cb();
-        return "";
+        return `http://localhost:8000/users/${email}`;
       })
       .catch((e) => {
         return e.message;

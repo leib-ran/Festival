@@ -18,6 +18,16 @@ export const getTitleFromItems = () => {
 export const getIdName = () => {
   return "id";
 };
+export const getIdcategoryName = () => {
+  return "categoryid";
+};
+
+export const getUrlDataBase = () => {
+  return "http://localhost:8000";
+};
+export const getUrlproducts = () => {
+  return getUrlDataBase() + "/products";
+};
 
 export const getItemsStorage = () => {
   const localStorageName = getStorageItemName();
@@ -26,6 +36,10 @@ export const getItemsStorage = () => {
 
 export const getItemDescrpitionName = () => {
   return "productDescription";
+};
+
+export const getstokeQuantity = () => {
+  return "stokeQuantity";
 };
 
 export const getItemsStorageParsed = () => {
@@ -66,6 +80,28 @@ export const addOne = (number) => {
   return Number(number) + 1;
 };
 
+export const addOneWithlimit = (number, limit) => {
+  return Number(number) === limit ? limit : addOne(number);
+};
+
 export const subOne = (number) => {
   return Number(number) == 0 ? 0 : Number(number) - 1;
+};
+
+export const isPatternFound = (searchWord, string) => {
+  const pattern = new RegExp(searchWord, "gi");
+  return pattern.test(string);
+};
+
+export const removeSearch = (wordToRemove, string) => {
+  return isPatternFound(wordToRemove, string)
+    ? string.replace(wordToRemove, "")
+    : string;
+};
+export const addWord = (text, string) => {
+  return `${text} ${string}`;
+};
+
+export const isObjectEmpty = (obj) => {
+  return Object.keys(obj).length == 0;
 };

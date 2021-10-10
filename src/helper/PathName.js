@@ -28,3 +28,5 @@ export const cart = new Page("Cart", "/cart");
 export const checkout = new Page("Checkout", "/checkout");
 export const admin = new Page("admin", "/admin");
 export const contact = new Page("Contact", "/contact");
+export const category = new Page("Category", "/category/:id");
+export const profile = new Page("Profile", "/profile");
