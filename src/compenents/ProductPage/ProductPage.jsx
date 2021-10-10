@@ -8,8 +8,9 @@ export default function ProductPage(props) {
 
   useEffect(async () => {
     const result = await axios(
-      `http://localhost:5000/products/${props.match.params.id}`
+      `http://localhost:8000/products/${props.match.params.id}`
     );
+    console.log(props.match.params.id);
     setData(result.data);
     setLoading(true);
   }, []);

@@ -1,5 +1,6 @@
 import { createBrowserHistory } from "history";
 import jsonServerProvider from "ra-data-json-server";
+import simpleRestProvider from "ra-data-simple-rest";
 
-export const dataProvider = jsonServerProvider("http://localhost:5000");
+export const dataProvider = simpleRestProvider("http://localhost:8000");
 export const history = createBrowserHistory();

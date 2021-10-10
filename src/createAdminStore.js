@@ -13,6 +13,10 @@ import { categoryReducer } from "./reducer/categoryReducer";
 import { subCategoryReducer } from "./reducer/subcategory";
 import { sorttypeReducer } from "./reducer/sortReducer";
 import { mapReducer } from "../src/reducer/mapReducer";
+import { modalFestivalReducer } from "./reducer/modalFestivalReducer";
+import { festivalReducer } from "./reducer/festivalReducer";
+import { userGlobalState } from "./reducer/userGlobalState";
+import { buttonLoginSignUpReducer } from "./reducer/buttonLoginSignUpReducer";
 
 export default ({ authProvider, dataProvider, history }) => {
   const reducer = combineReducers({
@@ -27,6 +31,10 @@ export default ({ authProvider, dataProvider, history }) => {
     subCategory: subCategoryReducer,
     sorttype: sorttypeReducer,
     mapUpdate: mapReducer,
+    modalFestival: modalFestivalReducer,
+    festivalChosen: festivalReducer,
+    userGlobalState: userGlobalState,
+    isSignIn: buttonLoginSignUpReducer,
   });
   const resettableAppReducer = (state, action) =>
     reducer(action.type !== USER_LOGOUT ? state : undefined, action);

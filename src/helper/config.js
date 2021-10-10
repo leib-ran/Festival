@@ -23,7 +23,7 @@ export const getIdcategoryName = () => {
 };
 
 export const getUrlDataBase = () => {
-  return "http://localhost:5000";
+  return "http://localhost:8000";
 };
 export const getUrlproducts = () => {
   return getUrlDataBase() + "/products";
@@ -100,4 +100,8 @@ export const removeSearch = (wordToRemove, string) => {
 };
 export const addWord = (text, string) => {
   return `${text} ${string}`;
+};
+
+export const isObjectEmpty = (obj) => {
+  return Object.keys(obj).length == 0;
 };

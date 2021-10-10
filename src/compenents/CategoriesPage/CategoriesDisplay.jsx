@@ -13,7 +13,7 @@ export default function CategoriesDisplay(props) {
 
   let [data, setData] = useState({});
   useEffect(async () => {
-    const result = await axios("http://localhost:5000/categories");
+    const result = await axios("http://localhost:8000/categories");
     setData(result.data);
     setLoading(true);
   }, []);

@@ -1,9 +1,15 @@
 import {
   CATEGORYTYPE,
+  FESTIVALINK,
+  FESTIVALSHOW,
+  FESTIVAWELCOMING,
+  ISSIGNIN,
   MAPSTATE,
   PAGENUMBER,
   SORTTYPE,
   SUBCATEGORYTYPE,
+  UPDATEFESTIVAL,
+  USER,
 } from "./types";
 
 export const increament = (quan) => {
@@ -97,5 +103,43 @@ export const updatemap = (map) => {
   return {
     type: MAPSTATE,
     payload: map,
+  };
+};
+
+export const slideFestivalModalHide = () => {
+  return {
+    type: FESTIVALINK,
+  };
+};
+export const slideFestivalModalMain = () => {
+  return {
+    type: FESTIVAWELCOMING,
+  };
+};
+
+export const slideFestivalModal = () => {
+  return {
+    type: FESTIVALSHOW,
+  };
+};
+
+export const updateFestival = (festival) => {
+  return {
+    type: UPDATEFESTIVAL,
+    payload: festival,
+  };
+};
+
+export const updateUser = (user) => {
+  return {
+    type: USER,
+    payload: user,
+  };
+};
+
+export const updateSignInState = (boolValue) => {
+  return {
+    type: ISSIGNIN,
+    payload: boolValue,
   };
 };

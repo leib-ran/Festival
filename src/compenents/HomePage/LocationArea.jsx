@@ -23,7 +23,7 @@ export default function LocationArea(props) {
     {
       name: "AFRICA",
       icon: faGlobeAfrica,
-      center: [2.1628718, 22.8452393],
+      center: [2.68, 23.2],
       zoom: 3,
     },
     {
@@ -35,10 +35,10 @@ export default function LocationArea(props) {
     {
       name: "ASIA",
       icon: faGlobeAsia,
-      center: [45, 100],
-      zoom: 3,
+      center: [56.61, 95.63],
+      zoom: 2,
     },
-    { name: "EUROPE", icon: faGlobeEurope, center: [45, 22.8452393], zoom: 4 },
+    { name: "EUROPE", icon: faGlobeEurope, center: [52, 18.9], zoom: 3 },
   ];
 
   return (

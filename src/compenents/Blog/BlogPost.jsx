@@ -7,15 +7,10 @@ function BlogPost() {
       <div className="w-96 leading-7">
         <div className=" shadow-lg h-96 p-4">
           <div>
-            <h1 className="font-medium text-4xl">title</h1>
-            <h1 className="text-gray-300">by shuki</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate quam voluptas numquam! Consectetur reprehenderit quos
-              recusandae ex, at sunt ipsam sed non! Autem cum, exercitationem
-              dolor deleniti veritatis consectetur iure?
-            </p>
-            <h1 className="text-gray-300 text-xs">30/08/20008</h1>
+            <h1 className="font-medium text-4xl">{post.title}</h1>
+            <h1 className="text-gray-300">{post.author}</h1>
+            <p>{post.content}</p>
+            <h1 className="text-gray-300 text-xs">{post.date}</h1>
           </div>
 
           <Link
@@ -37,3 +32,13 @@ function BlogPost() {
   );
 }
 export default BlogPost;
+
+const post = {
+  title: "title",
+  subTitle: "sub Title",
+  author: "by shuki",
+  date: "30/08/2008",
+  content:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.Cupiditate quam voluptas numquam! Consectetur reprehenderit quosrecusandae ex, at sunt ipsam sed non! Autem cum, exercitationemdolor deleniti veritatis consectetur iure?",
+  comment: "",
+};
