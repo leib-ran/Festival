@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import createAdminStore from "./createAdminStore";
-
 import authProvider from "./authProvider";
 import { dataProvider, history } from "./helper/adminConsts";
 

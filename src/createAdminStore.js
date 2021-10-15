@@ -17,7 +17,6 @@ import { modalFestivalReducer } from "./reducer/modalFestivalReducer";
 import { festivalReducer } from "./reducer/festivalReducer";
 import { userGlobalState } from "./reducer/userGlobalState";
 import { buttonLoginSignUpReducer } from "./reducer/buttonLoginSignUpReducer";
-
 export default ({ authProvider, dataProvider, history }) => {
   const reducer = combineReducers({
     admin: adminReducer,

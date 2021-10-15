@@ -3,16 +3,11 @@ import {
   List,
   Datagrid,
   ImageField,
-  BooleanField,
   TextField,
-  ArrayField,
-  FieldTitleProps,
   NumberField,
-  TextInput,
-  ReferenceInput,
   EditButton,
 } from "react-admin";
-import PostIcon from "@material-ui/icons/Book";
+// import PostIcon from "@material-ui/icons/Book";
 
 // const productFilter = [
 //   <TextInput source ="q" lable="Search" alwaysOn />

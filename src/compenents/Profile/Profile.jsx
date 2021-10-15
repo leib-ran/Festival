@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../actions";
+import { UserDetailsLeft } from "./Details";
+import { FormUserDetail } from "./FormUserDetail";
 
 export function Profile(props) {
   const dispatch = useDispatch();
@@ -7,6 +9,7 @@ export function Profile(props) {
   console.log(user);
   return (
     <div>
+      <div className="text-4xl">welcome {user.firstName}</div>
       <button
         className="border-2 border-black"
         onClick={() => {
@@ -16,8 +19,10 @@ export function Profile(props) {
       >
         Log Out
       </button>
-      <div></div>
-      rna the one 1
+      <div className="flex">
+        <UserDetailsLeft />
+        <FormUserDetail />
+      </div>
     </div>
   );
 }

@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { addOne, addOneWithlimit, addWord, subOne } from "../../helper/config";
+import { addOneWithlimit, subOne } from "../../helper/config";
 
 export default function Carousel(props) {
-  const initialshow = props.show || 0;
-  const [show, setShow] = useState(initialshow);
   const slideNumber = props.children.length;
   const [index, setIndex] = useState(0);
 
   return (
     <div className="flex">
-      {index != 0 && (
+      {index !== 0 && (
         <div
           className=" text-5xl text-gray-400 hover:text-gray-800 text-gray-400 hover:text-black left-2 cursor-pointer z-10"
           onClick={(e) => {
@@ -32,7 +30,7 @@ export default function Carousel(props) {
         </div>
       </div>
 
-      {index != slideNumber - props.show && (
+      {index !== slideNumber - props.show && (
         <div
           className="text-5xl  right-2 text-gray-400 hover:text-gray-800 cursor-pointer bg-white  z-10 right-2 inset-y-2/4 align-middle	"
           onClick={(e) => {

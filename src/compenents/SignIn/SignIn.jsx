@@ -39,10 +39,12 @@ export default function LogIn(props) {
               email.current.value,
               passward.current.value
             );
-            axios(`http://localhost:8000/users/login`, {
-              userEmail: email.current.value,
-            })
+            axios
+              .post(`http://localhost:8000/users/login`, {
+                userEmail: email.current.value,
+              })
               .then((res) => {
+                console.log(res);
                 dispatch(updateUser(res.data));
               })
               .catch((err) => console.log(err.response.data));

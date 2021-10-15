@@ -7,10 +7,11 @@ import { ProductList } from "./products/ProductsList";
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 import PersonIcon from "@material-ui/icons/Person";
 import GroupIcon from "@material-ui/icons/Group";
+import React from "react";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
-import dashbord from "./Dashboard/dashbord";
 import { FirebaseAuthProvider } from "react-admin-firebase";
 import { firebaseConfig } from "../../firebase";
+import dashboard from "./Dashboard/Dashbord";
 
 const options = {};
 const authProvider = FirebaseAuthProvider(firebaseConfig, options);
@@ -18,9 +19,9 @@ const authProvider = FirebaseAuthProvider(firebaseConfig, options);
 export function AdminPage() {
   return (
     <Admin
+      dashboard={dashboard}
       dataProvider={dataProvider}
       authProvider={authProvider}
-      dashboard={dashbord}
       history={history}
     >
       <Resource
@@ -30,6 +31,7 @@ export function AdminPage() {
         edit={EditGuesser}
         create={ProductsCreate}
       />
+
       <Resource
         name="orders"
         list={OrderList}

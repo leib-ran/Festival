@@ -28,10 +28,11 @@ function Navbar() {
         <div className="h-16 pt-1 w-16">
           <Logo></Logo>
         </div>
-        {arrPages.map((link) => {
+        {arrPages.map((link, index) => {
           return (
             <Link
               className="w-16 pt-4 hover:bg-blue-900 text-white text-center cursor-pointer	 align-bottom "
+              key={`${link.getName}${index}`}
               to={link.getPath()}
             >
               {link.getName()}

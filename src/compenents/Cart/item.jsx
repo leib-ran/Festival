@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { decreament, increament, updateItem } from "../../actions";
 import {
   addOne,
@@ -20,7 +20,6 @@ export default function Item(props) {
     props.data[getQuantityKeyNameForItems()]
   );
   const quantityProducts = getQuantityFromStorage();
-  const items = getItemsStorageParsed();
   const dispatch = useDispatch();
 
   function handleClick(Action, funcOperation) {
