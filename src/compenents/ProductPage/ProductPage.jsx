@@ -10,7 +10,6 @@ export default function ProductPage(props) {
     const result = await axios(
       `http://localhost:8000/products/${props.match.params.id}`
     );
-    console.log(props.match.params.id);
     setData(result.data);
     setLoading(true);
   }, []);

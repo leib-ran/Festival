@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { decreament, increament, updateItem } from "../../actions";
 import {
@@ -21,15 +21,17 @@ export default function Item(props) {
   );
   const quantityProducts = getQuantityFromStorage();
   const dispatch = useDispatch();
+  const product = props.data.product;
+
+  useEffect(() => {
+    setCount(props.data[getQuantityKeyNameForItems()]);
+  }, [props.data]);
 
   function handleClick(Action, funcOperation) {
     const newquantityItem = funcOperation(quantityItem);
-    setQuantityFromStorage(funcOperation(quantityProducts));
+    setQuantityFromStorage(newquantityItem);
+    const items = changeQuantityOfItemFromItemsArray(product, newquantityItem);
 
-    const items = changeQuantityOfItemFromItemsArray(
-      props.data,
-      newquantityItem
-    );
     if (newquantityItem) {
       dispatch(updateItem(items));
       dispatch(Action(1));
@@ -41,15 +43,13 @@ export default function Item(props) {
   return (
     <div className="shadow-lg">
       <div className="m-2 overflow-hidden">
-        <h1 className="font-bold">{props.data["nameProduct"]}</h1>
+        <h1 className="font-bold">{product["nameProduct"]}</h1>
         <div className="float-left min-h-full w-4/12 p-2">
-          <img className="" src={props.data["imageUrl"]} alt="cart photo" />
+          <img className="" src={product["imageUrl"]} alt="cart photo" />
         </div>
         <div>
-          <div className="font-bold">{props.data[getTitleFromItems()]}</div>
-          <p className="clear-right p-2">
-            {props.data[getItemDescrpitionName()]}
-          </p>
+          <div className="font-bold">{product[getTitleFromItems()]}</div>
+          <p className="clear-right p-2">{product[getItemDescrpitionName()]}</p>
           <div className="flex">
             <div>Qty</div>
             <div

@@ -6,6 +6,7 @@ import {
   ISSIGNIN,
   MAPSTATE,
   PAGENUMBER,
+  SETQUANTITY,
   SORTTYPE,
   SUBCATEGORYTYPE,
   UPDATEFESTIVAL,
@@ -22,6 +23,13 @@ export const increament = (quan) => {
 export const decreament = (quan) => {
   return {
     type: "DECREAMENT",
+    payload: quan,
+  };
+};
+
+export const setQuantity = (quan) => {
+  return {
+    type: SETQUANTITY,
     payload: quan,
   };
 };

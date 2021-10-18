@@ -8,9 +8,13 @@ import { GoogleButton } from "./GoogleButton";
 import { FaceButton } from "./FaceButton";
 import firebase from "firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../actions";
+import { setQuantity, updateItem, updateUser } from "../../actions";
 import axios from "axios";
-
+import {
+  getQuantityKeyNameForItems,
+  getQuantityTempKeyNameForItems,
+  UserLocalStorage,
+} from "../../helper/config";
 export default function LogIn(props) {
   const email = useRef(null);
   const passward = useRef(null);
@@ -44,8 +48,12 @@ export default function LogIn(props) {
                 userEmail: email.current.value,
               })
               .then((res) => {
-                console.log(res);
-                dispatch(updateUser(res.data));
+                const userQuan = res.data.user.quanItems;
+                dispatch(updateUser(res.data.user));
+                SwapQuantity(userQuan);
+                dispatch(setQuantity(userQuan));
+                dispatch(updateItem(res.data.user.items));
+                UserLocalStorage(res.data.user.items);
               })
               .catch((err) => console.log(err.response.data));
           }}
@@ -94,4 +102,9 @@ export default function LogIn(props) {
   );
 }
 
-function GetUser(email) {}
+function SwapQuantity(currquan) {
+  const quan = localStorage.getItem(getQuantityKeyNameForItems()) || 0;
+  console.log(quan);
+  localStorage.setItem(getQuantityTempKeyNameForItems(), quan);
+  localStorage.setItem(getQuantityKeyNameForItems(), currquan || 0);
+}
