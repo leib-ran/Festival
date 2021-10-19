@@ -30,8 +30,12 @@ import {
 
 import { CategoryPage } from "./compenents/CategoriesPage/CategoryPage";
 import { AcountPage } from "./compenents/SignIn/AcountPage";
-import { AuthRouter } from "./compenents/AuthRouter/AuthRouter";
+import { AuthRouter } from "./compenents/AuthRouter/AuthRouterTemplate";
 import { Profile } from "./compenents/Profile/Profile";
+import { isObjectEmpty } from "./helper/config";
+import { AuthRouteGeneral } from "./compenents/AuthRouter/AuthRouteGeneral";
+import { AuthRoutProfile } from "./compenents/AuthRouter/AuthRoutProfile";
+
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -48,8 +52,17 @@ function App() {
             <Route exact path={cart.getPath()} component={CartPage} />
             <Route path={admin.getPath()} component={AdminPage} />
             <Route exact path={signUp.getPath()} component={SignUp} />
-            <Route exact path={profile.getPath()} component={Profile} />
-            <AuthRouter path={login.getPath()} component={AcountPage} />
+            <AuthRoutProfile
+              exact
+              path={profile.getPath()}
+              pathRe={login.getPath()}
+              component={Profile}
+            />
+            <AuthRouteGeneral
+              path={login.getPath()}
+              pathRe={profile.getPath()}
+              component={AcountPage}
+            />
             <Route path={productPage.getPath()} component={ProductPage} />
             <Route path={blog.getPath()} component={BlogContent} />
           </Switch>

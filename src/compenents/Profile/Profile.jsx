@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { setQuantity, updateItem, updateUser } from "../../actions";
 import {
   getItemsStorageParsed,
@@ -9,6 +10,7 @@ import { FormUserDetail } from "./FormUserDetail";
 
 export function Profile(props) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const user = useSelector((state) => state.userGlobalState);
   return (
@@ -26,7 +28,8 @@ export function Profile(props) {
           quan = getQuanStorageParsed() || 0;
           dispatch(updateItem(items));
           dispatch(setQuantity(quan));
-          props.history.push("/login");
+          console.log(props);
+          history.push("/login");
         }}
       >
         Log Out
