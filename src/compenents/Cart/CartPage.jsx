@@ -1,31 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { getItemsStorage } from "../../helper/config";
-import ItemsList from "./ItemsList";
-import PaymentArea from "./PaymentArea";
+import { CartWithItems } from "./CartWithItems";
 
-export default class CartPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: getItemsStorage(),
-    };
-  }
+export default function CartPage(props) {
+  const items = useSelector((state) => state.itemHandler);
 
-  render() {
-    return (
-      <div>
-        <div className="bg-gray-100 pt-4 pb-4 text-center mt-20 text-3xl font-medium	">
-          {getCartTitleName()}
-        </div>
-        <div className="md:flex md:justify-center ">
-          <div className="md:w-136 w-full mt-2 mr-4	">
-            <ItemsList />
-          </div>
-          <PaymentArea data={JSON.parse(this.state.items)} />
-        </div>
+  return (
+    <div>
+      <div className="bg-gray-100 pt-4 pb-4 text-center mt-20 text-3xl font-medium	">
+        {getCartTitleName()}
       </div>
-    );
-  }
+      {items.length != 0 ? <CartWithItems /> : <div>The cart is empty</div>}
+    </div>
+  );
 }
 
 const getCartTitleName = () => {
