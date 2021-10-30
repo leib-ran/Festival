@@ -47,6 +47,7 @@ export default function ModalFilterSort(props) {
         {subCategories.map((element) => {
           return (
             <div
+              key={element.id}
               onClick={(e) => {
                 pushTheUpdatedUrl(props.props, [{ subcategoryId: element.id }]);
               }}
@@ -57,9 +58,10 @@ export default function ModalFilterSort(props) {
         })}
         <div>
           <div className="text-center">Sort</div>{" "}
-          {getSortList().map((element) => {
+          {getSortList().map((element, index) => {
             return (
               <div
+                key={index}
                 onClick={() => {
                   pushTheUpdatedUrl(props.props, [
                     { _sort: Object.values(element)[0] },

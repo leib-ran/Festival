@@ -1,6 +1,9 @@
 import { faMinus, faPlane, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+import { updateItemCheckout } from "../../actions";
 import {
   addOne,
   getIdName,
@@ -18,6 +21,8 @@ import { XButton } from "./XButton";
 export function ProductDescription(props) {
   const initialQuan = 1;
   const [productQuan, setProductQuan] = useState(initialQuan);
+  const dispatch = useDispatch();
+  const history = useHistory();
   return (
     <div className="w-96">
       <h1 className=" text-3xl">{props.data[getTitleFromItems()]}</h1>
@@ -63,7 +68,15 @@ export function ProductDescription(props) {
         </div>
 
         <AddToCartRe quan={productQuan} data={props.data} />
-        <div className="bg-red-800 text-center pb-2 text-white mt-2 cursor-pointer hover:bg-yellow-500 hover:text-gray-900">
+        <div
+          className="bg-red-800 text-center pb-2 text-white mt-2 cursor-pointer hover:bg-yellow-500 hover:text-gray-900"
+          onClick={() => {
+            dispatch(
+              updateItemCheckout({ product: props.data, quan: productQuan })
+            );
+            history.push("/checkout");
+          }}
+        >
           <span>Buy</span>
         </div>
       </div>

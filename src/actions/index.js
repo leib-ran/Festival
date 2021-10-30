@@ -4,8 +4,10 @@ import {
   FESTIVALSHOW,
   FESTIVAWELCOMING,
   ISSIGNIN,
+  ITEMCHECKOUT,
   MAPSTATE,
   PAGENUMBER,
+  SETQUANTITY,
   SORTTYPE,
   SUBCATEGORYTYPE,
   UPDATEFESTIVAL,
@@ -22,6 +24,13 @@ export const increament = (quan) => {
 export const decreament = (quan) => {
   return {
     type: "DECREAMENT",
+    payload: quan,
+  };
+};
+
+export const setQuantity = (quan) => {
+  return {
+    type: SETQUANTITY,
     payload: quan,
   };
 };
@@ -141,5 +150,12 @@ export const updateSignInState = (boolValue) => {
   return {
     type: ISSIGNIN,
     payload: boolValue,
+  };
+};
+
+export const updateItemCheckout = (item) => {
+  return {
+    type: ITEMCHECKOUT,
+    payload: item,
   };
 };

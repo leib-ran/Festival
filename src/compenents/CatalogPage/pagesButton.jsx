@@ -13,11 +13,11 @@ function PagesButton(props) {
   const currentPage = getQueryValue(props.props, "_page") || 1;
   PagesButton = [];
   fillPagesButton(PagesButton, currentPage - 1 || 1, Number(currentPage) + 1);
-  console.log(PagesButton);
   return (
     <div className="text-center">
       {PagesButton.map((index) => (
         <button
+          key={index}
           className="w-16 h-16 hover:bg-blue-300 hover:text-white border-black border-2 text-center rounded-medium"
           onClick={() => {
             pushTheUpdatedUrl(props.props, [{ _page: index }]);
@@ -32,7 +32,6 @@ function PagesButton(props) {
 }
 
 function fillPagesButton(PagesButton, index, limit) {
-  console.log(limit);
   for (index; index <= limit; index++) {
     PagesButton.push(index);
   }

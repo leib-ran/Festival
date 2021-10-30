@@ -23,9 +23,10 @@ export function ProductImages(props) {
         </div>
         <div className={`flex justify-center  w-72 m-auto mt-2`}>
           <Carousel show={3}>
-            {props.data.galleryImages.map((src) => {
+            {props.data.galleryImages.map((src, index) => {
               return (
                 <img
+                  key={index}
                   onClick={(e) => {
                     setImages(src, src);
                     e.target.className = addWord(

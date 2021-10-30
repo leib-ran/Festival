@@ -43,18 +43,21 @@ export default function LocationArea(props) {
 
   return (
     <div>
-      <div className="cursor-pointer flex justify-center flex-wrap">
-        {ContinentsIcons.map((obj) => {
-          return (
-            <div onClick={() => onClick(obj.center, obj.zoom)}>
-              <LocationButton
-                icon={obj.icon}
-                continent={obj.name}
-              ></LocationButton>
-            </div>
-          );
-        })}
-      </div>
+      {map && (
+        <div className="cursor-pointer flex justify-center flex-wrap">
+          {ContinentsIcons.map((obj) => {
+            return (
+              <div key={obj.name} onClick={() => onClick(obj.center, obj.zoom)}>
+                <LocationButton
+                  key={obj.name}
+                  icon={obj.icon}
+                  continent={obj.name}
+                ></LocationButton>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

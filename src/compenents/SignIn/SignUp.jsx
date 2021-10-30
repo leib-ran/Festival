@@ -17,29 +17,25 @@ export default function SignUp() {
         action=""
         onSubmit={(e) => {
           e.preventDefault();
-          // if (
-          //   checkPassWard(
-          //     passward.current.value,
-          //     confirmPassward.current.value
-          //   )
-          // ) {
-          //   setErrorMsg("very good");
-          // } else {
-          //   setErrorMsg("The passward arent match");
-          // }
-          axios
-            .post("http://localhost:8000/users", {
-              firstName: userName.current.value,
-              userEmail: email.current.value,
-            })
-            .then((res) => {
-              auth.signup(email.current.value, passward.current.value);
-              dispatch(updateSignInState(true));
-              return res;
-            })
-            .catch((error) => {
-              setErrorMsg(error.response.data.error);
-            });
+          if (
+            checkPassWard(passward.current.value, confirmPassward.current.value)
+          ) {
+            axios
+              .post("http://localhost:8000/users", {
+                firstName: userName.current.value,
+                userEmail: email.current.value,
+              })
+              .then((res) => {
+                auth.signup(email.current.value, passward.current.value);
+                dispatch(updateSignInState(true));
+                return res;
+              })
+              .catch((error) => {
+                setErrorMsg(error.response.data.error);
+              });
+          } else {
+            setErrorMsg("The passward arent match");
+          }
         }}
       >
         <div className="pt-20 text-center text-sm text-red-800">{ErrorMsg}</div>
@@ -84,7 +80,6 @@ export default function SignUp() {
 
 const handleSubmit = () => {};
 const checkPassWard = (pass, confirmPass) => {
-  console.log(pass, confirmPass);
   if (pass === confirmPass) {
     return true;
   }

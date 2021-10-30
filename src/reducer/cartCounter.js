@@ -1,3 +1,5 @@
+import { SETQUANTITY } from "../actions/types";
+
 const initialState = localStorage.getItem("quan") || 0;
 
 const counterReducer = (state = initialState, action) => {
@@ -7,6 +9,8 @@ const counterReducer = (state = initialState, action) => {
 
     case "DECREAMENT":
       return Number(state) - Number(action.payload);
+    case SETQUANTITY:
+      return action.payload;
   }
   return state;
 };

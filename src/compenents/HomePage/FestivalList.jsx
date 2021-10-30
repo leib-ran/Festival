@@ -59,9 +59,11 @@ export function FestivalsList() {
                       })
                       .map((element) => {
                         return (
-                          <div className="text-blue-800 w-1/2 m-2  font-bold">
+                          <div
+                            key={element}
+                            className="text-blue-800 w-1/2 m-2  font-bold"
+                          >
                             <FestivelSpec
-                              key={element}
                               name={element}
                               value={FestivalObj[element]}
                             />

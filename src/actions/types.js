@@ -17,3 +17,5 @@ export const FESTIVALSHOW = "FESTIVALSHOW";
 export const UPDATEFESTIVAL = "UPDATEFESTIVAL";
 export const USER = "USER";
 export const ISSIGNIN = "ISSIGNIN";
+export const SETQUANTITY = "SETQUANTITY";
+export const ITEMCHECKOUT = "ITEMCHECKOUT";

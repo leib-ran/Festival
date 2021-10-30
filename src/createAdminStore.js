@@ -17,7 +17,7 @@ import { modalFestivalReducer } from "./reducer/modalFestivalReducer";
 import { festivalReducer } from "./reducer/festivalReducer";
 import { userGlobalState } from "./reducer/userGlobalState";
 import { buttonLoginSignUpReducer } from "./reducer/buttonLoginSignUpReducer";
-
+import { ItemReducer } from "./reducer/updateItemReducer";
 export default ({ authProvider, dataProvider, history }) => {
   const reducer = combineReducers({
     admin: adminReducer,
@@ -35,6 +35,7 @@ export default ({ authProvider, dataProvider, history }) => {
     festivalChosen: festivalReducer,
     userGlobalState: userGlobalState,
     isSignIn: buttonLoginSignUpReducer,
+    itemCheckOut: ItemReducer,
   });
   const resettableAppReducer = (state, action) =>
     reducer(action.type !== USER_LOGOUT ? state : undefined, action);

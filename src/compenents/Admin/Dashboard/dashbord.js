@@ -1,9 +1,11 @@
-import React from "react";
+import * as React from "react";
 import { Card, CardContent, CardHeader } from "@material-ui/core";
 
-export default () => {
+const dashboard = () => (
   <Card>
-    <CardHeader title="Welcome to the adminstration" />
-    <CardContent Content>lorem ipsum </CardContent>
-  </Card>;
-};
+    <CardHeader title="Let's Do Some Administration Work" />
+    <CardContent>Lorem ipsum sic dolor amet...</CardContent>
+  </Card>
+);
+
+export default dashboard;

@@ -3,21 +3,19 @@ import {
   List,
   Datagrid,
   ImageField,
-  BooleanField,
   TextField,
   ArrayField,
-  FieldTitleProps,
   ReferenceField,
   NumberField,
   DateField,
   EditButton,
 } from "react-admin";
 
-const tabs = [
-  { id: "ordered", name: "ordered" },
-  { id: "delivered", name: "delivered" },
-  { id: "cancelled", name: "cancelled" },
-];
+// const tabs = [
+//   { id: "ordered", name: "ordered" },
+//   { id: "delivered", name: "delivered" },
+//   { id: "cancelled", name: "cancelled" },
+// ];
 export const OrderList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">

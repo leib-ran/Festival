@@ -11,6 +11,10 @@ export const getQuantityKeyNameForItems = () => {
   return "quan";
 };
 
+export const getQuantityTempKeyNameForItems = () => {
+  return "tempquan";
+};
+
 export const getTitleFromItems = () => {
   return "title";
 };
@@ -27,6 +31,10 @@ export const getUrlDataBase = () => {
 };
 export const getUrlproducts = () => {
   return getUrlDataBase() + "/products";
+};
+
+export const getTempStorageName = () => {
+  return "temp";
 };
 
 export const getItemsStorage = () => {
@@ -46,6 +54,11 @@ export const getItemsStorageParsed = () => {
   return JSON.parse(getItemsStorage());
 };
 
+export const getQuanStorageParsed = () => {
+  const localStorageName = getQuantityKeyNameForItems();
+  return localStorage.getItem(localStorageName) || 0;
+};
+
 export const getQuantityFromStorage = () => {
   const localStorageName = getStorageQuantityName();
   return localStorage.getItem(localStorageName) || 0;
@@ -58,21 +71,33 @@ export const setItemsStorage = (items) => {
   localStorage.setItem(getStorageItemName(), JSON.stringify(items));
 };
 
+export function UserLocalStorage(newStorage) {
+  const items = getItemsStorage();
+  localStorage.setItem(getTempStorageName(), items);
+  setItemsStorage(newStorage);
+}
+
 export const getStorage = (storageName) => {
   return localStorage.getItem(storageName);
 };
 
+export const getProductName = () => {
+  return "product";
+};
+
 export const changeQuantityOfItemFromItemsArray = (currItem, newQuantaty) => {
   const items = getItemsStorageParsed();
+  const product = getProductName();
   const id = getIdName();
+  const quan = getQuantityKeyNameForItems();
   for (const item of items) {
-    if (item[id] == currItem[id]) {
-      item[getQuantityKeyNameForItems()] = Number(newQuantaty);
+    if (item[product][id] == currItem[id]) {
+      item[quan] = Number(newQuantaty);
       return items;
     }
   }
-  currItem[getQuantityKeyNameForItems()] = Number(newQuantaty);
-  return items.concat(currItem);
+
+  return items.concat({ product: currItem, quan: Number(newQuantaty) });
 };
 
 //cart

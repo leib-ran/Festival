@@ -1,5 +1,3 @@
-const faker = require("faker");
-
 module.exports = function rolesGenerator() {
   return [
     { id: 1, Name: "admin" },

@@ -1,6 +1,5 @@
 import { auth } from "./firebase";
 import firebase from "firebase";
-import axios from "axios";
 
 class Auth {
   constructor() {

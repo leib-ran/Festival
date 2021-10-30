@@ -26,6 +26,7 @@ export default function CategoriesDisplay(props) {
             {data.map((element) => {
               return (
                 <Link
+                  key={element.title}
                   to={`/category/${element.title}`}
                   onClick={(e) => {
                     dispatch(categoryName(element["id"]));

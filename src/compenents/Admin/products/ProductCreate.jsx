@@ -1,8 +1,6 @@
 import {
   Create,
-  ReferenceInput,
   SimpleForm,
-  SelectInput,
   TextInput,
   ImageInput,
   NumberInput,
@@ -11,9 +9,6 @@ import {
 export const ProductsCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <ReferenceInput source="id" reference="products">
-        <SelectInput optionText="id" />
-      </ReferenceInput>
       <ImageInput source="imageUrl" />
       <TextInput multiline source="color" />
       <TextInput source="title" />

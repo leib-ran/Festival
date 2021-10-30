@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HomePageMap from "./HomePageMap";
 import LocationArea from "./LocationArea";
+
 export default function WelcomingTitle() {
   const [index, setIndex] = useState(-1);
   const [show, setShow] = useState("100");
@@ -24,7 +25,7 @@ export default function WelcomingTitle() {
       >
         <div className="relative">
           <div className="absolute w-full h-full bg-gray-900 opacity-60"></div>
-          <div className="text-4xl  text-center relative">
+          <div className="text-4xl  text-center relative p-2">
             CHOOSE FESTIVAL
             <div className="  overflow-hidden  h-full  m-auto   filter  brightness-75 md:rounded-full	 contrast-200	lg:rounded-full sm:rounded-none	 -hue-rotate-180 invert	saturate-200	opacity-90">
               <HomePageMap />

@@ -24,9 +24,10 @@ export function FestivalProduct() {
           {FestivalProductTitle()}
         </div>
         <div className="flex flex-wrap">
-          {dataDisplay.map((category) => {
+          {dataDisplay.map((category, index) => {
             return (
               <div
+                key={index}
                 className="w-1/2"
                 onClick={() => {
                   setDataDisplay(category.subCategoris);

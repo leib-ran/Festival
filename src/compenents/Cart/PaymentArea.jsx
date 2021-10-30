@@ -19,11 +19,12 @@ export default function PaymentArea(props) {
       </div>
       <div>
         {items.map((item) => {
-          price = Number(item["quan"]) * Number(item["price"]);
+          const product = item.product;
+          price = Number(item["quan"]) * Number(product["price"]);
           sum += price;
           return (
-            <div className="flex justify-between">
-              <div className="w-28 pt-4">{item["nameProduct"]}</div>
+            <div key={product["nameProduct"]} className="flex justify-between">
+              <div className="w-28 pt-4">{product["nameProduct"]}</div>
               <div>{item["quan"]}</div>
               <div>{price}$</div>
             </div>
@@ -44,7 +45,7 @@ export default function PaymentArea(props) {
       </div>
       <div className="flex justify-between border-b-2	border-black">
         <h1>Total</h1>
-        <h1>{Number((sum * 0.17).toFixed(2)) + Number(sum)}$</h1>
+        <h1>{(Number(sum * 0.17) + Number(sum)).toFixed(2)}$</h1>
       </div>
       <div className="mt-4 text-center">
         <Link
