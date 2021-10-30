@@ -93,6 +93,7 @@ export default class FormPart extends React.Component {
               {Object.values(this.state["fields"]).map((field) => {
                 return (
                   <Field
+                    key={field["fieldName"]}
                     name={field["fieldName"]}
                     changeHandler={this.changeHandler}
                     msg={this.state.errors[field["fieldName"]] || ""}

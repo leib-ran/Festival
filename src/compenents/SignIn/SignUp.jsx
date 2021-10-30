@@ -80,7 +80,6 @@ export default function SignUp() {
 
 const handleSubmit = () => {};
 const checkPassWard = (pass, confirmPass) => {
-  console.log(pass, confirmPass);
   if (pass === confirmPass) {
     return true;
   }

@@ -16,7 +16,6 @@ export function FestivalGallery(props) {
       }, 6000);
 
       setFestInterval(festInterval);
-      console.log(props.images.length);
     }
   }, [props.images]);
 
@@ -30,8 +29,8 @@ export function FestivalGallery(props) {
           }}
         >
           <div className=" flex  min-w-full h-min-full relative">
-            {props.images.map((source) => {
-              return <img src={source} />;
+            {props.images.map((source, index) => {
+              return <img key={index} src={source} />;
             })}
           </div>
         </div>

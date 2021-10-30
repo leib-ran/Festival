@@ -9,7 +9,6 @@ export function FormUserDetail() {
   const user = useSelector((state) => state.userGlobalState);
 
   function handleClick(userObj) {
-    console.log(userObj);
     axios.put("http://localhost:8000/users", { ...userObj });
   }
 
@@ -48,7 +47,7 @@ export function FormUserDetail() {
           >
             <option selected>country</option>
             {countryList.map((element) => {
-              return <option>{element}</option>;
+              return <option key={element}>{element}</option>;
             })}
             <input
               type="text"

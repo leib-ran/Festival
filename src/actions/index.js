@@ -4,6 +4,7 @@ import {
   FESTIVALSHOW,
   FESTIVAWELCOMING,
   ISSIGNIN,
+  ITEMCHECKOUT,
   MAPSTATE,
   PAGENUMBER,
   SETQUANTITY,
@@ -149,5 +150,12 @@ export const updateSignInState = (boolValue) => {
   return {
     type: ISSIGNIN,
     payload: boolValue,
+  };
+};
+
+export const updateItemCheckout = (item) => {
+  return {
+    type: ITEMCHECKOUT,
+    payload: item,
   };
 };

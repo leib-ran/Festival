@@ -35,11 +35,11 @@ export default class Filter extends React.Component {
                 <h1 className="font-extrabold	 text-2xl">{product}</h1>
                 {Object.keys(categories[product]).map((category) => {
                   return (
-                    <div>
+                    <div key={category}>
                       <h1 className="font-bold">{category}</h1>
                       {categories[product][category].map((subcat) => {
                         return (
-                          <div>
+                          <div key={subcat}>
                             <input
                               type="checkbox"
                               name={subcat}

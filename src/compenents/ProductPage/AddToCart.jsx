@@ -35,7 +35,6 @@ function AddToCartRe(props) {
     return { items: items, quan: total };
   }
   const serverHandleCartItems = (objUser) => {
-    console.log(objUser);
     const itemsArray = getItemsId(objUser["items"]);
     user.items = itemsArray;
     dispatch(updateUser(user));

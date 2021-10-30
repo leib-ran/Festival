@@ -47,8 +47,6 @@ function setQueryObj(obj, key, value) {
 
 function setTheObjs(obj, queryObj) {
   queryObj.map((element) => {
-    console.log(Object.keys(element)[0]);
-    console.log(Object.values(element)[0]);
     setQueryObj(obj, Object.keys(element)[0], Object.values(element)[0]);
   });
 }

@@ -23,7 +23,7 @@ export default function PaymentArea(props) {
           price = Number(item["quan"]) * Number(product["price"]);
           sum += price;
           return (
-            <div className="flex justify-between">
+            <div key={product["nameProduct"]} className="flex justify-between">
               <div className="w-28 pt-4">{product["nameProduct"]}</div>
               <div>{item["quan"]}</div>
               <div>{price}$</div>

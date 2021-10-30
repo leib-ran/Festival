@@ -28,7 +28,6 @@ export function Profile(props) {
           quan = getQuanStorageParsed() || 0;
           dispatch(updateItem(items));
           dispatch(setQuantity(quan));
-          console.log(props);
           history.push("/login");
         }}
       >

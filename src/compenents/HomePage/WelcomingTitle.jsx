@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HomePageMap from "./HomePageMap";
 import LocationArea from "./LocationArea";
+
 export default function WelcomingTitle() {
   const [index, setIndex] = useState(-1);
   const [show, setShow] = useState("100");

@@ -20,7 +20,6 @@ export default function Map(props) {
 
   useEffect(async () => {
     const result = await axios("http://localhost:8000/festivals");
-    console.log(result.data);
     setFestivalObj(result.data);
   }, []);
 
@@ -48,7 +47,7 @@ export default function Map(props) {
         {FestivalObj &&
           FestivalObj.map((element) => {
             return (
-              <Marker position={element.position}>
+              <Marker key={element.title} position={element.position}>
                 <Popup
                   className="w-96  transform rotate-45 translate-x-16"
                   ref={popupElRef}
@@ -77,7 +76,11 @@ export default function Map(props) {
     ),
     [FestivalObj]
   );
-  dispatch(updatemap(map));
+  {
+  }
+  useEffect(() => {
+    dispatch(updatemap(map));
+  }, [map]);
 
   return <div>{displayMap}</div>;
 }

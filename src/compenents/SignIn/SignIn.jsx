@@ -104,7 +104,6 @@ export default function LogIn(props) {
 
 function SwapQuantity(currquan) {
   const quan = localStorage.getItem(getQuantityKeyNameForItems()) || 0;
-  console.log(quan);
   localStorage.setItem(getQuantityTempKeyNameForItems(), quan);
   localStorage.setItem(getQuantityKeyNameForItems(), currquan || 0);
 }

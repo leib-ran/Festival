@@ -26,15 +26,15 @@ import {
   signUp,
   store,
   profile,
+  checkout,
 } from "./helper/PathName";
 
 import { CategoryPage } from "./compenents/CategoriesPage/CategoryPage";
 import { AcountPage } from "./compenents/SignIn/AcountPage";
-import { AuthRouter } from "./compenents/AuthRouter/AuthRouterTemplate";
 import { Profile } from "./compenents/Profile/Profile";
-import { isObjectEmpty } from "./helper/config";
 import { AuthRouteGeneral } from "./compenents/AuthRouter/AuthRouteGeneral";
 import { AuthRoutProfile } from "./compenents/AuthRouter/AuthRoutProfile";
+import CheckoutPage from "./compenents/CheckoutPage/CheckoutPage";
 
 function App() {
   return (
@@ -66,11 +66,12 @@ function App() {
             <Route path={productPage.getPath()} component={ProductPage} />
             <Route path={blog.getPath()} component={BlogContent} />
           </Switch>
-          {/* <ProtectedRoute
-              exact
-              path={checkout.path}
-              component={CheckoutPage}
-            /> */}
+          <AuthRouteGeneral
+            exact
+            pathRe={login.getPath()}
+            path={checkout.getPath()}
+            component={CheckoutPage}
+          />
         </div>
         <BottomPage />
       </div>

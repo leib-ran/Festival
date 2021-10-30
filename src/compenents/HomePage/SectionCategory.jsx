@@ -26,7 +26,7 @@ export default function SectionCategory() {
         <Carousel>
           {Object.values(objImags).map((element) => {
             return (
-              <div className="w-full  relative z-1">
+              <div key={element.name} className="w-full  relative z-1">
                 <div className="h-full w-full bg-gray-900 opacity-40 z-10 absolute"></div>
                 <img
                   src={element.src}
