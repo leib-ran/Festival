@@ -6,11 +6,7 @@ import icons from "../../helper/iconsdictionary";
 
 export default function Card(props) {
   return (
-    <Link
-      to={`/productPage/${props.data.id}`}
-      render={() => <ProductPage data={props.data}></ProductPage>}
-      className="w-56 m-5"
-    >
+    <Link to={`/productPage/${props.data.id}`} className="w-56 m-5">
       <div className="ml-2">
         <div className="bg-gray-200 relative pt-5 h-9/10 overflow-hidden mr-2">
           <CategorySymbol icon={icons[props.data.icon]} length={8} />

@@ -1,5 +1,5 @@
 import auth from "../../auth";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { facebookProvider, googleProvider } from "../../authMethod";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +19,7 @@ export default function LogIn(props) {
   const email = useRef(null);
   const passward = useRef(null);
   const [error, setError] = useState("");
-
+  const [opacity, setOpacity] = useState(0);
   const dispatch = useDispatch();
 
   const handelOnClick = async (provider) => {
@@ -31,6 +31,13 @@ export default function LogIn(props) {
         return res.user;
       });
   };
+
+  useEffect(() => {
+    setOpacity(100);
+    setTimeout(() => {
+      setOpacity(0);
+    }, 15000);
+  }, [error]);
 
   return (
     <div>
@@ -55,11 +62,17 @@ export default function LogIn(props) {
                 dispatch(updateItem(res.data.user.items));
                 UserLocalStorage(res.data.user.items);
               })
-              .catch((err) => console.log(err.response.data));
+              .catch((err) => {
+                setError(err.response.data.error);
+              });
           }}
         >
-          <div className="text-red-400 h-4"> {error}</div>
-          <div className="flex justify-center pt-20 mb-2 ">
+          <div
+            className={`text-red-400 opacity-${opacity} transition ease-in-out duration-3000 w-full pt-20 text-center h-4`}
+          >
+            {error}
+          </div>
+          <div className="flex justify-center pt-8 mb-2 ">
             <input
               ref={email}
               className="border-black h-10 pl-2 w-96 border-2 hover:border-blue-300"

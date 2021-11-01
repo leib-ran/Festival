@@ -6,7 +6,6 @@ export const getStorageQuantityName = () => {
   return "quan";
 };
 
-//items
 export const getQuantityKeyNameForItems = () => {
   return "quan";
 };

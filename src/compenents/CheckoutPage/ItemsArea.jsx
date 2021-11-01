@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { BackToShopButton } from "./BackToShopButton";
 import { ItemCardCheckOut } from "./ItemCard";
 
 export function ItemsArea(props) {
@@ -6,6 +7,9 @@ export function ItemsArea(props) {
   const item = useSelector((state) => state.itemCheckOut);
   return (
     <div>
+      <div className="mb-2">
+        <BackToShopButton />
+      </div>
       {item ? (
         <ItemCardCheckOut item={item.product} quan={item.quan} />
       ) : (

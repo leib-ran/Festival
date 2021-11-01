@@ -32,7 +32,7 @@ export function ProductDescription(props) {
       </div>
       <div className="text-left">
         <div>
-          <p>
+          <div>
             <FontAwesomeIcon
               className="mr-1 cursor-pointer"
               icon={faPlane}
@@ -42,7 +42,7 @@ export function ProductDescription(props) {
               <span className="mr-1">finstock</span>
               <VButton />
             </div>
-          </p>
+          </div>
         </div>
         <span className="text-green-800 float-right text-3xl">
           {props.data["price"]}
@@ -56,10 +56,10 @@ export function ProductDescription(props) {
             icon={faPlus}
             onClick={() => setProductQuan(addOne(productQuan))}
           ></FontAwesomeIcon>
-          <input
-            className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default"
-            value={productQuan}
-          />
+
+          <div className="border-gray-600	border-2 w-6 h-6 text-xs items-start text-center cursor-default">
+            {productQuan}
+          </div>
           <FontAwesomeIcon
             className="text-gray-400 text-2xl ml-1 cursor-pointer"
             icon={faMinus}

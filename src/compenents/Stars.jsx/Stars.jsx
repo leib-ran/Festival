@@ -8,11 +8,11 @@ export default function Stars(props) {
   const solidStarsNumber = Math.floor(props.rank);
   const reminder = getReminder(props.rank);
 
-  fillStars(solidStarsNumber, getFullStar, stars);
+  fillStars(solidStarsNumber, GetFullStar, stars);
   if (stars.length != 5) {
     stars.push(reminderHandler(reminder));
   }
-  fillStars(5 - stars.length, getEmptyStar, stars);
+  fillStars(5 - stars.length, GetEmptyStar, stars);
   return stars;
 }
 
@@ -24,29 +24,40 @@ function fillStars(iterNumber, funcStar, starsArr) {
   }
 }
 
-function getStar(paint, icon) {
-  return <FontAwesomeIcon className={`text-${paint}-500`} icon={faStar} />;
+function generateRandomKey() {
+  const randomNum = Math.floor(Math.random() * 1000000);
+  return randomNum;
 }
 
-function getFullStar() {
-  return getStar("yellow", faStar);
+function GetStar(paint, icon) {
+  return (
+    <FontAwesomeIcon
+      key={generateRandomKey()}
+      className={`text-${paint}-500`}
+      icon={faStar}
+    />
+  );
 }
 
-function getHalfStar() {
-  return getStar("yellow", faStarHalf);
+function GetFullStar() {
+  return GetStar("yellow", faStar);
 }
 
-function getEmptyStar() {
-  return getStar("gray", faStar);
+function GetHalfStar() {
+  return GetStar("yellow", faStarHalf);
+}
+
+function GetEmptyStar() {
+  return GetStar("gray", faStar);
 }
 
 function reminderHandler(reminder) {
   if (reminder <= 0.25) {
-    return getEmptyStar();
+    return GetEmptyStar();
   } else if (reminder <= 0.75) {
-    return getHalfStar();
+    return GetHalfStar();
   } else {
-    return getFullStar();
+    return GetFullStar();
   }
 }
 

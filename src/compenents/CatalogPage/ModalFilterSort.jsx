@@ -9,7 +9,7 @@ import {
   isQueryFound,
   pushTheUpdatedUrl,
 } from "../../helper/catalogHandlers";
-
+import { getUrlDataBase } from "../../helper/config";
 import ModalCategoryButton from "./ModalCategoryButton";
 
 export default function ModalFilterSort(props) {
@@ -21,10 +21,11 @@ export default function ModalFilterSort(props) {
   const [subCategories, setSubCategory] = useState([]);
   useEffect(async () => {
     const result = await axios(
-      `http://localhost:5000/subcategory?categoryid=${props.categoryName}`
+      `${getUrlDataBase()}/subcategories?categoryid=${props.categoryName}`
     );
+
     setSubCategory(result.data);
-  }, []);
+  }, [props.categoryName]);
   return (
     <div
       className={`transition inset-y-0 right-0 shadow-2xl	fixed duration-2000 delay-1000 ease-in-out w-${width} overflow-hidden`}

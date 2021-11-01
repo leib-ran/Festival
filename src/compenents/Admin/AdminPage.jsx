@@ -11,7 +11,7 @@ import React from "react";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import { FirebaseAuthProvider } from "react-admin-firebase";
 import { firebaseConfig } from "../../firebase";
-import dashboard from "./Dashboard/Dashbord";
+import dashboard from "./Dashboard/dashbord";
 
 const options = {};
 const authProvider = FirebaseAuthProvider(firebaseConfig, options);
