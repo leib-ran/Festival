@@ -34,6 +34,7 @@ export function CostomerDetails() {
         note: note,
       })
       .catch((err) => {
+        console.log(err.response.data);
         setError(err.response.data);
         setLoading(true);
       });
@@ -59,19 +60,7 @@ export function CostomerDetails() {
           const valueName = Object.values(element)[0];
           return (
             <div key={keyName} className="box-border pl-8">
-              <div className="h-6">
-                {err ? (
-                  <ErrorMessage err={err} opacity={opacity} name={keyName} />
-                ) : (
-                  <div>
-                    {loading && (
-                      <div className={`opacity-${opacity} text-green-400`}>
-                        Success
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
+              <div className="h-6"></div>
               <div>{element.fieldValue && `*${valueName}`}</div>
               <input
                 onChange={(e) => element.func(e.target.value)}
@@ -79,6 +68,17 @@ export function CostomerDetails() {
                 className="border-b-2 text-xl focus:border-blue-400 border-gray-400 w-11/12 focus:outline-none"
                 placeholder={`*${valueName}`}
               />
+              {err ? (
+                <ErrorMessage err={err} opacity={opacity} name={keyName} />
+              ) : (
+                <div>
+                  {loading && (
+                    <div className={`opacity-${opacity} text-green-400`}>
+                      Success
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           );
         })}
@@ -93,7 +93,7 @@ export function CostomerDetails() {
             onChange={(e) => setNote(e.target.value)}
           ></textarea>
         </div>
-        ;
+
         <button className="bg-blue-500 text-center  text-center w-full text-white font-bold rounded-md p-2">
           save
         </button>

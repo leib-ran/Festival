@@ -9,7 +9,7 @@ export function ErrorMessage(props) {
 }
 
 function message(err, name) {
-  const filtered = findField(err, name);
+  const filtered = findField(err, name) || "";
   if (filtered.length == 0) {
     return;
   } else {

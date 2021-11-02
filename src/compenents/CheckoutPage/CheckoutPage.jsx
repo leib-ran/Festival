@@ -18,8 +18,12 @@ export default function CheckoutPage(props) {
           <AccountTotal />
         </div>
       </div>
-      <div>
-        <PaymentArea />
+      <div className="flex mt-8">
+        <div className="w-128 ml-8"></div>
+        <div className=" ">
+          <PaymentArea />
+        </div>
+        <div></div>
       </div>
     </div>
   );
