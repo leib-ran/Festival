@@ -66,7 +66,7 @@ function App() {
             <Route path={productPage.getPath()} component={ProductPage} />
             <Route path={blog.getPath()} component={BlogContent} />
           </Switch>
-          <AuthRouteGeneral
+          <AuthRoutProfile
             exact
             pathRe={login.getPath()}
             path={checkout.getPath()}

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router";
 
 export function PaymentArea() {
+  const history = useHistory();
   const paypal = useRef();
   useEffect(() => {
     window.paypal
@@ -21,10 +23,9 @@ export function PaymentArea() {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
-          console.log(order);
+          history.push("/profile");
         },
         onError: (err) => {
-          console.log("shuki");
           console.log(err);
         },
       })
