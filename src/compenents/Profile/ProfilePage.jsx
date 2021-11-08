@@ -5,10 +5,11 @@ import {
   getItemsStorageParsed,
   getQuanStorageParsed,
 } from "../../helper/config";
+import Avatar from "./Avatar";
 import { UserDetailsLeft } from "./Details";
 import { FormUserDetail } from "./FormUserDetail";
 
-export function Profile(props) {
+export function ProfilePage(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -16,6 +17,7 @@ export function Profile(props) {
   return (
     <div>
       <div className="text-4xl">welcome {user.firstName}</div>
+      <div className="">{user.src ? <img src="" alt="" /> : <Avatar />}</div>
       <button
         className="border-2 border-black"
         onClick={() => {
@@ -33,10 +35,8 @@ export function Profile(props) {
       >
         Log Out
       </button>
-      <div className="flex">
-        <UserDetailsLeft />
-        <FormUserDetail />
-      </div>
+      <UserDetailsLeft />
+      <div className="flex">{/* <FormUserDetail /> */}</div>
     </div>
   );
 }

@@ -31,7 +31,7 @@ import {
 
 import { CategoryPage } from "./compenents/CategoriesPage/CategoryPage";
 import { AcountPage } from "./compenents/SignIn/AcountPage";
-import { Profile } from "./compenents/Profile/Profile";
+import { ProfilePage } from "./compenents/Profile/ProfilePage";
 import { AuthRouteGeneral } from "./compenents/AuthRouter/AuthRouteGeneral";
 import { AuthRoutProfile } from "./compenents/AuthRouter/AuthRoutProfile";
 import CheckoutPage from "./compenents/CheckoutPage/CheckoutPage";
@@ -56,7 +56,7 @@ function App() {
               exact
               path={profile.getPath()}
               pathRe={login.getPath()}
-              component={Profile}
+              component={ProfilePage}
             />
             <AuthRouteGeneral
               path={login.getPath()}
