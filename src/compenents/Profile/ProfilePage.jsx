@@ -5,19 +5,19 @@ import {
   getItemsStorageParsed,
   getQuanStorageParsed,
 } from "../../helper/config";
+import Avatar from "./Avatar";
 import { UserDetailsLeft } from "./Details";
 import { FormUserDetail } from "./FormUserDetail";
 
-export function Profile(props) {
+export function ProfilePage(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector((state) => state.userGlobalState);
   return (
     <div>
-      <div className="text-4xl">welcome {user.firstName}</div>
       <button
-        className="border-2 border-black"
+        className="border-2 text-white bg-blue-500 p-2 font-bold float-right border-black"
         onClick={() => {
           let items = [];
           let quan = 0;
@@ -33,10 +33,11 @@ export function Profile(props) {
       >
         Log Out
       </button>
-      <div className="flex">
-        <UserDetailsLeft />
-        <FormUserDetail />
-      </div>
+      <div className="text-4xl font-medium font-serif"></div>
+      <div className="">{user.src ? <img src="" alt="" /> : <Avatar />}</div>
+      <div className="flex"></div>
+      <UserDetailsLeft />
+      <div className="flex">{/* <FormUserDetail /> */}</div>
     </div>
   );
 }

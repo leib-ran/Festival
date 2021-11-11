@@ -1,5 +1,6 @@
 import {
   CATEGORYTYPE,
+  EDITSHIPPINGDETAILS,
   FESTIVALINK,
   FESTIVALSHOW,
   FESTIVAWELCOMING,
@@ -157,5 +158,12 @@ export const updateItemCheckout = (item) => {
   return {
     type: ITEMCHECKOUT,
     payload: item,
+  };
+};
+
+export const isEditShippingDetails = (bool) => {
+  return {
+    type: EDITSHIPPINGDETAILS,
+    payload: bool,
   };
 };

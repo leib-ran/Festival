@@ -2,18 +2,16 @@ export function ItemCardCheckOut(props) {
   const item = props.item;
 
   return (
-    <div>
+    <div className={"m-2"}>
       <div className="flex">
-        <img className="w-64" src={item.imageUrl} alt={`item`} />
-        <div>
-          <div>{item.productName}</div>
-          <div>{item.productDescription}</div>
-          <div>{item.price}$</div>
-          <div>{props.quan}</div>
+        <img className="w-24" src={item.imageUrl} alt={`item`} />
+        <div className="m-2">
+          <div className="font-bold">{item.productName}</div>
+          <div>Price: {item.price}$</div>
+          <div>Qty: {props.quan}</div>
           <select name="" id="">
-            <option value="">ups</option>
-            <option value="">free</option>
             <option value="">DHL</option>
+            <option value="">ups</option>
           </select>
         </div>
       </div>

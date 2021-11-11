@@ -19,3 +19,4 @@ export const USER = "USER";
 export const ISSIGNIN = "ISSIGNIN";
 export const SETQUANTITY = "SETQUANTITY";
 export const ITEMCHECKOUT = "ITEMCHECKOUT";
+export const EDITSHIPPINGDETAILS = "EDITSHIPPINGDETAILS";

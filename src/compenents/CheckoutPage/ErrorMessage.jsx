@@ -9,16 +9,12 @@ export function ErrorMessage(props) {
 }
 
 function message(err, name) {
-  const filtered = findField(err, name);
-  if (filtered.length == 0) {
+  const msg = err[name] || "";
+  if (msg.length == 0) {
     return;
   } else {
-    return filtered.message;
+    {
+      return msg;
+    }
   }
-}
-
-function findField(err, name) {
-  return err.filter((element) => {
-    return element.field === name;
-  })[0];
 }
