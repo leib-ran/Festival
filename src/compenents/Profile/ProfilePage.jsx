@@ -16,10 +16,8 @@ export function ProfilePage(props) {
   const user = useSelector((state) => state.userGlobalState);
   return (
     <div>
-      <div className="text-4xl">welcome {user.firstName}</div>
-      <div className="">{user.src ? <img src="" alt="" /> : <Avatar />}</div>
       <button
-        className="border-2 border-black"
+        className="border-2 text-white bg-blue-500 p-2 font-bold float-right border-black"
         onClick={() => {
           let items = [];
           let quan = 0;
@@ -35,6 +33,9 @@ export function ProfilePage(props) {
       >
         Log Out
       </button>
+      <div className="text-4xl font-medium font-serif"></div>
+      <div className="">{user.src ? <img src="" alt="" /> : <Avatar />}</div>
+      <div className="flex"></div>
       <UserDetailsLeft />
       <div className="flex">{/* <FormUserDetail /> */}</div>
     </div>
