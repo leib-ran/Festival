@@ -9,7 +9,7 @@ export function SelectionButton() {
     <div className="text-center">
       <button
         className={`border-2 ${!isSignIn || blueBg} h-full shadow-lg p-2`}
-        onClick={() => {
+        onClick={(e) => {
           dispach(updateSignInState(true));
         }}
       >
@@ -17,7 +17,7 @@ export function SelectionButton() {
       </button>
       <button
         className={`border-2 ${isSignIn || blueBg} h-full shadow p-2`}
-        onClick={() => {
+        onClick={(e) => {
           dispach(updateSignInState(false));
         }}
       >

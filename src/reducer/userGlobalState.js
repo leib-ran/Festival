@@ -1,10 +1,13 @@
 import { USER } from "../actions/types";
+import { getUser } from "../helper/userTools";
 
 const initialState = {};
-export function userGlobalState(state = initialState, action) {
+export const userGlobalState = async (state = initialState, action) => {
   switch (action.type) {
     case USER:
-      return action.payload;
+      console.log(action.payload.status);
+
+      return Promise.resolve(action.payload);
   }
   return state;
-}
+};

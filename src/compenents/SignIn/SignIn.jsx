@@ -1,26 +1,28 @@
 import auth from "../../auth";
 import { useEffect, useRef } from "react";
 import { facebookProvider, googleProvider } from "../../authMethod";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { GoogleButton } from "./GoogleButton";
 import { FaceButton } from "./FaceButton";
 import firebase from "firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuantity, updateItem, updateUser } from "../../actions";
+import { isLogin, setQuantity, updateItem, updateUser } from "../../actions";
 import axios from "axios";
 import {
   getQuantityKeyNameForItems,
   getQuantityTempKeyNameForItems,
+  getUrlDataBase,
   UserLocalStorage,
 } from "../../helper/config";
+
 export default function LogIn(props) {
   const email = useRef(null);
-  const passward = useRef(null);
+  const password = useRef(null);
   const [error, setError] = useState("");
   const [opacity, setOpacity] = useState(0);
   const dispatch = useDispatch();
+  const [emailVal, setEmailVal] = useState("");
+  const [passVal, setPassVal] = useState("");
 
   const handelOnClick = async (provider) => {
     firebase
@@ -32,41 +34,49 @@ export default function LogIn(props) {
       });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = auth.login(email.current.value, password.current.value);
+    try {
+      const res = await axios.post(
+        `http://localhost:8000/users/login`,
+        {
+          userEmail: email.current.value,
+          password: password.current.value,
+        },
+        {
+          withCredentials: true,
+          credentials: "inculde",
+        }
+      );
+
+      dispatch(updateUser(res.data.user));
+      SwapQuantity(userQuan);
+      const userQuan = res.data.user.quanItems;
+      dispatch(setQuantity(userQuan));
+      dispatch(updateItem(res.data.user.items));
+      UserLocalStorage(res.data.user.items);
+      dispatch(isLogin(true));
+    } catch (err) {
+      setEmailVal(email.current.value);
+      setPassVal(password.current.value);
+      setError("passward or userEmail are not correct");
+    }
+  };
+
   useEffect(() => {
     setOpacity(100);
     setTimeout(() => {
-      setOpacity(0);
+      return () => {
+        setOpacity(0);
+      };
     }, 15000);
-  }, [error]);
+  }, [emailVal, passVal]);
 
   return (
     <div>
       <div>
-        <form
-          action=""
-          onSubmit={(e) => {
-            e.preventDefault();
-            const user = auth.login(
-              email.current.value,
-              passward.current.value
-            );
-            axios
-              .post(`http://localhost:8000/users/login`, {
-                userEmail: email.current.value,
-              })
-              .then((res) => {
-                const userQuan = res.data.user.quanItems;
-                dispatch(updateUser(res.data.user));
-                SwapQuantity(userQuan);
-                dispatch(setQuantity(userQuan));
-                dispatch(updateItem(res.data.user.items));
-                UserLocalStorage(res.data.user.items);
-              })
-              .catch((err) => {
-                setError(err.response.data.error);
-              });
-          }}
-        >
+        <form action="" onSubmit={handleSubmit}>
           <div
             className={`text-red-400 opacity-${opacity} transition ease-in-out duration-3000 w-full pt-20 text-center h-4`}
           >
@@ -84,7 +94,7 @@ export default function LogIn(props) {
               className="border-black  h-10 pl-2 w-96 border-2 hover:border-blue-300"
               placeholder="Passward"
               type="password"
-              ref={passward}
+              ref={password}
             />
           </div>
           <button className="text-center w-40 block m-auto mt-2 bg-red-500 text-white p-2">

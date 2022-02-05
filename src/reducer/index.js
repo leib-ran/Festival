@@ -15,6 +15,9 @@ import { userGlobalState } from "./userGlobalState";
 import { buttonLoginSignUpReducer } from "./buttonLoginSignUpReducer";
 import { mapReducer } from "./mapReducer";
 import { history } from "../helper/adminConsts";
+import { ItemReducer } from "./updateItemReducer";
+import { editShippingReducer } from "./editShippingreducer";
+import { isLoginReducer } from "./islogin";
 
 const allReducers = combineReducers({
   admin: adminReducer,
@@ -32,5 +35,8 @@ const allReducers = combineReducers({
   festivalChosen: festivalReducer,
   userGlobalState: userGlobalState,
   isSignIn: buttonLoginSignUpReducer,
+  itemCheckOut: ItemReducer,
+  isEditShipping: editShippingReducer,
+  isLogin: isLoginReducer,
 });
 export default allReducers;

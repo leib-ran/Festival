@@ -17,14 +17,12 @@ export function FormUserDetail() {
       <form
         action=""
         onSubmit={(e) => {
-          e.preventDefault();
           const obj = {
             userEmail: user.userEmail,
             firstName: firstName.current.value,
             lastName: lastName.current.value,
             country: country.current.value,
           };
-
           handleClick(obj);
         }}
       >

@@ -7,13 +7,11 @@ export default function WelcomingTitle() {
   const [show, setShow] = useState("100");
   const [showCategoryArea, setShowCategoryArea] = useState("0");
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIndex(0);
-      setShow("0");
-      setShowCategoryArea("100");
-    }, 3000);
-  }, []);
+  setTimeout(() => {
+    setIndex(0);
+    setShow("0");
+    setShowCategoryArea("100");
+  }, 3000);
 
   return (
     <div className="lg:w-5/12 md:w-8/12 sm:m-auto md:m-0 sm:w-full overflow-hidden">

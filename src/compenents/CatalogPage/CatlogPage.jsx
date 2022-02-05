@@ -23,7 +23,7 @@ export default function CatlogPage(props) {
     const result = await axios(
       `${baseUrl}?categoryId=${subcategory}&${queryString}&_limit=9`
     );
-    setAmountOfItems(result.headers["x-total-count"]);
+    setAmountOfItems(result.data.totalPages);
     setRawData(result.data);
   }, [queryString]);
 

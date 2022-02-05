@@ -4,6 +4,7 @@ import {
   FESTIVALINK,
   FESTIVALSHOW,
   FESTIVAWELCOMING,
+  ISLOGIN,
   ISSIGNIN,
   ITEMCHECKOUT,
   MAPSTATE,
@@ -165,5 +166,12 @@ export const isEditShippingDetails = (bool) => {
   return {
     type: EDITSHIPPINGDETAILS,
     payload: bool,
+  };
+};
+
+export const isLogin = (payload) => {
+  return {
+    type: ISLOGIN,
+    payload: payload,
   };
 };

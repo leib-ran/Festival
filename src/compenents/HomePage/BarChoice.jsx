@@ -8,9 +8,9 @@ export function BarChoice() {
   return (
     <div>
       <div className="text-white p-4 h-16  justify-between flex text-3xl">
-        {list.map((element) => {
+        {list.map((element, index) => {
           return (
-            <div>
+            <div key={index}>
               <div
                 onClick={(e) => handleClick(e)}
                 className="hover:text-yellow-500 pt-2 border-yellow-500 cursor-pointer"

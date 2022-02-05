@@ -1,3 +1,5 @@
+import Cookies from "universal-cookie";
+
 export const getStorageItemName = () => {
   return "items";
 };
@@ -30,6 +32,16 @@ export const getUrlDataBase = () => {
 };
 export const getUrlproducts = () => {
   return getUrlDataBase() + "/products";
+};
+
+export const getTokenKeyName = () => {
+  return "jwt";
+};
+
+export const getToken = () => {
+  const cookies = new Cookies();
+  const tokenKey = getTokenKeyName();
+  return cookies.get(tokenKey) || "";
 };
 
 export const getTempStorageName = () => {
@@ -127,5 +139,5 @@ export const addWord = (text, string) => {
 };
 
 export const isObjectEmpty = (obj) => {
-  return Object.keys(obj).length == 0;
+  return Object.keys(obj).length === 0;
 };

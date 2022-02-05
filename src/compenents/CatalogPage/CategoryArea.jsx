@@ -3,10 +3,11 @@ import Card from "./Card";
 function CategoryArea(props) {
   return (
     <div>
-      <div className="w-136 flex flex-wrap ml-auto mr-auto">
-        {props.data.map((element, index) => {
-          return <Card key={index} data={element} />;
-        })}
+      <div className="max-w-4xl flex justify-center flex-wrap m-auto">
+        {props.data.length != 0 &&
+          props.data.products.map((element, index) => {
+            return <Card key={index} data={element} />;
+          })}
       </div>
     </div>
   );

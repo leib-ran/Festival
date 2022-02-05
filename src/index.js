@@ -4,20 +4,11 @@ import "./style/main.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-
-import createAdminStore from "./createAdminStore";
-import authProvider from "./authProvider";
-import { dataProvider, history } from "./helper/adminConsts";
+import store from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider
-      store={createAdminStore({
-        authProvider,
-        dataProvider,
-        history,
-      })}
-    >
+    <Provider store={store}>
       <Router>
         <App />
       </Router>

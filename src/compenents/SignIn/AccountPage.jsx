@@ -3,7 +3,7 @@ import { SelectionButton } from "./SelectionButton";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-export function AcountPage() {
+export function AccountPage() {
   const isSignIn = useSelector((state) => state.isSignIn);
   return (
     <div className="flex">
@@ -17,8 +17,8 @@ export function AcountPage() {
         <div className="text-center font-bold font-serif text-5xl">
           Dionysus Project
         </div>
-        <SelectionButton></SelectionButton>
-        {isSignIn ? <SignIn></SignIn> : <SignUp />}
+        <SelectionButton />
+        {isSignIn ? <SignIn /> : <SignUp />}
       </div>
     </div>
   );

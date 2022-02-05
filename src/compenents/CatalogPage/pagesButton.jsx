@@ -26,6 +26,7 @@ function PagesButton(props) {
           {index}
         </button>
       ))}
+
       <div>{props.amountOfItems} total items</div>
     </div>
   );

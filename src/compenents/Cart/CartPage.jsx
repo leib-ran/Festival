@@ -8,10 +8,18 @@ export default function CartPage(props) {
 
   return (
     <div>
-      <div className="bg-gray-100 pt-4 pb-4 text-center mt-20 text-3xl font-medium	">
-        {getCartTitleName()}
-      </div>
-      {items.length != 0 ? <CartWithItems /> : <div>The cart is empty</div>}
+      {items.length != 0 && (
+        <div className="bg-gray-100 pt-4 pb-4 text-center mt-20 text-3xl font-medium	">
+          {getCartTitleName()}
+        </div>
+      )}
+      {items.length != 0 ? (
+        <CartWithItems />
+      ) : (
+        <div className="shadow-lg text-4xl w-1/2 m-auto h-16 mt-20  text-center font-serif">
+          Your Dionysus cart is empty
+        </div>
+      )}
     </div>
   );
 }

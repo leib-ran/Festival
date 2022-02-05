@@ -22,7 +22,7 @@ function Navbar() {
   const arrPages = [homePage, blog, store, contact, about];
   return (
     <div
-      className={`flex justify-between bg-gray-900 h-${navbarHeight} overflow-hidden transition duration-1000 ease-in-out relative z-10`}
+      className={`flex justify-between bg-gray-900 h-${navbarHeight} overflow-hidden w-full transition duration-1000 ease-in-out fixed xs:top-0 lg:relative  z-10`}
     >
       <div className="flex">
         <div className="h-16 pt-1 w-16">

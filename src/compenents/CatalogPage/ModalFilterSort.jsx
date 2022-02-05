@@ -19,6 +19,10 @@ export default function ModalFilterSort(props) {
   const dispatch = useDispatch();
 
   const [subCategories, setSubCategory] = useState([]);
+  useEffect(() => {
+    dispatch(shortendHideWidth());
+    dispatch(extendHeight());
+  }, []);
   useEffect(async () => {
     const result = await axios(
       `${getUrlDataBase()}/subcategories?categoryid=${props.categoryName}`
@@ -26,23 +30,23 @@ export default function ModalFilterSort(props) {
 
     setSubCategory(result.data);
   }, [props.categoryName]);
+
   return (
     <div
-      className={`transition inset-y-0 right-0 shadow-2xl	fixed duration-2000 delay-1000 ease-in-out w-${width} overflow-hidden`}
+      className={`transition bg-white z-10 top-0 right-0 shadow-2xl	fixed duration-2000 delay-1000 ease-in-out w-${width} overflow-hidden`}
     >
       <div className="">
-        <div className="flex bg-white  justify-between">
-          <div className=""></div>
-          <div>{titleFilterSort()}</div>
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              dispatch(extendHeight());
-              dispatch(shortendHideWidth());
-            }}
-          >
-            x
-          </div>
+        <div
+          className="cursor-pointer floar-left w-2"
+          onClick={() => {
+            dispatch(shortendHideWidth());
+            dispatch(extendHeight());
+          }}
+        >
+          x
+        </div>
+        <div className="p-2 text-black m-2 text-center w-96 font-bold underline cursor-default	">
+          {titleFilterSort()}
         </div>
         <div></div>
         {subCategories.map((element) => {
@@ -58,7 +62,9 @@ export default function ModalFilterSort(props) {
           );
         })}
         <div>
-          <div className="text-center">Sort</div>{" "}
+          <div className="text-center p-2 text-black m-2 underline cursor-default	text-center w-96 font-bold">
+            Sort
+          </div>{" "}
           {getSortList().map((element, index) => {
             return (
               <div
@@ -89,7 +95,7 @@ function getOrder(props) {
 }
 
 function titleFilterSort() {
-  return "Filter&Sort";
+  return "Sort&Filter";
 }
 
 function getSortList() {

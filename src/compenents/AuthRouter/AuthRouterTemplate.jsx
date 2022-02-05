@@ -1,8 +1,9 @@
 import { Redirect, Route } from "react-router-dom";
+import { isLogin } from "../../actions";
 
 export const AuthRouter = ({
   component: Component,
-  condition,
+  isLogin,
   pathRe,
   ...rest
 }) => {
@@ -10,7 +11,7 @@ export const AuthRouter = ({
     <Route
       {...rest}
       render={(props) => {
-        if (condition) {
+        if (isLogin) {
           return <Component />;
         } else {
           return (

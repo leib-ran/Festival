@@ -7,7 +7,7 @@ export default function Product(props) {
     <div>
       {props.data && (
         <div>
-          <div className=" bg-white opacity-90 w-136 m-auto text-center ">
+          <div className=" bg-white opacity-90  w-136 m-auto text-center ">
             <div className="mt-5 cursor-default">
               <div className="flex justify-center">
                 <ProductImages data={props.data} />

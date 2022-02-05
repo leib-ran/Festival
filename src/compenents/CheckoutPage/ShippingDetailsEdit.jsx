@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import * as Yup from "yup";
 import { isEditShippingDetails } from "../../actions";
 import { getUrlDataBase } from "../../helper/config";
+import { getUser } from "../../helper/userTools";
 import { ErrorMessage } from "./ErrorMessage";
 
 const ShippingSchema = Yup.object().shape({
@@ -34,8 +35,8 @@ export function ShippingDetailsEdit() {
   const [opacity, setOpacity] = useState(0);
   const [err, setError] = useState(null);
   const [note, setNote] = useState(null);
-  const user = useSelector((state) => state.userGlobalState);
-  const userShipping = user.shippingDetails;
+  const [user, setUser] = useState(null);
+  const [userShipping, setUserShipping] = useState(null);
   const dispatch = useDispatch();
 
   const fields = [
@@ -48,6 +49,12 @@ export function ShippingDetailsEdit() {
     { country: "country" },
     { city: "City" },
   ];
+
+  useEffect(async () => {
+    const user = await getUser();
+    setUserShipping(user.shippingDetails);
+    setUser(user);
+  }, []);
 
   useEffect(() => {
     setOpacity(100);
@@ -70,13 +77,14 @@ export function ShippingDetailsEdit() {
           note: userShipping ? userShipping.note : "",
         }}
         validationSchema={ShippingSchema}
-        onSubmit={(values, errors) => {
+        onSubmit={async (values, errors) => {
+          const user = await getUser();
           const valuesNotes = values;
-          dispatch(isEditShippingDetails(false));
-          axios.put(`${getUrlDataBase()}/users`, {
+          await axios.put(`${getUrlDataBase()}/users`, {
             userEmail: user.userEmail,
             shippingDetails: valuesNotes,
           });
+          dispatch(isEditShippingDetails(false));
         }}
       >
         {({ values, errors, touched }) => (
