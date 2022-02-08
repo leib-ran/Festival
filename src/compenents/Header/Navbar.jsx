@@ -16,6 +16,7 @@ import {
 } from "../../helper/PathName";
 import { CartButton } from "./CartButton";
 import { UserButton } from "./UserButton";
+import { SearchProducts } from "../features/SearchProducts/SearchProducts";
 
 function Navbar() {
   const navbarHeight = useSelector((state) => state.heightHandler);
@@ -41,17 +42,10 @@ function Navbar() {
         })}
       </div>
       <div className="flex h-full">
-        <div className="pt-2">
-          <form className="flex">
-            <input
-              name="q"
-              className=" h-8 w-40 ml-2 pl-2 rounded-md	"
-              placeholder="Search for an item"
-            />
-            <button className="bg-white ml-2 p-1 font-bold">search</button>
-            <CartButton />
-            <UserButton />
-          </form>
+        <div className="pt-2 border-box flex">
+          <SearchProducts />
+          <CartButton />
+          <UserButton />
         </div>
       </div>
     </div>

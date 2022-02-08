@@ -30,3 +30,4 @@ export const admin = new Page("admin", "/admin/");
 export const contact = new Page("Contact", "/contact");
 export const category = new Page("Category", "/category/:id");
 export const profile = new Page("Profile", "/profile");
+export const search = new Page("search", "/search");

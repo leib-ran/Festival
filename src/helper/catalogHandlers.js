@@ -31,6 +31,11 @@ function getObj(queryString) {
   return obj;
 }
 
+function setQueryObj(obj, key, value) {
+  if (key && value) {
+    obj[key] = value;
+  }
+}
 function updateQuerySearchToUrl(obj) {
   let querySearch = "?";
   Object.keys(obj).map((key) => {
@@ -39,16 +44,19 @@ function updateQuerySearchToUrl(obj) {
   return querySearch;
 }
 
-function setQueryObj(obj, key, value) {
-  if (key && value) {
-    obj[key] = value;
-  }
-}
-
 function setTheObjs(obj, queryObj) {
   queryObj.map((element) => {
     setQueryObj(obj, Object.keys(element)[0], Object.values(element)[0]);
   });
+}
+
+export function urlHandle(props) {
+  const search = getSearchQueryByProps(props);
+  const queryString = GetQueryStringFromURL(search);
+  const obj = getObj(queryString);
+  setTheObjs(obj, [{ "": "" }]);
+  const updateQuerySearch = updateQuerySearchToUrl(obj);
+  return updateQuerySearch;
 }
 
 function getSearchQueryByProps(props) {
@@ -59,15 +67,6 @@ export function isQueryFound(props, query) {
   const pattern = new RegExp(query, "gi");
   const queryString = getSearchQueryByProps(props);
   return pattern.test(queryString);
-}
-
-export function urlHandle(props, queryObj) {
-  const search = getSearchQueryByProps(props);
-  const queryString = GetQueryStringFromURL(search);
-  const obj = getObj(queryString);
-  setTheObjs(obj, queryObj);
-  const updateQuerySearch = updateQuerySearchToUrl(obj);
-  return updateQuerySearch;
 }
 
 export function getQueryValue(props, key) {
