@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateSignInState } from "../../actions";
-import auth from "../../auth";
-import { getUrlDataBase } from "../../helper/config";
+import { updateSignInState } from "../../../actions";
+import auth from "../../../auth";
 
 export default function SignUp() {
   const [ErrorMsg, setErrorMsg] = useState("");

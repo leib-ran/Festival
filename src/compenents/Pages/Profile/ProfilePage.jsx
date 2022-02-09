@@ -2,12 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { isLogin, setQuantity, updateItem, updateUser } from "../../actions";
+import { isLogin, setQuantity, updateItem, updateUser } from "../../../actions";
 import {
   getItemsStorageParsed,
   getQuanStorageParsed,
   getUrlDataBase,
-} from "../../helper/config";
+} from "../../../helper/config";
 import Avatar from "./Avatar";
 import { UserDetailsLeft } from "./Details";
 

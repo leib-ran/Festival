@@ -30,8 +30,6 @@ import {
 } from "./helper/PathName";
 
 import { CategoryPage } from "./compenents/Pages/CategoriesPage/CategoryPage";
-import { AccountPage } from "./compenents/SignIn/AccountPage";
-import { ProfilePage } from "./compenents/Profile/ProfilePage";
 import { AuthRouteGeneral } from "./compenents/AuthRouter/AuthRouteGeneral";
 import { CheckoutPage } from "./compenents/Pages/CheckoutPage/CheckoutPage";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,6 +37,8 @@ import { isLogin, updateUser } from "./actions";
 import { getUser } from "./helper/userTools";
 import { isObjectEmpty } from "ra-core/esm/form/submitErrorsMutators";
 import { SearchPage } from "./compenents/Pages/SearchPage/Search";
+import { ProfilePage } from "./compenents/Pages/Profile/ProfilePage";
+import { AccountPage } from "./compenents/Pages/SignIn/AccountPage";
 
 function App() {
   const dispatch = useDispatch();

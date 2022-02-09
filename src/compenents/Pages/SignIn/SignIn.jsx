@@ -1,19 +1,19 @@
-import auth from "../../auth";
+import auth from "../../../auth";
 import { useEffect, useRef } from "react";
-import { facebookProvider, googleProvider } from "../../authMethod";
+import { facebookProvider, googleProvider } from "../../../authMethod";
 import { useState } from "react";
 import { GoogleButton } from "./GoogleButton";
 import { FaceButton } from "./FaceButton";
 import firebase from "firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { isLogin, setQuantity, updateItem, updateUser } from "../../actions";
+import { isLogin, setQuantity, updateItem, updateUser } from "../../../actions";
 import axios from "axios";
 import {
   getQuantityKeyNameForItems,
   getQuantityTempKeyNameForItems,
   getUrlDataBase,
   UserLocalStorage,
-} from "../../helper/config";
+} from "../../../helper/config";
 
 export default function LogIn(props) {
   const email = useRef(null);

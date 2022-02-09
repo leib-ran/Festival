@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { updateSignInState } from "../../actions";
+import { updateSignInState } from "../../../actions";
 
 export function SelectionButton() {
   const blueBg = "bg-blue-400 text-white";
