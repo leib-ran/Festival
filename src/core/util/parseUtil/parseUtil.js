@@ -63,9 +63,9 @@ export class ParseUtil {
     });
   }
 
-  static urlHandle() {
+  static urlHandle(queryObj) {
     const obj = this.getParams();
-    this.setTheObjs(obj, [{ "": "" }]);
+    this.setTheObjs(obj, queryObj);
     const updateQuerySearch = this.updateQuerySearchToUrl(obj);
     return updateQuerySearch;
   }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ProductPage from "../ProductPage/ProductPage";
+import ProductPage from "../../Pages/ProductPage/ProductPage";
 import Stars from "../../Stars.jsx/Stars";
 import CategorySymbol from "../../CategorySymbol/CategorySymbol";
 import icons from "../../../helper/iconsdictionary";
@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 export default function Card(props) {
   const dispatch = useDispatch();
   return (
-    <div onClick={dispatch(extendHeight())} className="w-56 m-5 ">
+    <div onClick={() => dispatch(extendHeight())} className="w-56 m-5 ">
       <Link to={`/productPage/${props.data.id}`}>
         <div className="ml-2">
           <div className="bg-gray-200 relative pt-5 h-9/10 overflow-hidden mr-2">

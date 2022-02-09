@@ -50,11 +50,11 @@ function setTheObjs(obj, queryObj) {
   });
 }
 
-export function urlHandle(props) {
+export function urlHandle(props, queryObj) {
   const search = getSearchQueryByProps(props);
   const queryString = GetQueryStringFromURL(search);
   const obj = getObj(queryString);
-  setTheObjs(obj, [{ "": "" }]);
+  setTheObjs(obj, queryObj);
   const updateQuerySearch = updateQuerySearchToUrl(obj);
   return updateQuerySearch;
 }

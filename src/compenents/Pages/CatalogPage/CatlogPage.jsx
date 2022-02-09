@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import queryString from "query-string";
 import ToggelCategory from "./ToggelCategory";
-import CategoryArea from "./CategoryArea";
+import CategoryArea from "../../features/ProductFeature/CategoryArea";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import PagesButton from "./pagesButton";

@@ -11,8 +11,6 @@ export class ProductsApi {
   }
 
   static async getProducts(queryString) {
-    console.log("ran");
-    console.log(`${urlProducts}${queryString}`);
     return await axios(`${urlProducts}?${queryString}`);
   }
 }

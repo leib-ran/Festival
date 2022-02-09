@@ -6,11 +6,12 @@ import { isLogin, updateUser } from "../../../actions";
 import { getUrlDataBase, isObjectEmpty } from "../../../helper/config";
 import { getUser } from "../../../helper/userTools";
 import { AccountTotal } from "./AccountTotal";
-import { CostomerDetails } from "./CostomerDetails";
+import { CostomerDetails } from "../../features/userDetails/CostomerDetails";
 import { ItemsArea } from "./ItemsArea";
 import { PaymentArea } from "./PaymentArea";
-import { ShippingDetails } from "./ShippingDetails";
-import { ShippingDetailsEdit } from "./ShippingDetailsEdit";
+import { ShippingDetails } from "../../features/shippingDetails/ShippingDetails";
+import { ShippingDetailsEdit } from "../../features/shippingDetails/ShippingDetailsEdit";
+import { UsersApi } from "../../../core/http/users";
 
 export function CheckoutPage(props) {
   const [user, setUser] = useState(null);
@@ -21,11 +22,8 @@ export function CheckoutPage(props) {
 
   useEffect(async () => {
     try {
-      const res = await axios(`${getUrlDataBase()}/users/user`, {
-        withCredentials: true,
-        credentials: "include",
-      });
-
+      const res = await UsersApi.getUser();
+      setShippingDetails(res.data.shippingDetails);
       await dispatch(updateUser(res.data));
     } catch {
       dispatch(isLogin(false));

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import { ErrorMessage } from "./ErrorMessage";
+import { ErrorMessage } from "../../Pages/CheckoutPage/ErrorMessage";
 
 export function CostomerDetails() {
   const [firstName, setFirstName] = useState(null);
@@ -34,7 +34,6 @@ export function CostomerDetails() {
         note: note,
       })
       .catch((err) => {
-        console.log(err.response.data);
         setError(err.response.data);
         setLoading(true);
       });

@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import { pageNumberGlobal } from "../../../actions";
 import {
   getQueryValue,
@@ -12,13 +13,14 @@ import {
 } from "../../../helper/databaseKeyName";
 
 function PagesButton(props) {
+  const history = useHistory();
   const totlaPages = Math.round(props.amountOfItems / 9);
   const currentPage = getQueryValue(props.props, "_page") || 1;
-  PagesButton = [];
-  fillPagesButton(PagesButton, currentPage - 1 || 1, Number(currentPage) + 1);
+  const pagesButton = [];
+  fillPagesButton(pagesButton, currentPage - 1 || 1, Number(currentPage) + 1);
   return (
     <div className="text-center">
-      {PagesButton.map((index) => (
+      {pagesButton.map((index) => (
         <button
           key={index}
           className="w-16 h-16 hover:bg-blue-300 hover:text-white border-black border-2 text-center rounded-medium"
@@ -35,9 +37,9 @@ function PagesButton(props) {
   );
 }
 
-function fillPagesButton(PagesButton, index, limit) {
+function fillPagesButton(pagesButton, index, limit) {
   for (index; index <= limit; index++) {
-    PagesButton.push(index);
+    pagesButton.push(index);
   }
 }
 

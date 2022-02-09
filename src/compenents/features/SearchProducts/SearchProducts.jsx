@@ -1,12 +1,12 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router";
-import CategoryArea from "../../Pages/CatalogPage/CategoryArea";
+import CategoryArea from "../ProductFeature/CategoryArea";
 
 export function SearchProducts() {
   const history = useHistory();
   return (
-    <form className="flex mt-2" onSubmit={() => history.push("search")}>
+    <form className="flex mt-2" onSubmit={() => history.push("/search")}>
       <input
         className=" h-8 w-40 ml-2 pl-2 rounded-l-md border-box"
         name="q"

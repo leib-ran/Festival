@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { ProductsApi } from "../../../core/http/productsApi";
-import CategoryArea from "../CatalogPage/CategoryArea";
+import CategoryArea from "../../features/ProductFeature/CategoryArea";
 import { ParseUtil } from "../../../core/util/parseUtil/parseUtil";
 
 export function SearchPage() {
   const [rawData, setRawData] = useState([]);
   useEffect(async () => {
-    const qeryObj = ParseUtil.urlHandle();
+    const qeryObj = ParseUtil.urlHandle([{ "": "" }]);
+    console.log(qeryObj);
     const result = await ProductsApi.getProducts(qeryObj);
     const rawData = result.data;
     setRawData(rawData);
