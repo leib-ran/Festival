@@ -18,6 +18,8 @@ import { history } from "../helper/adminConsts";
 import { ItemReducer } from "./updateItemReducer";
 import { editShippingReducer } from "./editShippingreducer";
 import { isLoginReducer } from "./islogin";
+import { globalZoomReducer } from "./globalZoomReducer";
+import { globalCenterReducer } from "./globalCenterReducer";
 
 const allReducers = combineReducers({
   admin: adminReducer,
@@ -38,5 +40,7 @@ const allReducers = combineReducers({
   itemCheckOut: ItemReducer,
   isEditShipping: editShippingReducer,
   isLogin: isLoginReducer,
+  globalZoom: globalZoomReducer,
+  globalCenter: globalCenterReducer,
 });
 export default allReducers;

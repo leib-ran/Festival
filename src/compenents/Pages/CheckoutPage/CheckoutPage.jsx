@@ -8,7 +8,7 @@ import { getUser } from "../../../helper/userTools";
 import { AccountTotal } from "./AccountTotal";
 import { CostomerDetails } from "../../features/userDetails/CostomerDetails";
 import { ItemsArea } from "./ItemsArea";
-import { PaymentArea } from "./PaymentArea";
+import { PaymentArea } from "../../features/paypalArea/PaymentArea";
 import { ShippingDetails } from "../../features/shippingDetails/ShippingDetails";
 import { ShippingDetailsEdit } from "../../features/shippingDetails/ShippingDetailsEdit";
 import { UsersApi } from "../../../core/http/users";

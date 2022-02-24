@@ -4,6 +4,8 @@ import {
   FESTIVALINK,
   FESTIVALSHOW,
   FESTIVAWELCOMING,
+  GLOBALCENTER,
+  GLOBALZOOM,
   ISLOGIN,
   ISSIGNIN,
   ITEMCHECKOUT,
@@ -172,6 +174,19 @@ export const isEditShippingDetails = (bool) => {
 export const isLogin = (payload) => {
   return {
     type: ISLOGIN,
+    payload: payload,
+  };
+};
+export const globalZoom = (payload) => {
+  return {
+    type: GLOBALZOOM,
+    payload: payload,
+  };
+};
+
+export const globalcenter = (payload) => {
+  return {
+    type: GLOBALCENTER,
     payload: payload,
   };
 };

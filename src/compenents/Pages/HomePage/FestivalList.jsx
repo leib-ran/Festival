@@ -17,14 +17,14 @@ export function FestivalsList() {
 
   return (
     <div>
-      <div className="overflow-hidden h-min-96 w-136">
+      <div className="overflow-hidden  h-min-96 w-full  xl:w-136">
         <div
           className=" transition relative flex duration-1000 ease-in-out h-full  w-full"
           style={{
             transform: `translateX(${index * 100}%)`,
           }}
         >
-          <div className=" min-w-full h-full fixed bg-gray-700  inset-x-0 left-0  opacity-60"></div>
+          <div className=" min-w-full h-full fixed bg-gray-900 opacity-40 md:bg-gray-700  inset-x-0 left-0  md:opacity-60"></div>
           <div className="min-w-full h-full  relative text-black ">
             <DionysusRules />
           </div>

@@ -1,6 +1,7 @@
 const { getRandomTable } = require("./helpers");
 
 const faker = require("faker");
+const { data } = require("autoprefixer");
 module.exports = function productsGenrator(numberIter, subcategory) {
   const products = [];
   for (let index = 0; index < numberIter; index++) {

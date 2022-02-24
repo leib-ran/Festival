@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import ProductPage from "../../Pages/ProductPage/ProductPage";
-import Stars from "../../Stars.jsx/Stars";
 import CategorySymbol from "../../CategorySymbol/CategorySymbol";
 import icons from "../../../helper/iconsdictionary";
 import { extendHeight, shortendHideWidth } from "../../../actions";
 import { useDispatch } from "react-redux";
+import Stars from "../Stars.jsx/Stars";
 
 export default function Card(props) {
   const dispatch = useDispatch();

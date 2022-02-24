@@ -58,32 +58,32 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className=" ">
-        <Navbar />
-        <div className="\	min-h-screen flex flex-col">
-          <Switch>
-            <Route exact path={store.getPath()} component={CategoryPage} />
-            <Route exact path={homePage.getPath()} component={HomePage} />
-            <Route exact path={category.getPath()} component={CatlogPage} />
-            <Route exact path={contact.getPath()} component={Contact} />
-            <Route exact path={about.getPath()} component={About} />
-            <Route exact path={blog.getPath()} component={Blog} />
-            <Route exact path={cart.getPath()} component={CartPage} />
-            <Route path={admin.getPath()} component={AdminPage} />
-            <Route path={productPage.getPath()} component={ProductPage} />
-            <Route path={blog.getPath()} component={BlogContent} />
-            <Route path={profile.getPath()} component={ProfilePage} />
-            <Route path={checkout.getPath()} component={CheckoutPage} />
-            <Route path={search.getPath()} component={SearchPage} />
+    <div className=" h-full border-box md:min-h-screen flex flex-col">
+      <Navbar />
+      <div className="md:min-h-screen h-full lg:mt-0 lg:pt-0 pt-16 box-border items-center flex flex-col">
+        <Switch>
+          <Route exact path={store.getPath()} component={CategoryPage} />
+          <Route exact path={homePage.getPath()} component={HomePage} />
+          <Route exact path={category.getPath()} component={CatlogPage} />
+          <Route exact path={contact.getPath()} component={Contact} />
+          <Route exact path={about.getPath()} component={About} />
+          <Route exact path={blog.getPath()} component={Blog} />
+          <Route exact path={cart.getPath()} component={CartPage} />
+          <Route path={admin.getPath()} component={AdminPage} />
+          <Route path={productPage.getPath()} component={ProductPage} />
+          <Route path={blog.getPath()} component={BlogContent} />
+          <Route path={profile.getPath()} component={ProfilePage} />
+          <Route path={checkout.getPath()} component={CheckoutPage} />
+          <Route path={search.getPath()} component={SearchPage} />
 
-            <AuthRouteGeneral
-              path={login.getPath()}
-              pathRe={profile.getPath()}
-              component={AccountPage}
-            />
-          </Switch>
-        </div>
+          <AuthRouteGeneral
+            path={login.getPath()}
+            pathRe={profile.getPath()}
+            component={AccountPage}
+          />
+        </Switch>
+      </div>
+      <div className="hidden md:block">
         <BottomPage />
       </div>
     </div>

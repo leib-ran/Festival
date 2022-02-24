@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import { addWord, removeSearch } from "../../../helper/config";
 import Carousel from "../../Carousel/Carousel";
-import Stars from "../../Stars.jsx/Stars";
+import Stars from "../../features/Stars.jsx/Stars";
 
 export function ProductImages(props) {
   const [mainImage, setMainImage] = useState(props.data.imageUrl);

@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { PayPalUtil } from "../../../core/util/paypalUtil/paypalUtil";
 
-export function PaymentArea() {
+export function PaymentArea(props) {
+  const items = useSelector((state) => state.itemHandler);
+  const item = useSelector((state) => state.itemCheckOut);
+  const paypalItems = PayPalUtil.convertItemToPaypalObj(items);
   const history = useHistory();
   const paypal = useRef();
   useEffect(() => {
@@ -10,15 +15,7 @@ export function PaymentArea() {
         createOrder: (data, actions, err) => {
           return actions.order.create({
             intent: "CAPTURE",
-            purchase_units: [
-              {
-                description: "Cool looking table",
-                amount: {
-                  currency_code: "USD",
-                  value: 650.0,
-                },
-              },
-            ],
+            purchase_units: paypalItems,
           });
         },
         onApprove: async (data, actions) => {

@@ -6,18 +6,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import React, { useCallback } from "react";
-import { useSelector } from "react-redux";
-import LocationButton from "./LocationButton";
+import { useDispatch, useSelector } from "react-redux";
+import { globalcenter, globalZoom } from "../../../../actions";
+import LocationButton from "../../../Pages/HomePage/LocationButton";
 
 export default function LocationArea(props) {
   const map = useSelector((state) => state.mapUpdate);
+  const dispatch = useDispatch();
 
-  const onClick = useCallback(
-    (center, zoom) => {
-      map.setView(center, zoom);
-    },
-    [map]
-  );
+  const onClick = useCallback((center, zoom) => {
+    dispatch(globalZoom(zoom));
+    dispatch(globalcenter(center));
+  }, []);
 
   const ContinentsIcons = [
     {
@@ -46,8 +46,9 @@ export default function LocationArea(props) {
       {map && (
         <div className="cursor-pointer flex justify-center flex-wrap">
           {ContinentsIcons.map((obj) => {
+            const random = Math.round(Math.random() * 100000);
             return (
-              <div key={obj.name} onClick={() => onClick(obj.center, obj.zoom)}>
+              <div key={random} onClick={() => onClick(obj.center, obj.zoom)}>
                 <LocationButton
                   key={obj.name}
                   icon={obj.icon}

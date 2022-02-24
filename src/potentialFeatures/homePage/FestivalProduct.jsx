@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import icons from "../../../helper/iconsdictionary";
+import icons from "../../helper/iconsdictionary";
 
 export function FestivalProduct() {
   const [data, setData] = useState([]);

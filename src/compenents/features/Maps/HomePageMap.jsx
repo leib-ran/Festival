@@ -1,5 +1,6 @@
 import React from "react";
 import Map from "../../Map/Map";
+import LocationArea from "./components/LocationArea";
 
 export default function HomePageMap() {
   let mapContainer = {
@@ -15,7 +16,7 @@ export default function HomePageMap() {
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   };
   let popup = "Yigal Alon St 90, Tel Aviv-Yafo";
-  let className = "w-full h-full";
+  let className = "w-full h-full reltive z-20";
   return (
     <div>
       <Map

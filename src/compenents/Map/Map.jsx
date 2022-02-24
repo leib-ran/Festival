@@ -17,16 +17,18 @@ import axios from "axios";
 
 export default function Map(props) {
   const [FestivalObj, setFestivalObj] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(async () => {
     const result = await axios("http://localhost:8000/festivals");
     setFestivalObj(result.data);
   }, []);
-
   let { center, zoom, scrollWheelZoom } = { ...props.mapContainer };
   let { attribution, url } = { ...props.TileLayer };
+
+  const zoomState = useSelector((state) => state.globalZoom);
+  const centerState = useSelector((state) => state.globalCenter);
   const [map, setMap] = useState(null);
-  const dispatch = useDispatch();
   const popupElRef = useRef(null);
   const hideElement = (festObj) => {
     dispatch(updateFestival(festObj));
@@ -49,7 +51,7 @@ export default function Map(props) {
             return (
               <Marker key={element.title} position={element.position}>
                 <Popup
-                  className="w-96  transform rotate-45 translate-x-16"
+                  className="lg:w-96  lg:transform lg:rotate-45 lg:translate-x-16"
                   ref={popupElRef}
                 >
                   <div onClick={() => hideElement(element)}>
@@ -69,9 +71,7 @@ export default function Map(props) {
               </Marker>
             );
           })}
-        <div className="p-4">
-          <ZoomControl position="bottomleft" />
-        </div>
+        <div className="p-4"></div>
       </MapContainer>
     ),
     [FestivalObj]
@@ -79,8 +79,10 @@ export default function Map(props) {
   {
   }
   useEffect(() => {
-    dispatch(updatemap(map));
-  }, [map]);
+    if (map) {
+      map.setView(centerState, zoomState);
+    }
+  }, [zoomState, centerState]);
 
   return <div>{displayMap}</div>;
 }
