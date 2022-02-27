@@ -49,26 +49,36 @@ export default function Map(props) {
         {FestivalObj &&
           FestivalObj.map((element) => {
             return (
-              <Marker key={element.title} position={element.position}>
-                <Popup
-                  className="lg:w-96  lg:transform lg:rotate-45 lg:translate-x-16"
-                  ref={popupElRef}
-                >
-                  <div onClick={() => hideElement(element)}>
-                    <div className="text-center font-sans  font-bold">
-                      {element.title}
+              <div
+                onClick={() => {
+                  map.setView(element.position, 7);
+                }}
+              >
+                <Marker key={element.title} position={element.position}>
+                  <Popup
+                    className="lg:w-96  lg:transform lg:rotate-45 lg:translate-x-16"
+                    ref={popupElRef}
+                  >
+                    <div onClick={() => hideElement(element)}>
+                      <div className="text-center font-sans  font-bold">
+                        {element.title}
+                      </div>
+                      <img
+                        className="filter invert brightness-75 -hue-rotate-180 cursor-pointer"
+                        src={element.gallery[0]}
+                        alt=""
+                      />
+                      <div className="text-left mt-2 leading-5	cursor-pointer">
+                        {`${element.description
+                          .split(" ")
+                          .slice(0, 60)
+                          .join(" ")} ...
+                        `}
+                      </div>
                     </div>
-                    <img
-                      className="filter invert brightness-75 -hue-rotate-180 cursor-pointer"
-                      src={element.gallery[0]}
-                      alt=""
-                    />
-                    <div className="text-left mt-2 leading-5	cursor-pointer">
-                      {element.description}
-                    </div>
-                  </div>
-                </Popup>
-              </Marker>
+                  </Popup>
+                </Marker>
+              </div>
             );
           })}
         <div className="p-4"></div>

@@ -10,11 +10,11 @@ export default class Contact extends React.Component {
   render() {
     return (
       <div>
-        <div className="flex justify-center">
+        <div className="">
           <ContactForm />
-          <div className="w-96 h-96 filter overflow-hidden invert">
+          {/* <div className="w-96 h-96 filter overflow-hidden invert">
             <ContactMap></ContactMap>
-          </div>
+          </div> */}
         </div>
         <ConctactDetail />
       </div>

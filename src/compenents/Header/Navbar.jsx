@@ -47,7 +47,7 @@ function Navbar() {
           {arrPages.map((link, index) => {
             return (
               <Link
-                className={`lg:w-16 w-screen  pt-4 hover:bg-black hover:text-white shadow-lg	lg:shadow-none lg:hover:bg-blue-900 ${show} lg:block lg:text-white text-black text-center cursor-pointer	 align-bottom `}
+                className={`lg:w-16 w-screen  pt-4 hover:bg-black hover:text-white shadow-lg	lg:shadow-none lg:hover:bg-blue-900 ${show} lg:block lg:text-white text-black text-center cursor-pointer align-bottom `}
                 key={`${link.getName}${index}`}
                 to={link.getPath()}
               >

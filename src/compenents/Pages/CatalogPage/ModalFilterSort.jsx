@@ -33,7 +33,7 @@ export default function ModalFilterSort(props) {
 
   return (
     <div
-      className={`transition bg-white z-10 top-0 right-0 shadow-2xl	fixed duration-2000 delay-1000 ease-in-out w-${width} overflow-hidden`}
+      className={`transition bg-white z-10 top-0 right-0 shadow-2xl	z-40 fixed duration-2000 delay-1000 ease-in-out w-${width} overflow-hidden`}
     >
       <div className="">
         <div

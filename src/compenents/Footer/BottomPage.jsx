@@ -30,7 +30,7 @@ export default function BottomPage() {
             icon={faTwitter}
           ></FontAwesomeIcon>
         </a>
-        <p>All rights reserved to Holy mally &copy;</p>
+        <p>All rights reserved to Dionysus Project &copy;</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { SETQUANTITY } from "../actions/types";
+import { CartStorage } from "../core/storage/cart";
 
-const initialState = localStorage.getItem("quan") || 0;
+const initialState = CartStorage.getQuantity() || 0;
 
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {

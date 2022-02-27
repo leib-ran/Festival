@@ -27,6 +27,7 @@ import {
   profile,
   checkout,
   search,
+  approvedContactPage,
 } from "./helper/PathName";
 
 import { CategoryPage } from "./compenents/Pages/CategoriesPage/CategoryPage";
@@ -39,6 +40,7 @@ import { isObjectEmpty } from "ra-core/esm/form/submitErrorsMutators";
 import { SearchPage } from "./compenents/Pages/SearchPage/Search";
 import { ProfilePage } from "./compenents/Pages/Profile/ProfilePage";
 import { AccountPage } from "./compenents/Pages/SignIn/AccountPage";
+import { ApprovedContactPage } from "./compenents/Pages/ApprovedContactPage/ApprovedContactPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,7 +62,7 @@ function App() {
   return (
     <div className=" h-full border-box md:min-h-screen flex flex-col">
       <Navbar />
-      <div className="md:min-h-screen h-full lg:mt-0 lg:pt-0 pt-16 box-border items-center flex flex-col">
+      <div className="md:min-h-screen h-full lg:mt-0 lg:pt-0 pt-16 box-border items-center ">
         <Switch>
           <Route exact path={store.getPath()} component={CategoryPage} />
           <Route exact path={homePage.getPath()} component={HomePage} />
@@ -75,6 +77,10 @@ function App() {
           <Route path={profile.getPath()} component={ProfilePage} />
           <Route path={checkout.getPath()} component={CheckoutPage} />
           <Route path={search.getPath()} component={SearchPage} />
+          <Route
+            path={approvedContactPage.getPath()}
+            component={ApprovedContactPage}
+          />
 
           <AuthRouteGeneral
             path={login.getPath()}
