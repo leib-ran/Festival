@@ -8,6 +8,9 @@ import {
   getQuanStorageParsed,
   getUrlDataBase,
 } from "../../../helper/config";
+import { FestivalList } from "../../features/FestivalList/FestivalLIst";
+import { Orders } from "../../features/Orders/Orders";
+import buttonsBarStorage from "../../features/UserProfileBar/buttons";
 import Avatar from "./Avatar";
 import { UserDetailsLeft } from "./Details";
 
@@ -15,6 +18,9 @@ export function ProfilePage(props) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [user, setUser] = useState(null);
+  const [displaysNumber, setDisplays] = useState(0);
+
+  const displays = [<Orders />, <FestivalList />];
 
   useEffect(async () => {
     try {
@@ -57,9 +63,24 @@ export function ProfilePage(props) {
       <div className="">
         {user?.src ? <img src="" alt="" /> : <Avatar user={user} />}
       </div>
-      <div className="flex"></div>
-      <UserDetailsLeft />
-      <div className="flex">{/* <FormUserDetail /> */}</div>
+      <div className="flex">
+        <UserDetailsLeft setDisplay={setDisplays} />
+        {displays.map((element, index) => {
+          {
+            return (
+              <div>
+                {index === displaysNumber && (
+                  <div className="w-196  m-auto ">{element}</div>
+                )}
+              </div>
+            );
+          }
+        })}
+      </div>
+      <div className="flex">
+        {/*
+       <FormUserDetail /> */}
+      </div>
     </div>
   );
 }

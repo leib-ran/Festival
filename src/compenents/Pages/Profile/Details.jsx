@@ -4,7 +4,7 @@ import { faHome, faScroll } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { ButtonProfileBar } from "../../features/UserProfileBar/ButtonProfileBar";
 import buttonsBarStorage from "../../features/UserProfileBar/buttons";
-export function UserDetailsLeft() {
+export function UserDetailsLeft(props) {
   const user = useSelector((state) => state.userGlobalState);
   return (
     <div>
@@ -14,7 +14,11 @@ export function UserDetailsLeft() {
             key={index}
             className="h-8 flex content-center hover:text-yellow-300 mb-4 flex-col justify-center text-center cursor-pointer"
           >
-            <ButtonProfileBar details={elemnet} />
+            <ButtonProfileBar
+              details={elemnet}
+              setDisplay={props.setDisplay}
+              number={index}
+            />
           </div>
         ))}
       </div>
